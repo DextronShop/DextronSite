@@ -82,7 +82,7 @@
       padding: 12px 25px;
       border: none;
       cursor: pointer;
-      background-color: #262626; 
+      background-color: #1f1f1f; /* Более темный цвет кнопок */
       color: #eee;
       font-weight: 700;
       transition: background-color 0.3s ease, color 0.3s ease;
@@ -90,12 +90,12 @@
     }
 
     .tab:hover {
-      background-color: #333;
+      background-color: #292929; /* Более темный цвет при наведении */
       color: white;
     }
 
     .tab.active {
-      background-color: #ff3300;
+      background-color: #c0392b; /* Темно-красный цвет активной вкладки */
       color: white;
     }
 
@@ -144,7 +144,7 @@
     }
 
     .product-page .content h2 img {
-      width: 36px; 
+      width: 36px;
       height: 36px;
       margin-right: 10px;
     }
@@ -152,7 +152,7 @@
     .product .price {
       font-size: 1.3em;
       font-weight: 700;
-      color: #ffcc00; 
+      color: #ffcc00;
     }
 
     .product .description {
@@ -274,6 +274,32 @@
     a {
       text-decoration: none; 
     }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80px; 
+      height: 100%;
+      background-color: rgba(24, 24, 24, 0.9);
+      padding: 20px;
+    }
+
+    .sidebar img {
+      display: block;
+      margin: 0 auto;
+      width: 70px; /* Увеличенный размер логотипа */
+      height: auto;
+    }
+
+    .footer a {
+      color: #888; 
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -282,34 +308,63 @@
     Ваш браузер не поддерживает воспроизведение видео. 
   </video>
 
+  <div class="sidebar">
+    <img src="videos/Icon.png" alt="Логотип магазина">
+  </div>
+
   <div class="container">
     <h1>Dextron Shop</h1> 
 
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
 
-    <div class="tabs">
-      <div class="tab active" data-target="telegram">Telegram</div> 
+    <div class="tabs" id="mainTabs">
+      <div class="tab active" data-target="telegram">Telegram</div>
+      <div class="tab" data-target="brawlstars">Brawl Stars</div>
     </div>
 
-    <div class="tab-content active" id="telegram">
-      <div class="tabs">
-        <div class="tab active" data-target="telegram-no-login">Без захода</div>
-        <div class="tab" data-target="telegram-with-login">С заходом</div> 
-      </div>
-      <div class="tab-content active" id="telegram-no-login">
-        <div class="product" data-target="product-page-telegram-premium">
-          <h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
-            Telegram Premium 1 месяц
-          </h2>
-          <div class="price">260 рублей</div> 
-          <div class="description">
-            Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в @Premium_bot 
+    <div class="tab-content-container">
+      <div class="tab-content active" id="telegram">
+        <div class="tabs" id="telegramTabs">
+          <div class="tab active" data-target="telegram-no-login">Без захода</div>
+          <div class="tab" data-target="telegram-with-login">С заходом</div> 
+        </div>
+        <div class="tab-content active" id="telegram-no-login">
+          <div class="product" data-target="product-page-telegram-premium">
+            <h2>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
+              Telegram Premium 1 месяц
+            </h2>
+            <div class="price">250 рублей</div> 
+            <div class="description">
+              Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в @PremiumBot 
+            </div>
           </div>
         </div>
+        <div class="tab-content" id="telegram-with-login">
+          <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Тут пока что пусто!</div>
+        </div>
       </div>
-      <div class="tab-content" id="telegram-with-login">
-        <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Тут пока что пусто!</div>
+
+      <div class="tab-content" id="brawlstars">
+        <div class="tabs" id="brawlStarsTabs">
+          <div class="tab active" data-target="brawlstars-no-login">Без входа</div>
+          <div class="tab" data-target="brawlstars-with-login">С входом</div>
+        </div>
+        <div class="tab-content active" id="brawlstars-no-login">
+          <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Мы ещё не поддерживаем эту функцию...</div>
+        </div>
+        <div class="tab-content" id="brawlstars-with-login">
+          <div class="product" data-target="product-page-brawlstars-gems">
+            <h2>
+              <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
+              30 гемов
+            </h2>
+            <div class="price">160 гривен</div>
+            <div class="description">
+              30 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -322,7 +377,7 @@
         Telegram Premium 1 месяц
       </h2>
       <p>Описание товара Telegram Premium...</p>
-      <a href="https://ae04.alicdn.com/kf/Sf507aaf2f86e452bb68e585a958eb7d2v.jpg" class="buy-button">
+      <a href="https://t.me/itz4wx" class="buy-button">
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -332,12 +387,31 @@
     </div>
   </div>
 
+  <div class="product-page" id="product-page-brawlstars-gems">
+    <div class="content">
+      <span class="close-button" onclick="closeProductPage()">×</span>
+      <h2>
+        <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
+        30 гемов
+      </h2>
+      <p>Описание товара 30 гемов для Brawl Stars...</p>
+      <a href="https://t.me/Demo_Sand" class="buy-button"> 
+        <video autoplay muted loop> 
+          <source src="videos/video.mp4" type="video/mp4"> 
+          Ваш браузер не поддерживает воспроизведение видео. 
+        </video>
+        <span>Купить</span>
+      </a>
+    </div>
+  </div>
+
   <div class="footer">
-    <p>Made by Demosand</p>
+    <p><a href="https://t.me/dextronshop">Наш Телеграм канал</a> - Made by Demosand</p> 
   </div>
 
   <script>
-    const tabs = document.querySelectorAll('.tab');
+    const mainTabs = document.querySelectorAll('#mainTabs .tab');
+    const subTabs = document.querySelectorAll('.tabs:not(#mainTabs) .tab');
     const tabContents = document.querySelectorAll('.tab-content');
     const products = document.querySelectorAll('.product');
     const productPages = document.querySelectorAll('.product-page');
@@ -345,7 +419,7 @@
 
     searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
-      
+
       products.forEach(product => {
         const productName = product.querySelector('h2').textContent.toLowerCase();
         if (productName.includes(searchTerm)) {
@@ -356,7 +430,28 @@
       });
     });
 
-    tabs.forEach(tab => {
+    // Обработчик для главных вкладок (Telegram/Brawl Stars)
+    mainTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Скрываем все tab-content
+        tabContents.forEach(content => content.classList.remove('active'));
+        // Снимаем активный класс со всех главных вкладок
+        mainTabs.forEach(t => t.classList.remove('active'));
+        // Активируем выбранную вкладку и ее контент
+        tab.classList.add('active');
+        const targetTabContent = document.getElementById(tab.dataset.target);
+        targetTabContent.classList.add('active');
+
+        // Активируем первую вложенную вкладку
+        const firstSubTab = targetTabContent.querySelector('.tabs .tab');
+        if (firstSubTab) {
+          firstSubTab.click();
+        }
+      });
+    });
+
+    // Обработчик для вложенных вкладок (Без захода/С заходом)
+    subTabs.forEach(tab => {
       tab.addEventListener('click', (event) => {
         event.stopPropagation();
         if (tab.classList.contains('disabled')) return;
