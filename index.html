@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dextron Shop</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body {
+      color: #eee;
+      font-family: 'Roboto', sans-serif;
+      background-color: #181818;
+      overflow-x: hidden;
+    }
+
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.15;
+      filter: blur(5px);
+    }
+
+    .container {
+      width: 80%;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: rgba(24, 24, 24, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      position: relative;
+      z-index: 1; 
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 3.5em;
+      font-weight: 700;
+      background: linear-gradient(to right, #ff3300, #000000);
+      -webkit-background-clip: text;
+      color: transparent; 
+      animation: animateGradient 3s linear infinite;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); 
+    }
+
+    @keyframes animateGradient {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 30px;
+      border: none;
+      background-color: #222;
+      color: white;
+      border-radius: 8px;
+      font-size: 1.1em; 
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-bar::placeholder {
+      color: #888;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .tab {
+      padding: 12px 25px;
+      border: none;
+      cursor: pointer;
+      background-color: #262626; 
+      color: #eee;
+      font-weight: 700;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      flex: 1;
+    }
+
+    .tab:hover {
+      background-color: #333;
+      color: white;
+    }
+
+    .tab.active {
+      background-color: #ff3300;
+      color: white;
+    }
+
+    .tab.disabled { 
+      color: #666;
+      cursor: default; 
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      opacity: 0; 
+      transition: opacity 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+      opacity: 1; 
+    }
+
+    .product {
+      margin-bottom: 25px;
+      cursor: pointer;
+      padding: 20px;
+      background-color: rgba(34, 34, 34, 0.9);
+      border-radius: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .product:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .product h2 {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .product h2 img {
+      width: 20px; 
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .product-page .content h2 img {
+      width: 36px; 
+      height: 36px;
+      margin-right: 10px;
+    }
+
+    .product .price {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: #ffcc00; 
+    }
+
+    .product .description {
+      font-size: 0.9em;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* Модальное окно для товара */
+    .product-page {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6); 
+    }
+
+    .product-page .content {
+      background-color: #181818;
+      margin: 10% auto;
+      padding: 30px;
+      border: 1px solid #333;
+      width: 60%; 
+      position: relative;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.3s ease, transform 0.3s ease; 
+      border-radius: 10px;
+    }
+
+    .product-page.active .content {
+      opacity: 1; 
+      transform: scale(1);
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: color 0.2s ease; 
+    }
+
+    .close-button:hover {
+      color: #ff3300; 
+    }
+
+    .buy-button { 
+      width: 180px;
+      height: 50px;
+      border: none;
+      display: block;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+      margin: 30px auto;
+      background-color: #ff3300;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .buy-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .buy-button video {
+      /* display: none; */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute; 
+      top: 0;
+      left: 0;
+      border-radius: 8px;
+      transition: transform 0.2s ease; 
+    }
+
+    .buy-button:hover video {
+      transform: scale(1.05); 
+    }
+
+    .buy-button span { 
+      position: relative; 
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background-color: transparent;
+      padding: 10px 0; 
+    }
+
+    .footer p {
+      color: #666;
+      margin: 0;
+      font-size: 0.9em;
+    }
+
+    /* Убираем подчеркивание у ссылки */
+    a {
+      text-decoration: none; 
+    }
+  </style>
+</head>
+<body>
+  <video class="background-video" autoplay muted loop>
+    <source src="videos/background.mp4" type="video/mp4">
+    Ваш браузер не поддерживает воспроизведение видео. 
+  </video>
+
+  <div class="container">
+    <h1>Dextron Shop</h1> 
+
+    <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
+
+    <div class="tabs">
+      <div class="tab active" data-target="telegram">Telegram</div> 
+    </div>
+
+    <div class="tab-content active" id="telegram">
+      <div class="tabs">
+        <div class="tab active" data-target="telegram-no-login">Без захода</div>
+        <div class="tab" data-target="telegram-with-login">С заходом</div> 
+      </div>
+      <div class="tab-content active" id="telegram-no-login">
+        <div class="product" data-target="product-page-telegram-premium">
+          <h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
+            Telegram Premium 1 месяц
+          </h2>
+          <div class="price">260 рублей</div> 
+          <div class="description">
+            Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в @Premium_bot 
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="telegram-with-login">
+        <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Тут пока что пусто!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-page" id="product-page-telegram-premium">
+    <div class="content">
+      <span class="close-button" onclick="closeProductPage()">×</span> 
+      <h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
+        Telegram Premium 1 месяц
+      </h2>
+      <p>Описание товара Telegram Premium...</p>
+      <a href="https://ae04.alicdn.com/kf/Sf507aaf2f86e452bb68e585a958eb7d2v.jpg" class="buy-button">
+        <video autoplay muted loop> 
+          <source src="videos/video.mp4" type="video/mp4"> 
+          Ваш браузер не поддерживает воспроизведение видео. 
+        </video>
+        <span>Купить</span> 
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Made by Demosand</p>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const products = document.querySelectorAll('.product');
+    const productPages = document.querySelectorAll('.product-page');
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      
+      products.forEach(product => {
+        const productName = product.querySelector('h2').textContent.toLowerCase();
+        if (productName.includes(searchTerm)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (tab.classList.contains('disabled')) return;
+
+        const parentTabs = tab.parentElement.querySelectorAll('.tab');
+        const parentTabContents = tab.parentElement.closest('.tab-content').querySelectorAll('.tab-content');
+
+        parentTabs.forEach(t => t.classList.remove('active'));
+        parentTabContents.forEach(tc => tc.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.target).classList.add('active');
+      });
+    });
+
+    products.forEach(product => {
+      product.addEventListener('click', () => {
+        const productId = product.dataset.target;
+        const productPage = document.getElementById(productId);
+        productPage.style.display = 'block';
+        setTimeout(() => {
+          productPage.classList.add('active');
+        }, 10);
+      });
+    });
+
+    function closeProductPage() {
+      productPages.forEach(page => {
+        page.classList.remove('active');
+        setTimeout(() => { 
+          page.style.display = 'none';
+        }, 300);
+      });
+    }
+  </script>
+</body>
+</html>
