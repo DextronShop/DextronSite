@@ -1,6 +1,6 @@
 {
-  "telegramPremium": false,
-  "brawlStarsGems": false,
-  "brawlPassPlus": false,
-  "brawlPass": false
+  "telegramPremium": true,
+  "brawlStarsGems": true,
+  "brawlPassPlus": true,
+  "brawlPass": true
 }
