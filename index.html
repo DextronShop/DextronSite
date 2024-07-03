@@ -205,15 +205,15 @@
       font-weight: 700;
       margin-bottom: 20px;
       display: flex;
-      align-items: flex-start;
-      flex-direction: column; 
+      align-items: flex-start; /* Выравнивание по левому краю */
+      flex-direction: column; /* Название под картинкой */
     }
 
     .product-page .content h2 img {
       width: auto;
       max-width: 100%; 
       height: auto;
-      margin-bottom: 10px;
+      margin-bottom: 10px; /* Добавляем отступ снизу */
     }
 
     .product-page .content p {
@@ -387,6 +387,16 @@
                 30 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
               </div>
             </div>
+            <div class="product" data-target="product-page-brawlstars-gems-80" id="brawlStarsGems80Product">
+              <h2>
+                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">
+                80 гемов
+              </h2>
+              <div class="price">429 рублей</div>
+              <div class="description">
+                80 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
+              </div>
+            </div>
             <div class="product" data-target="product-page-brawlstars-pass" id="brawlPassProduct">
               <h2>
                 <img src="videos/BrawlPass.png" alt="Brawl Pass">
@@ -467,6 +477,24 @@
     </div>
   </div>
 
+  <div class="product-page" id="product-page-brawlstars-gems-80">
+    <div class="content">
+      <span class="close-button" onclick="closeProductPage()">×</span>
+      <h2>
+        <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">
+        80 гемов
+      </h2>
+      <p>🛍️80 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
+      <a href="https://t.me/m/0oHI2ZU1NTUy" class="buy-button"> 
+        <video autoplay muted loop> 
+          <source src="videos/video.mp4" type="video/mp4"> 
+          Ваш браузер не поддерживает воспроизведение видео. 
+        </video>
+        <span>Купить</span>
+      </a>
+    </div>
+  </div>
+
   <div class="product-page" id="product-page-brawlstars-pass">
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
@@ -514,28 +542,6 @@
     const products = document.querySelectorAll('.product');
     const productPages = document.querySelectorAll('.product-page');
     const searchInput = document.getElementById('searchInput');
-
-    async function checkProductAvailability() {
-      try {
-        const response = await fetch('products.json'); 
-        const productsData = await response.json();
-
-        for (const productId in productsData) {
-          const productElement = document.getElementById(productId + 'Product');
-          if (productElement) {
-            if (productsData[productId]) {
-              productElement.classList.remove('out-of-stock');
-            } else {
-              productElement.classList.add('out-of-stock');
-            }
-          }
-        }
-      } catch (error) {
-        console.error("Ошибка при загрузке данных о товарах:", error);
-      }
-    }
-
-    checkProductAvailability();
 
     searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
@@ -586,11 +592,6 @@
 
     products.forEach(product => {
       product.addEventListener('click', () => {
-
-        if (product.classList.contains('out-of-stock')) {
-          return;
-        }
-
         const productId = product.dataset.target;
         const productPage = document.getElementById(productId);
         productPage.style.display = 'block';
