@@ -8,7 +8,7 @@
         "description": "Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в @PremiumBot",
         "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822",
         "buyLink": "https://t.me/m/crduQknwMjhi",
-        "available": false
+        "available": true
       },
       {
         "id": "telegramPremiumYearProduct",
@@ -17,7 +17,7 @@
         "description": "Telegram Premium на 1 год без захода на аккаунт.",
         "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822",
         "buyLink": "https://t.me/m/n1iHJDuyMDQy",
-        "available": false
+        "available": true
       }
     ],
     "withLogin": []
