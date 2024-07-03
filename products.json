@@ -1,6 +1,66 @@
 {
-  "telegramPremium": true,
-  "brawlStarsGems": true,
-  "brawlPassPlus": true,
-  "brawlPass": true
+  "telegram": {
+    "noLogin": [
+      {
+        "id": "telegramPremiumProduct",
+        "name": "Telegram Premium 1 месяц",
+        "price": "250 рублей",
+        "description": "Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в @PremiumBot",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822",
+        "buyLink": "https://t.me/m/crduQknwMjhi",
+        "available": true
+      },
+      {
+        "id": "telegramPremiumYearProduct",
+        "name": "Telegram Premium 1 год",
+        "price": "1650 рублей",
+        "description": "Telegram Premium на 1 год без захода на аккаунт.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822",
+        "buyLink": "https://t.me/m/n1iHJDuyMDQy",
+        "available": true
+      }
+    ],
+    "withLogin": []
+  },
+  "brawlstars": {
+    "noLogin": [],
+    "withLogin": [
+      {
+        "id": "brawlStarsGemsProduct",
+        "name": "30 гемов",
+        "price": "160 рублей",
+        "description": "30 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.",
+        "image": "https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png",
+        "buyLink": "https://t.me/Demo_Sand",
+        "available": true
+      },
+      {
+        "id": "brawlStarsGems80Product",
+        "name": "80 гемов",
+        "price": "429 рублей",
+        "description": "80 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.",
+        "image": "https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png",
+        "buyLink": "https://t.me/m/0oHI2ZU1NTUy",
+        "available": true
+      },
+      {
+        "id": "brawlPassProduct",
+        "name": "Brawl Pass",
+        "price": "510 рублей",
+        "description": "Brawl Pass для Brawl Stars.",
+        "image": "videos/BrawlPass.png",
+        "buyLink": "https://t.me/Demo_Sand",
+        "available": true
+      },
+      {
+        "id": "brawlPassPlusProduct",
+        "name": "Brawl Pass+",
+        "price": "761 рубль",
+        "description": "Brawl Pass+ для Brawl Stars.",
+        "image": "https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26",
+        "buyLink": "https://t.me/m/6-06jeWNMGIy",
+        "available": true
+      }
+    ]
+  }
 }
