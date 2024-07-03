@@ -205,15 +205,15 @@
       font-weight: 700;
       margin-bottom: 20px;
       display: flex;
-      align-items: flex-start; /* Выравнивание по левому краю */
-      flex-direction: column; /* Название под картинкой */
+      align-items: flex-start; 
+      flex-direction: column;
     }
 
     .product-page .content h2 img {
       width: auto;
       max-width: 100%; 
       height: auto;
-      margin-bottom: 10px; /* Добавляем отступ снизу */
+      margin-bottom: 10px;
     }
 
     .product-page .content p {
@@ -339,28 +339,7 @@
           <div class="tab" data-target="telegram-with-login">С заходом</div>
         </div>
         <div class="tab-content active" id="telegram-no-login">
-          <div class="product-list">
-            <div class="product" data-target="product-page-telegram-premium" id="telegramPremiumProduct">
-              <h2>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
-                Telegram Premium 1 месяц
-              </h2>
-              <div class="price">250 рублей</div>
-              <div class="description">
-                Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в @PremiumBot
-              </div>
-            </div>
-            <div class="product" data-target="product-page-telegram-premium-year" id="telegramPremiumYearProduct">
-              <h2>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
-                Telegram Premium 1 год
-              </h2>
-              <div class="price">1650 рублей</div>
-              <div class="description">
-                Telegram Premium на 1 год без захода на аккаунт.
-              </div>
-            </div>
-          </div>
+          <div class="product-list" id="telegram-no-login-products"></div>
         </div>
         <div class="tab-content" id="telegram-with-login">
           <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Тут пока что пусто!</div>
@@ -376,48 +355,7 @@
           <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Мы ещё не поддерживаем эту функцию...</div>
         </div>
         <div class="tab-content" id="brawlstars-with-login">
-          <div class="product-list">
-            <div class="product" data-target="product-page-brawlstars-gems" id="brawlStarsGemsProduct">
-              <h2>
-                <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
-                30 гемов
-              </h2>
-              <div class="price">160 рублей</div>
-              <div class="description">
-                30 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-gems-80" id="brawlStarsGems80Product">
-              <h2>
-                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">
-                80 гемов
-              </h2>
-              <div class="price">429 рублей</div>
-              <div class="description">
-                80 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-pass" id="brawlPassProduct">
-              <h2>
-                <img src="videos/BrawlPass.png" alt="Brawl Pass">
-                Brawl Pass
-              </h2>
-              <div class="price">510 рублей</div>
-              <div class="description">
-                Brawl Pass для Brawl Stars.
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-pass-plus" id="brawlPassPlusProduct">
-              <h2>
-                <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
-                Brawl Pass+
-              </h2>
-              <div class="price">761 рубль</div>
-              <div class="description">
-                Brawl Pass+ для Brawl Stars.
-              </div>
-            </div>
-          </div>
+          <div class="product-list" id="brawlstars-with-login-products"></div>
         </div>
       </div>
     </div>
@@ -539,14 +477,86 @@
     const mainTabs = document.querySelectorAll('#mainTabs .tab');
     const subTabs = document.querySelectorAll('.tabs:not(#mainTabs) .tab');
     const tabContents = document.querySelectorAll('.tab-content');
-    const products = document.querySelectorAll('.product');
-    const productPages = document.querySelectorAll('.product-page');
     const searchInput = document.getElementById('searchInput');
+
+    // --- Функция для создания элементов товара ---
+    function createProductElement(product) {
+      const productDiv = document.createElement('div');
+      productDiv.classList.add('product');
+      productDiv.dataset.target = 'product-page-' + product.id;
+      productDiv.id = product.id;
+
+      const image = document.createElement('img');
+      image.src = product.image;
+      image.alt = product.name;
+
+      const h2 = document.createElement('h2');
+      h2.textContent = product.name;
+      h2.appendChild(image);
+
+      const priceDiv = document.createElement('div');
+      priceDiv.classList.add('price');
+      priceDiv.textContent = product.price;
+
+      const descriptionDiv = document.createElement('div');
+      descriptionDiv.classList.add('description');
+      descriptionDiv.textContent = product.description;
+
+      productDiv.appendChild(h2);
+      productDiv.appendChild(priceDiv);
+      productDiv.appendChild(descriptionDiv);
+
+      // Проверка доступности товара
+      if (!product.available) {
+        productDiv.classList.add('out-of-stock');
+      } else {
+        productDiv.addEventListener('click', () => {
+          const productId = productDiv.dataset.target;
+          const productPage = document.getElementById(productId);
+          productPage.style.display = 'block';
+          setTimeout(() => {
+            productPage.classList.add('active');
+          }, 10);
+        });
+      }
+
+      return productDiv;
+    }
+    // --- Функция для создания элементов товара ---
+
+    // --- Функция для загрузки товаров из JSON и отображения ---
+    async function loadProducts() {
+      try {
+        const response = await fetch('products.json');
+        const productsData = await response.json();
+
+        // Отображение товаров Telegram
+        const telegramNoLoginList = document.getElementById('telegram-no-login-products');
+        productsData.telegram.noLogin.forEach(product => {
+          const productElement = createProductElement(product);
+          telegramNoLoginList.appendChild(productElement);
+        });
+
+        // Отображение товаров Brawl Stars
+        const brawlStarsWithLoginList = document.getElementById('brawlstars-with-login-products');
+        productsData.brawlstars.withLogin.forEach(product => {
+          const productElement = createProductElement(product);
+          brawlStarsWithLoginList.appendChild(productElement);
+        });
+      } catch (error) {
+        console.error("Ошибка при загрузке данных о товарах:", error);
+      }
+    }
+    // --- Функция для загрузки товаров из JSON и отображения ---
+
+    loadProducts();
 
     searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
 
-      products.forEach(product => {
+      // Поиск по динамически созданным товарам
+      const allProducts = document.querySelectorAll('.product');
+      allProducts.forEach(product => {
         const productName = product.querySelector('h2').textContent.toLowerCase();
         if (productName.includes(searchTerm)) {
           product.style.display = 'block';
@@ -556,7 +566,6 @@
       });
     });
 
-    // Обработчик для главных вкладок (Telegram/Brawl Stars)
     mainTabs.forEach(tab => {
       tab.addEventListener('click', () => {
         tabContents.forEach(content => content.classList.remove('active'));
@@ -565,7 +574,6 @@
         const targetTabContent = document.getElementById(tab.dataset.target);
         targetTabContent.classList.add('active');
 
-        // Активируем первую вложенную вкладку
         const firstSubTab = targetTabContent.querySelector('.tabs .tab');
         if (firstSubTab) {
           firstSubTab.click();
@@ -573,7 +581,6 @@
       });
     });
 
-    // Обработчик для вложенных вкладок (Без захода/С заходом)
     subTabs.forEach(tab => {
       tab.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -587,17 +594,6 @@
 
         tab.classList.add('active');
         document.getElementById(tab.dataset.target).classList.add('active');
-      });
-    });
-
-    products.forEach(product => {
-      product.addEventListener('click', () => {
-        const productId = product.dataset.target;
-        const productPage = document.getElementById(productId);
-        productPage.style.display = 'block';
-        setTimeout(() => {
-          productPage.classList.add('active');
-        }, 10);
       });
     });
 
