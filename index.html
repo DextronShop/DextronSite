@@ -351,20 +351,21 @@
           <div class="tab" data-target="brawlstars-with-login">С входом</div>
         </div>
         <div class="tab-content active" id="brawlstars-no-login">
-          <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Мы ещё не поддерживаем эту функцию...</div>
-        </div>
-        <div class="tab-content" id="brawlstars-with-login">
           <div class="product-list">
             <div class="product" data-target="product-page-pin" id="pinProduct">
               <h2>
-                <img src="https://static.wikia.nocookie.net/brawlstars/images/0/0c/%D0%9F%D0%B8%D0%BD_%D0%9C%D0%B0%D1%82%D1%87%D0%B5%D1%80%D0%B8%D0%BD%D0%BE.png/revision/latest?cb=20220807161912&path-prefix=ru" alt="Brawl Stars Pin">
+                <img src="videos/pin.png" alt="Brawl Stars Pin">
                 Пин Матчерино
               </h2>
               <div class="price">649 рублей</div>
               <div class="description">
-                Пин Матчерино для Brawl Stars. Для покупки необходим вход в аккаунт.
+                Пин Матчерино для Brawl Stars. 
               </div>
             </div>
+          </div>
+        </div>
+        <div class="tab-content" id="brawlstars-with-login">
+          <div class="product-list">
             <div class="product" data-target="product-page-brawlstars-gems" id="brawlStarsGemsProduct">
               <h2>
                 <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
@@ -691,13 +692,13 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img src="https://static.wikia.nocookie.net/brawlstars/images/0/0c/%D0%9F%D0%B8%D0%BD_%D0%9C%D0%B0%D1%82%D1%87%D0%B5%D1%80%D0%B8%D0%BD%D0%BE.png/revision/latest?cb=20220807161912&path-prefix=ru" alt="Brawl Stars Pin">
+        <img src="videos/pin.png" alt="Brawl Stars Pin">
         Пин Матчерино
       </h2>
       <p>🛍️Пин Матчерино, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/DextronSeller" class="buy-button">
         <video autoplay muted loop>
-         <source src="videos/video.mp4" type="video/mp4">
+          <source src="videos/video.mp4" type="video/mp4">
           Ваш браузер не поддерживает воспроизведение видео.
         </video>
         <span>Купить</span>
@@ -724,7 +725,7 @@
         const productName = product.querySelector('h2').textContent.toLowerCase();
         if (productName.includes(searchTerm)) {
           product.style.display = 'block';
-        } else {
+                  } else {
           product.style.display = 'none';
         }
       });
