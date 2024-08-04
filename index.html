@@ -91,6 +91,19 @@
       color: #fff;
     }
 
+    /* --- СТИЛИ ДЛЯ КНОПКИ "ОТЗЫВЫ" --- */
+    .tab.reviews { 
+      background: linear-gradient(to right, #673ab7, #9c27b0);
+      color: white;
+      box-shadow: 0 4px 8px rgba(156, 39, 176, 0.5);
+    }
+
+    .tab.reviews:hover {
+      background: linear-gradient(to right, #9c27b0, #673ab7);
+      box-shadow: 0 6px 12px rgba(156, 39, 176, 0.7);
+    }
+    /* --- СТИЛИ ДЛЯ КНОПКИ "ОТЗЫВЫ" --- */
+
     .tab-content {
       display: none;
       opacity: 0;
@@ -183,15 +196,15 @@
       font-weight: 700;
       margin-bottom: 20px;
       display: flex;
-      align-items: flex-start; /* Выравнивание по левому краю */
-      flex-direction: column; /* Название под картинкой */
+      align-items: flex-start;
+      flex-direction: column; 
     }
 
     .product-page .content h2 img {
       width: auto;
       max-width: 100%; 
       height: auto;
-      margin-bottom: 10px; /* Добавляем отступ снизу */
+      margin-bottom: 10px;
     }
 
     .product-page .content p {
@@ -306,49 +319,16 @@
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
 
     <div class="tabs" id="mainTabs">
-      <div class="tab active" data-target="telegram">Telegram</div>
-      <div class="tab" data-target="brawlstars">Brawl Stars</div>
+      <div class="tab active" data-target="brawlstars">Brawl Stars</div> 
+      <div class="tab" data-target="telegram">Telegram</div>
+      <a href="https://t.me/dextronreviews" class="tab reviews">Отзывы</a> 
     </div>
 
     <div class="tab-content-container">
-      <div class="tab-content active" id="telegram">
-        <div class="tabs" id="telegramTabs">
-          <div class="tab active" data-target="telegram-no-login">Без захода</div>
-          <div class="tab" data-target="telegram-with-login">С заходом</div>
-        </div>
-        <div class="tab-content active" id="telegram-no-login">
-          <div class="product-list">
-            <div class="product" data-target="product-page-telegram-premium" id="telegramPremiumProduct">
-              <h2>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
-                Telegram Premium 1 месяц
-              </h2>
-              <div class="price">250 рублей</div>
-              <div class="description">
-                Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в @PremiumBot
-              </div>
-            </div>
-            <div class="product" data-target="product-page-telegram-premium-year" id="telegramPremiumYearProduct">
-              <h2>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
-                Telegram Premium 1 год
-              </h2>
-              <div class="price">1650 рублей</div>
-              <div class="description">
-                Telegram Premium на 1 год без захода на аккаунт.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tab-content" id="telegram-with-login">
-          <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Тут пока что пусто!</div>
-        </div>
-      </div>
-
-      <div class="tab-content" id="brawlstars">
+      <div class="tab-content active" id="brawlstars"> 
         <div class="tabs" id="brawlStarsTabs">
-          <div class="tab active" data-target="brawlstars-no-login">Без захода</div>
-          <div class="tab" data-target="brawlstars-with-login">С заходом</div>
+          <div class="tab active" data-target="brawlstars-no-login">Без входа</div>
+          <div class="tab" data-target="brawlstars-with-login">С входом</div>
         </div>
         <div class="tab-content active" id="brawlstars-no-login">
           <div class="product-list">
@@ -359,7 +339,7 @@
               </h2>
               <div class="price">649 рублей</div>
               <div class="description">
-                Пин Матчерино для Brawl Stars. 
+                🛍️Эксклюзивный Пин Матчерино для Brawl Stars
               </div>
             </div>
           </div>
@@ -469,6 +449,39 @@
           </div>
         </div>
       </div>
+      <div class="tab-content" id="telegram">
+        <div class="tabs" id="telegramTabs">
+          <div class="tab active" data-target="telegram-no-login">Без захода</div>
+          <div class="tab" data-target="telegram-with-login">С заходом</div>
+        </div>
+        <div class="tab-content active" id="telegram-no-login">
+          <div class="product-list">
+            <div class="product" data-target="product-page-telegram-premium" id="telegramPremiumProduct">
+              <h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
+                Telegram Premium 1 месяц
+              </h2>
+              <div class="price">250 рублей</div>
+              <div class="description">
+                Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в @PremiumBot
+              </div>
+            </div>
+            <div class="product" data-target="product-page-telegram-premium-year" id="telegramPremiumYearProduct">
+              <h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
+                Telegram Premium 1 год
+              </h2>
+              <div class="price">1650 рублей</div>
+              <div class="description">
+                Telegram Premium на 1 год без захода на аккаунт.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="telegram-with-login">
+          <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Тут пока что пусто!</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -516,7 +529,7 @@
         30 гемов
       </h2>
       <p>🛍️30 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/DextronSeller" class="buy-button"> 
+      <a href="https://t.me/m/kZ-GCKbuMjAy" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -534,7 +547,7 @@
         80 гемов
       </h2>
       <p>🛍️80 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/DextronSeller" class="buy-button"> 
+      <a href="https://t.me/m/bV-n3Ng-OGZi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -552,7 +565,7 @@
         170 гемов
       </h2>
       <p>🛍️170 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/DextronSeller" class="buy-button"> 
+      <a href="https://t.me/m/GqybarxoMjM6" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -570,7 +583,7 @@
         360 гемов
       </h2>
       <p>🛍️360 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/DextronSeller" class="buy-button"> 
+      <a href="https://t.me/m/uvUIyQIKMzNi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -588,7 +601,7 @@
         950 гемов
       </h2>
       <p>🛍️950 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/DextronSeller" class="buy-button"> 
+      <a href="https://t.me/m/GLlNCHmMMjg6" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -606,7 +619,7 @@
         2000 гемов
       </h2>
       <p>🛍️2000 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/DextronSeller" class="buy-button"> 
+      <a href="https://t.me/m/2uWZpGnEOGFi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -624,7 +637,7 @@
         Brawl Pass [ОСОБАЯ СКИДКА]
       </h2>
       <p>🛍️Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта. [ОСОБАЯ СКИДКА]</p>
-      <a href="https://t.me/DextronSeller" class="buy-button"> 
+      <a href="https://t.me/m/JklMuiCJZmZi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -642,7 +655,7 @@
         Brawl Pass
       </h2>
       <p>🛍️Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/DextronSeller" class="buy-button"> 
+      <a href="https://t.me/m/05fddN58ZDhi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -660,7 +673,7 @@
         Brawl Pass+
       </h2>
       <p>🛍️Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/DextronSeller" class="buy-button">
+      <a href="https://t.me/m/y3aWTVTiNTc6" class="buy-button">
         <video autoplay muted loop>
           <source src="videos/video.mp4" type="video/mp4">
           Ваш браузер не поддерживает воспроизведение видео.
@@ -678,7 +691,7 @@
         Улучшение Brawl Pass >>> Brawl Pass Plus
       </h2>
       <p>🛍️Улучшение Brawl Pass до Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/DextronSeller" class="buy-button">
+      <a href="https://t.me/m/aLqwRSKzYTc6" class="buy-button">
         <video autoplay muted loop>
           <source src="videos/video.mp4" type="video/mp4">
           Ваш браузер не поддерживает воспроизведение видео.
@@ -695,8 +708,8 @@
         <img src="videos/pin.png" alt="Brawl Stars Pin">
         Пин Матчерино
       </h2>
-      <p>🛍️Пин Матчерино, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/DextronSeller" class="buy-button">
+      <p>🛍️Эксклюзивный Пин Матчерино для Brawl Stars</p>
+     <a href="https://t.me/m/6uToMPmBMDgy" class="buy-button">
         <video autoplay muted loop>
           <source src="videos/video.mp4" type="video/mp4">
           Ваш браузер не поддерживает воспроизведение видео.
@@ -725,25 +738,28 @@
         const productName = product.querySelector('h2').textContent.toLowerCase();
         if (productName.includes(searchTerm)) {
           product.style.display = 'block';
-                  } else {
+        } else {
           product.style.display = 'none';
         }
       });
     });
 
-    // Обработчик для главных вкладок (Telegram/Brawl Stars)
+    // Обработчик для главных вкладок (Brawl Stars/Telegram)
     mainTabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        tabContents.forEach(content => content.classList.remove('active'));
-        mainTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const targetTabContent = document.getElementById(tab.dataset.target);
-        targetTabContent.classList.add('active');
+        // Проверка наличия data-target
+        if (tab.dataset.target) {
+          tabContents.forEach(content => content.classList.remove('active'));
+          mainTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const targetTabContent = document.getElementById(tab.dataset.target);
+          targetTabContent.classList.add('active');
 
-        // Активируем первую вложенную вкладку
-        const firstSubTab = targetTabContent.querySelector('.tabs .tab');
-        if (firstSubTab) {
-          firstSubTab.click();
+          // Активируем первую вложенную вкладку
+          const firstSubTab = targetTabContent.querySelector('.tabs .tab');
+          if (firstSubTab) {
+            firstSubTab.click(); 
+          }
         }
       });
     });
