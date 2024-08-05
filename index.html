@@ -65,14 +65,17 @@
       color: #888;
     }
 
+    /* Улучшенные стили для вкладок */
     .tabs {
       display: flex;
+      flex-wrap: wrap; /* Позволяет вкладкам переноситься на новую строку */
       gap: 10px;
       margin-bottom: 30px;
+      justify-content: center; /* Центрируем вкладки */
     }
 
     .tab {
-      padding: 12px 20px;
+      padding: 10px 15px; /* Уменьшаем отступы */
       border: none;
       border-radius: 5px;
       background-color: #262626;
@@ -80,6 +83,8 @@
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      text-align: center;
+      white-space: nowrap; /* Предотвращает перенос текста внутри вкладки */
     }
 
     .tab:hover {
@@ -91,18 +96,19 @@
       color: #fff;
     }
 
-    /* --- СТИЛИ ДЛЯ КНОПКИ "ОТЗЫВЫ" --- */
+    /* Стили для кнопки "Отзывы" с эффектом */
     .tab.reviews { 
       background: linear-gradient(to right, #673ab7, #9c27b0);
       color: white;
       box-shadow: 0 4px 8px rgba(156, 39, 176, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease; /* Добавляем transition */
     }
 
     .tab.reviews:hover {
       background: linear-gradient(to right, #9c27b0, #673ab7);
       box-shadow: 0 6px 12px rgba(156, 39, 176, 0.7);
+      transform: scale(1.05); /* Добавляем эффект масштабирования */
     }
-    /* --- СТИЛИ ДЛЯ КНОПКИ "ОТЗЫВЫ" --- */
 
     .tab-content {
       display: none;
@@ -255,7 +261,6 @@
     }
 
     .buy-button video {
-      /* display: none; */
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -272,7 +277,6 @@
 
     .buy-button span { 
       position: relative; 
-      transform: translate(-50%, -50%);
       z-index: 1;
     }
 
@@ -325,11 +329,12 @@
     </div>
 
     <div class="tab-content-container">
-      <div class="tab-content active" id="brawlstars"> 
+      <div class="tab-content active" id="brawlstars">
         <div class="tabs" id="brawlStarsTabs">
           <div class="tab active" data-target="brawlstars-no-login">Без входа</div>
           <div class="tab" data-target="brawlstars-with-login">С входом</div>
         </div>
+
         <div class="tab-content active" id="brawlstars-no-login">
           <div class="product-list">
             <div class="product" data-target="product-page-pin" id="pinProduct">
@@ -344,6 +349,7 @@
             </div>
           </div>
         </div>
+
         <div class="tab-content" id="brawlstars-with-login">
           <div class="product-list">
             <div class="product" data-target="product-page-brawlstars-gems" id="brawlStarsGemsProduct">
@@ -449,11 +455,14 @@
           </div>
         </div>
       </div>
+
+
       <div class="tab-content" id="telegram">
         <div class="tabs" id="telegramTabs">
           <div class="tab active" data-target="telegram-no-login">Без захода</div>
           <div class="tab" data-target="telegram-with-login">С заходом</div>
         </div>
+
         <div class="tab-content active" id="telegram-no-login">
           <div class="product-list">
             <div class="product" data-target="product-page-telegram-premium" id="telegramPremiumProduct">
@@ -478,13 +487,16 @@
             </div>
           </div>
         </div>
+
         <div class="tab-content" id="telegram-with-login">
           <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Тут пока что пусто!</div>
         </div>
       </div>
+
     </div>
   </div>
 
+  <!-- Модальные окна для товаров -->
   <div class="product-page" id="product-page-telegram-premium">
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
@@ -691,7 +703,7 @@
         Улучшение Brawl Pass >>> Brawl Pass Plus
       </h2>
       <p>🛍️Улучшение Brawl Pass до Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/m/aLqwRSKzYTc6" class="buy-button">
+     <a href="https://t.me/m/aLqwRSKzYTc6" class="buy-button">
         <video autoplay muted loop>
           <source src="videos/video.mp4" type="video/mp4">
           Ваш браузер не поддерживает воспроизведение видео.
