@@ -50,6 +50,7 @@
       color: transparent;
     }
 
+    /* Стиль для времени работы магазина */
     .shop-hours {
       text-align: center;
       color: white;
@@ -72,6 +73,7 @@
       color: #888;
     }
 
+    /* Улучшенные стили для вкладок */
     .tabs {
       display: flex;
       flex-wrap: wrap; 
@@ -102,6 +104,7 @@
       color: #fff;
     }
 
+    /* Стили для кнопки "Отзывы" с эффектом */
     .tab.reviews { 
       background: linear-gradient(to right, #673ab7, #9c27b0);
       color: white;
@@ -158,6 +161,13 @@
       color: white; 
     }
 
+    .product h2 img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    /* Стиль для таблички "НОВИНКА"/"ХИТ" */
     .new-tag, .hit-tag { 
       background-color: #f44336; 
       color: white;
@@ -183,6 +193,7 @@
       line-height: 1.6;
     }
 
+    /* Модальное окно для товара */
     .product-page {
       display: none;
       position: fixed;
@@ -358,7 +369,7 @@
               </h2>
               <div class="price">649 рублей</div>
               <div class="description">
-                Эксклюзивный Пин Матчерино для Brawl Stars
+ Эксклюзивный Пин Матчерино для Brawl Stars
               </div>
             </div>
 
@@ -439,6 +450,16 @@
                 2000 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
               </div>
             </div>
+            <div class="product" data-target="product-page-brawlstars-pass-discount" id="brawlPassDiscountProduct">
+              <h2>
+                <img src="videos/BrawlPass.png" alt="Brawl Pass">
+                Brawl Pass [ОСОБАЯ СКИДКА]
+              </h2>
+              <div class="price">329 рублей</div>
+              <div class="description">
+                Brawl Pass для Brawl Stars. [ОСОБАЯ СКИДКА]
+              </div>
+            </div>
             <div class="product" data-target="product-page-brawlstars-pass" id="brawlPassProduct">
               <h2>
                 <img src="videos/BrawlPass.png" alt="Brawl Pass">
@@ -446,28 +467,7 @@
               </h2>
               <div class="price">599 рублей</div>
               <div class="description">
-                Brawl Pass для Brawl Stars. 
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-pass-discount" id="brawlPassDiscountProduct">
-              <h2>
-                <img src="videos/BrawlPass.png" alt="Brawl Pass">
-                Brawl Pass [ОСОБАЯ СКИДКА]
-                <span class="hit-tag">ХИТ</span> 
-              </h2>
-              <div class="price">499 рублей</div>
-              <div class="description">
-                Brawl Pass для Brawl Stars. 
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-pass-upgrade" id="brawlPassUpgradeProduct">
-              <h2>
-                <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+" alt="Brawl Pass">
-                Улучшение Brawl Pass >>> Brawl Pass Plus
-              </h2>
-              <div class="price">399 рублей</div>
-              <div class="description">
-                Улучшение Brawl Pass до Brawl Pass Plus в Brawl Stars.
+                Brawl Pass для Brawl Stars.
               </div>
             </div>
             <div class="product" data-target="product-page-brawlstars-pass-plus" id="brawlPassPlusProduct">
@@ -479,6 +479,16 @@
               <div class="price">899 рублей</div>
               <div class="description">
                 Brawl Pass+ для Brawl Stars.
+              </div>
+            </div>
+            <div class="product" data-target="product-page-brawlstars-pass-upgrade" id="brawlPassUpgradeProduct">
+              <h2>
+                <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+" alt="Brawl Pass">
+                Улучшение Brawl Pass >>> Brawl Pass Plus
+              </h2>
+              <div class="price">399 рублей</div>
+              <div class="description">
+                Улучшение Brawl Pass до Brawl Pass Plus в Brawl Stars.
               </div>
             </div>
           </div>
@@ -669,15 +679,15 @@
     </div>
   </div>
 
-  <div class="product-page" id="product-page-brawlstars-pass">
+  <div class="product-page" id="product-page-brawlstars-pass-discount">
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
         <img src="videos/BrawlPass.png" alt="Brawl Stars Pass">
-        Brawl Pass
+        Brawl Pass [ОСОБАЯ СКИДКА]
       </h2>
-      <p>Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
-      <a href="https://t.me/m/aLqwRSKzYTc6" class="buy-button"> 
+      <p> Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта. [ОСОБАЯ СКИДКА]</p>
+      <a href="https://t.me/m/JklMuiCJZmZi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -686,28 +696,16 @@
       </a>
     </div>
   </div>
-  <div class="product-page" id="product-page-brawlstars-pass-discount">
+
+  <div class="product-page" id="product-page-brawlstars-pass">
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img src="videos/BrawlPass.png" alt="Brawl Pass">
-        Brawl Pass [ОСОБАЯ СКИДКА]
+        <img src="videos/BrawlPass.png" alt="Brawl Stars Pass">
+        Brawl Pass
       </h2>
-      <p>ПРОВЕРЯЙТЕ У СЕБЯ ДАННУЮ АКЦИЮ!!! Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта. [ОСОБАЯ СКИДКА]</p>
-     <a href="https://t.me/m/aLqwRSKzYTc6" class="buy-button">
-        <video autoplay muted loop>
-          <source src="videos/video.mp4" type="video/mp4">
-          Ваш браузер не поддерживает воспроизведение видео.
-        </video>
-        <span>Купить</span>
-      </a>
-    </div>
-  </div>
-  <div class="product-page" id="product-page-brawlstars-pass-upgrade">
-    <div class="content">
-      <span class="close-button" onclick="closeProductPage()">×</span>
-      <h2>
-        <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a01f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
+      <p> Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
+                  <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
         Улучшение Brawl Pass >>> Brawl Pass Plus
       </h2>
       <p>🛍️Улучшение Brawl Pass до Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
@@ -731,7 +729,7 @@
       <p>👹Эксклюзивный пин «Матчерино» для Brawl Stars. 
 </p>Данный способ покупки составляет до 2 недель ожидания из-за правил Supercell.</p>
      <a href="https://t.me/m/6uToMPmBMDgy" class="buy-button">
-        <video autoplay  muted loop>
+        <video autoplay muted loop>
           <source src="videos/video.mp4" type="video/mp4">
           Ваш браузер не поддерживает воспроизведение видео.
         </video>
