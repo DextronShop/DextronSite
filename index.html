@@ -44,10 +44,18 @@
       font-size: 2.5em;
       font-weight: 700;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 10px; 
       background: linear-gradient(to right, #f44336, #e91e63);
       -webkit-background-clip: text;
       color: transparent;
+    }
+
+    /* Стили для времени работы */
+    .working-hours {
+      text-align: center;
+      font-size: 0.9em;
+      color: #ccc;
+      margin-bottom: 30px;
     }
 
     .search-bar {
@@ -133,6 +141,7 @@
       padding: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative; 
     }
 
     .product:hover {
@@ -313,6 +322,19 @@
     a {
       text-decoration: none; 
     }
+
+    /* Табличка "НОВИНКА" */
+    .new-product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #f44336;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.8em;
+      border-radius: 5px;
+      z-index: 2; 
+    }
   </style>
 </head>
 <body>
@@ -323,6 +345,8 @@
 
   <div class="container">
     <h1>Dextron Shop</h1>
+    <div class="working-hours">Время работы: 12:00 - 00:00 по МСК</div>
+
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
 
     <div class="tabs" id="mainTabs">
@@ -352,6 +376,7 @@
             </div>
 
             <div class="product" data-target="product-page-brawlstars-pass-gift" id="brawlPassGiftProduct"> 
+              <div class="new-product-badge">НОВИНКА</div> 
               <h2>
                 <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
                 Brawl Pass+ [ПОДАРКОМ] 
@@ -694,7 +719,7 @@
   <div class="product-page" id="product-page-brawlstars-pass-plus">
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
-      <h2>
+           <h2>
         <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
         Brawl Pass+
       </h2>
