@@ -167,8 +167,8 @@
       margin-right: 10px;
     }
 
-    /* Стиль для таблички "НОВИНКА" */
-    .new-tag {
+    /* Стиль для таблички "НОВИНКА"/"ХИТ" */
+    .new-tag, .hit-tag { 
       background-color: #f44336; 
       color: white;
       padding: 5px 10px;
@@ -432,7 +432,7 @@
             </div>
             <div class="product" data-target="product-page-brawlstars-gems-950" id="brawlStarsGems950Product">
               <h2>
-                <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
+                <img src="https://store.supercell.com/images/brawlstars/d399702f09774d4902d14f484000a3f.png" alt="Brawl Stars Gems">
                 950 гемов
               </h2>
               <div class="price">4329 рублей</div>
@@ -474,6 +474,7 @@
               <h2>
                 <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
                 Brawl Pass+
+                <span class="hit-tag">ХИТ</span> 
               </h2>
               <div class="price">899 рублей</div>
               <div class="description">
@@ -704,27 +705,13 @@
         Brawl Pass
       </h2>
       <p> Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-           <a href="https://t.me/m/y3aWTVTiNTc6" class="buy-button">
-        <video autoplay muted loop>
-          <source src="videos/video.mp4" type="video/mp4">
-          Ваш браузер не поддерживает воспроизведение видео.
-        </video>
-        <span>Купить</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="product-page" id="product-page-brawlstars-pass-upgrade">
-    <div class="content">
-      <span class="close-button" onclick="closeProductPage()">×</span>
-      <h2>
-        <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
+                  <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
         Улучшение Brawl Pass >>> Brawl Pass Plus
       </h2>
       <p>🛍️Улучшение Brawl Pass до Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
      <a href="https://t.me/m/aLqwRSKzYTc6" class="buy-button">
         <video autoplay muted loop>
-          <source src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
+          <source src="videos/video.mp4" type="video/mp4">
           Ваш браузер не поддерживает воспроизведение видео.
         </video>
         <span>Купить</span>
@@ -761,6 +748,25 @@
       </h2>
       <p>Данный способ покупки составляет 24 часа ожидания из-за правил Supercell.</p>
       <a href="https://t.me/m/jeY3mS5mNzMy" class="buy-button"> 
+        <video autoplay muted loop> 
+          <source src="videos/video.mp4" type="video/mp4"> 
+          Ваш браузер не поддерживает воспроизведение видео. 
+        </video>
+        <span>Купить</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Модальное окно для Brawl Pass+ -->
+  <div class="product-page" id="product-page-brawlstars-pass-plus">
+    <div class="content">
+      <span class="close-button" onclick="closeProductPage()">×</span>
+      <h2>
+        <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
+        Brawl Pass+
+      </h2>
+      <p>Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p> 
+      <a href="https://t.me/m/y3aWTVTiNTc6" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -849,3 +855,4 @@
     }
   </script>
 </body>
+</html>
