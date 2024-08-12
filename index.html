@@ -117,6 +117,12 @@
       box-shadow: 0 6px 12px rgba(156, 39, 176, 0.7);
       transform: scale(1.05); 
     }
+    
+    /* Стили для желтой категории */
+    .tab.special-offers { 
+      background-color: #ffcc00; /* Желтый цвет фона */
+      color: black; /* Черный цвет текста */
+    }
 
     .tab-content {
       display: none;
@@ -361,6 +367,7 @@
         <div class="tabs" id="brawlStarsTabs">
           <div class="tab active" data-target="brawlstars-no-login">Без захода</div>
           <div class="tab" data-target="brawlstars-with-login">С заходом</div>
+          <div class="tab special-offers" data-target="brawlstars-special-offers">Особые акции</div> 
         </div>
 
         <div class="tab-content active" id="brawlstars-no-login">
@@ -494,6 +501,33 @@
             </div>
           </div>
         </div>
+
+        <!-- Новая категория "Особые акции" -->
+        <div class="tab-content" id="brawlstars-special-offers">
+          <div class="product-list">
+            <div class="product" data-target="product-page-3000-blings" id="3000BlingsProduct">
+              <h2>
+                <img src="path/to/blings-image.png" alt="3000 Блингов"> 
+                3000 Блингов
+              </h2>
+              <div class="price">159 рублей</div>
+              <div class="description">
+                Особая акция - 3000 блингов. Через вход на ваш аккаунт МОМЕНТАЛЬНО! 
+              </div>
+            </div>
+            <div class="product" data-target="product-page-potato-squeak" id="PotatoSqueakProduct">
+              <h2>
+                <img src="path/to/potato-squeak-image.png" alt="Картофельный Сквик"> 
+                Картофельный Сквик
+              </h2>
+              <div class="price">159 рублей</div>
+              <div class="description">
+                Особая акция - Картофельный Сквик. Через вход на ваш аккаунт МОМЕНТАЛЬНО! 
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
 
@@ -543,7 +577,7 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
         Telegram Premium 1 месяц
       </h2>
-      <p>🌟 Telegram Premium сроком на 1 месяц. Покупка производится вами с помощью моей карты в @PremiumBot. 💯Быстро и удобно</p>
+      <p> Telegram Premium сроком на 1 месяц. Покупка производится вами с помощью моей карты в @PremiumBot. Быстро и удобно</p>
       <a href="https://t.me/DextronSeller" class="buy-button">
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
@@ -561,7 +595,7 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
         Telegram Premium 1 год
       </h2>
-      <p>🌟 Telegram Premium сроком на 1 год. Покупка производится вами с помощью моей карты в @PremiumBot. 💯Быстро и удобно</p>
+      <p> Telegram Premium сроком на 1 год. Покупка производится вами с помощью моей карты в @PremiumBot. Быстро и удобно</p>
       <a href="https://t.me/DextronSeller" class="buy-button">
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
@@ -579,7 +613,7 @@
         <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
         30 гемов
       </h2>
-      <p>🛍️30 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
+      <p> 30 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/m/kZ-GCKbuMjAy" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
@@ -597,7 +631,7 @@
         <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">
         80 гемов
       </h2>
-      <p>🛍️80 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
+      <p> 80 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/m/bV-n3Ng-OGZi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
@@ -615,7 +649,7 @@
         <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
         170 гемов
       </h2>
-      <p>🛍️170 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
+      <p> 170 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/m/GqybarxoMjM6" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
@@ -633,7 +667,7 @@
         <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
         360 гемов
       </h2>
-      <p>🛍️360 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
+      <p> 360 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/m/uvUIyQIKMzNi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
@@ -651,7 +685,7 @@
         <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
         950 гемов
       </h2>
-      <p>🛍️950 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
+      <p> 950 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/m/GLlNCHmMMjg6" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
@@ -669,8 +703,23 @@
         <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
         2000 гемов
       </h2>
-      <p>🛍️2000 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
+      <p> 2000 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/m/2uWZpGnEOGFi" class="buy-button"> 
+        <video autoplay muted loop> 
+          <source src="videos/video.mp4" type="video/mp4"> 
+          Ваш браузер не поддерживает воспроизведение видео. 
+        </video>
+        <span>Купить</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="product-page" id="product-page-brawlstars-pass-discount">
+    <div class="content">
+      <span class="close-button" onclick="closeProductPage()">×</span>
+      <h2>
+        <img src="videos/BrawlPass.png" alt="Brawl Stars Pass">
+              <a href="https://t.me/m/2uWZpGnEOGFi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -790,6 +839,44 @@
     </div>
   </div>
 
+  <!-- Модальное окно для 3000 блингов -->
+  <div class="product-page" id="product-page-3000-blings">
+    <div class="content">
+      <span class="close-button" onclick="closeProductPage()">×</span>
+      <h2>
+        <img src="path/to/blings-image.png" alt="3000 Блингов"> 
+        3000 Блингов
+      </h2>
+      <p>Описание покупки 3000 блингов...</p> 
+      <a href="ссылка на покупку" class="buy-button">
+        <video autoplay muted loop>
+          <source src="videos/video.mp4" type="video/mp4">
+          Ваш браузер не поддерживает воспроизведение видео.
+        </video>
+        <span>Купить</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Модальное окно для Картофельного Сквика -->
+  <div class="product-page" id="product-page-potato-squeak">
+    <div class="content">
+      <span class="close-button" onclick="closeProductPage()">×</span>
+      <h2>
+        <img src="path/to/potato-squeak-image.png" alt="Картофельный Сквик"> 
+        Картофельный Сквик
+      </h2>
+      <p>Описание покупки Картофельного Сквика...</p> 
+      <a href="ссылка на покупку" class="buy-button">
+        <video autoplay muted loop>
+          <source src="videos/video.mp4" type="video/mp4">
+          Ваш браузер не поддерживает воспроизведение видео.
+        </video>
+        <span>Купить</span>
+      </a>
+    </div>
+  </div>
+
   <div class="footer">
     <p><a href="https://t.me/dextronshop">Наш Телеграм канал</a> - Made by DextronComporation</p> 
   </div>
@@ -867,6 +954,32 @@
         }, 300);
       });
     }
+
+    // Функция для удаления товаров
+    function removeProducts() {
+      const product1 = document.getElementById("3000BlingsProduct");
+      const product2 = document.getElementById("PotatoSqueakProduct");
+
+      if (product1) {
+        product1.remove(); 
+      }
+
+      if (product2) {
+        product2.remove();
+      }
+    }
+
+    // Установка таймера для удаления товаров в 15.08.2024 в 12:00 по Мск
+    const endTime = new Date('2024-08-15T12:00:00+03:00').getTime(); // Мск +3 часа
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const timeLeft = endTime - now;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        removeProducts(); 
+      }
+    }, 1000); 
   </script>
 </body>
 </html>
