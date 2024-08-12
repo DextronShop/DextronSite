@@ -950,8 +950,8 @@
       }
     }
 
-    // Установка таймера для удаления товаров в 15.08.2024 в 12:00 по Мск
-    const endTime = new Date('2024-08-15T12:00:00+03:00').getTime(); // Мск +3 часа
+    // Установка таймера для удаления товаров в 15.08.2024 в 10:00 по Мск
+    const endTime = new Date('2024-08-15T10:00:00+03:00').getTime(); // Мск +3 часа
     const timer = setInterval(function() {
       const now = new Date().getTime();
       const timeLeft = endTime - now;
@@ -976,8 +976,8 @@
       }
     }
 
-    // Установка таймера для удаления табличек в 14.08.2024 в 00:00 по Мск
-    const endTimeBadges = new Date('2024-08-14T00:00:00+03:00').getTime(); 
+    // Установка таймера для удаления табличек в 15.08.2024 в 10:00 по Мск
+    const endTimeBadges = new Date('2024-08-15T00:10:00+03:00').getTime(); 
     const timerBadges = setInterval(function() {
       const now = new Date().getTime();
       const timeLeft = endTimeBadges - now;
