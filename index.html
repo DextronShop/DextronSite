@@ -50,7 +50,6 @@
       color: transparent;
     }
 
-    /* Стили для времени работы */
     .working-hours {
       text-align: center;
       font-size: 0.9em;
@@ -73,7 +72,6 @@
       color: #888;
     }
 
-    /* Улучшенные стили для вкладок */
     .tabs {
       display: flex;
       flex-wrap: wrap; 
@@ -104,7 +102,6 @@
       color: #fff;
     }
 
-    /* Стили для кнопки "Отзывы" с эффектом */
     .tab.reviews { 
       background: linear-gradient(to right, #673ab7, #9c27b0);
       color: white;
@@ -118,10 +115,9 @@
       transform: scale(1.05); 
     }
     
-    /* Стили для желтой категории */
     .tab.special-offers { 
-       background: linear-gradient(to right, #ffcc00, #ffa500); /* Градиент желтого с оранжевым */
-      color: black; /* Черный цвет текста */
+      background-color: #ffcc00; 
+      color: black; 
     }
 
     .tab-content {
@@ -163,7 +159,6 @@
       align-items: center;
     }
 
-    /* Делаем название Brawl Pass+ белым */
     #brawlPassPlusProduct h2 {
       color: white; 
     }
@@ -187,7 +182,6 @@
       line-height: 1.6;
     }
 
-    /* Модальное окно для товара */
     .product-page {
       display: none;
       position: fixed;
@@ -331,17 +325,17 @@
 
     /* Табличка "НОВИНКА" */
     .new-product-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px; /* Перемещаем направо */
-  background-color: #f44336;
-  color: white;
-  padding: 5px 10px;
-  font-size: 0.6em; /* Увеличиваем размер */
-  border-radius: 5px;
-  z-index: 2; 
-  font-weight: bold; /* Делаем текст жирнее */
-}
+      position: absolute;
+      top: 10px;
+      right: 10px; 
+      background-color: #f44336;
+      color: white;
+      padding: 5px 10px;
+      font-size: 0.6em; 
+      border-radius: 5px;
+      z-index: 2; 
+      font-weight: bold; 
+    }
   </style>
 </head>
 <body>
@@ -506,6 +500,7 @@
         <div class="tab-content" id="brawlstars-special-offers">
           <div class="product-list">
             <div class="product" data-target="product-page-3000-blings" id="3000BlingsProduct">
+              <div class="new-product-badge" id="newBadge3000Blings">НОВИНКА</div> 
               <h2>
                 <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e1f72ba0-a2b3-4808-a2f9-4691377a83be/dfvzp8g-c2c8ee4b-eada-46f5-ab42-cece789787b9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UxZjcyYmEwLWEyYjMtNDgwOC1hMmY5LTQ2OTEzNzdhODNiZVwvZGZ2enA4Zy1jMmM4ZWU0Yi1lYWRhLTQ2ZjUtYWI0Mi1jZWNlNzg5Nzg3YjkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QNH9fIeZEixyTNRNq2WHuOPTorK0FeHtnzfPuciEY2Q" alt="3000 Блингов"> 
                 3000 Блингов
@@ -516,6 +511,7 @@
               </div>
             </div>
             <div class="product" data-target="product-page-potato-squeak" id="PotatoSqueakProduct">
+              <div class="new-product-badge" id="newBadgePotatoSqueak">НОВИНКА</div> 
               <h2>
                 <img src="https://i.pinimg.com/originals/6b/60/ad/6b60adeade0794680fd0acc66baa9dc1.png" alt="Картофельный Сквик"> 
                 Картофельный Сквик
@@ -693,7 +689,7 @@
         </video>
         <span>Купить</span>
       </a>
-    </div>
+          </div>
   </div>
 
   <div class="product-page" id="product-page-brawlstars-gems-2000">
@@ -705,21 +701,6 @@
       </h2>
       <p> 2000 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/m/2uWZpGnEOGFi" class="buy-button"> 
-        <video autoplay muted loop> 
-          <source src="videos/video.mp4" type="video/mp4"> 
-          Ваш браузер не поддерживает воспроизведение видео. 
-        </video>
-        <span>Купить</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="product-page" id="product-page-brawlstars-pass-discount">
-    <div class="content">
-      <span class="close-button" onclick="closeProductPage()">×</span>
-      <h2>
-        <img src="videos/BrawlPass.png" alt="Brawl Stars Pass">
-              <a href="https://t.me/m/2uWZpGnEOGFi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -980,6 +961,33 @@
         removeProducts(); 
       }
     }, 1000); 
+
+    // Функция для удаления табличек "НОВИНКА"
+    function removeNewProductBadges() {
+      const badge1 = document.getElementById("newBadge3000Blings");
+      const badge2 = document.getElementById("newBadgePotatoSqueak");
+
+      if (badge1) {
+        badge1.remove();
+      }
+
+      if (badge2) {
+        badge2.remove();
+      }
+    }
+
+    // Установка таймера для удаления табличек в 14.08.2024 в 00:00 по Мск
+    const endTimeBadges = new Date('2024-08-14T00:00:00+03:00').getTime(); 
+    const timerBadges = setInterval(function() {
+      const now = new Date().getTime();
+      const timeLeft = endTimeBadges - now;
+
+      if (timeLeft <= 0) {
+        clearInterval(timerBadges);
+        removeNewProductBadges();
+      }
+    }, 1000);
+
   </script>
 </body>
 </html>
