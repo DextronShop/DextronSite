@@ -521,6 +521,17 @@
                 Особая акция - Картофельный Сквик. Через вход на ваш аккаунт МОМЕНТАЛЬНО! 
               </div>
             </div>
+            <div class="product" data-target="product-page-950-credits" id="950CreditsProduct">
+              <div class="new-product-badge" id="newBadge950Credits">НОВИНКА</div>
+              <h2>
+                <img src="https://static.wikia.nocookie.net/brawlstars/images/f/f1/Credits-2.png/revision/latest/scale-to-width-down/250?cb=20221225191748&path-prefix=ru" alt="950 КРЕДИТОВ"> 
+                950 КРЕДИТОВ
+              </h2>
+              <div class="price">259 рублей</div>
+              <div class="description">
+                Особая акция - 950 кредитов. Через вход на ваш аккаунт МОМЕНТАЛЬНО!
+              </div>
+            </div>
           </div>
         </div>
 
@@ -664,7 +675,7 @@
         360 гемов
       </h2>
       <p> 360 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/m/uvUIyQIKMzNi" class="buy-button"> 
+          <a href="https://t.me/m/uvUIyQIKMzNi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -858,6 +869,25 @@
     </div>
   </div>
 
+ <!-- Модальное окно для 950 кредитов -->
+  <div class="product-page" id="product-page-950-credits">
+    <div class="content">
+      <span class="close-button" onclick="closeProductPage()">×</span>
+      <h2>
+        <img src="путь/к/изображению/950-credits.png" alt="950 КРЕДИТОВ"> 
+        950 КРЕДИТОВ
+      </h2>
+      <p>Особая акция - 950 кредитов. Через вход на ваш аккаунт МОМЕНТАЛЬНО!</p> 
+      <a href="https://t.me/m/fT60VKVdMmYy" class="buy-button">
+        <video autoplay muted loop>
+          <source src="videos/video.mp4" type="video/mp4">
+          Ваш браузер не поддерживает воспроизведение видео.
+        </video>
+        <span>Купить</span>
+      </a>
+    </div>
+  </div>
+
   <div class="footer">
     <p><a href="https://t.me/dextronshop">Наш Телеграм канал</a> - Made by DextronComporation</p> 
   </div>
@@ -940,6 +970,7 @@
     function removeProducts() {
       const product1 = document.getElementById("3000BlingsProduct");
       const product2 = document.getElementById("PotatoSqueakProduct");
+      const product3 = document.getElementById("950CreditsProduct"); 
 
       if (product1) {
         product1.remove(); 
@@ -948,10 +979,14 @@
       if (product2) {
         product2.remove();
       }
+
+      if (product3) {
+        product3.remove();
+      }
     }
 
-    // Установка таймера для удаления товаров в 15.08.2024 в 10:00 по Мск
-    const endTime = new Date('2024-08-15T10:00:00+03:00').getTime(); // Мск +3 часа
+    // Установка таймера для удаления товаров в 17.08.2024 в 10:00 по Мск
+    const endTime = new Date('2024-08-17T10:00:00+03:00').getTime(); // Мск +3 часа
     const timer = setInterval(function() {
       const now = new Date().getTime();
       const timeLeft = endTime - now;
@@ -966,6 +1001,7 @@
     function removeNewProductBadges() {
       const badge1 = document.getElementById("newBadge3000Blings");
       const badge2 = document.getElementById("newBadgePotatoSqueak");
+      const badge3 = document.getElementById("newBadge950Credits");
 
       if (badge1) {
         badge1.remove();
@@ -974,10 +1010,13 @@
       if (badge2) {
         badge2.remove();
       }
+      if (badge3) {
+        badge3.remove();
+      }
     }
 
-    // Установка таймера для удаления табличек в 15.08.2024 в 10:00 по Мск
-    const endTimeBadges = new Date('2024-08-15T00:10:00+03:00').getTime(); 
+    // Установка таймера для удаления табличек в 17.08.2024 в 10:00 по Мск
+    const endTimeBadges = new Date('2024-08-17T10:00:00+03:00').getTime(); 
     const timerBadges = setInterval(function() {
       const now = new Date().getTime();
       const timeLeft = endTimeBadges - now;
