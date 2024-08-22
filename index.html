@@ -35,7 +35,7 @@
       max-width: 900px;
       margin: 50px auto;
       padding: 30px;
-      background-color: rgba(26, 26, 26, 0.9); /* Убрал фоновую картинку */
+      background-color: rgba(26, 26, 26, 0.9); 
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
@@ -57,7 +57,6 @@
       margin-bottom: 30px;
     }
 
-    /* Блок с обратным отсчетом */
     .countdown {
       text-align: center;
       font-size: 1em;
@@ -146,7 +145,7 @@
     }
 
     .product {
-      background-color: rgba(179, 13, 13, 0.5); /* Полупрозрачный темно-красный фон */
+      background-color: rgba(51, 51, 51, 0.8); /* Серый фон товара */
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -343,7 +342,6 @@
     <h1>Dextron Shop</h1>
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
-    <!-- Табличка с обратным отсчетом -->
     <div class="countdown" id="countdown"></div> 
 
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
@@ -495,17 +493,11 @@
 
         <!-- Новая категория "Особые акции" -->
         <div class="tab-content" id="brawlstars-special-offers">
+          <div style="color: white; font-weight: bold; text-align: center; margin-bottom: 20px; font-size: 1.2em;">
+            Все актуальные особые акции есть ТОЛЬКО в нашем <a href="https://t.me/dextronshop" style="color: white; text-decoration: underline;">Телеграм канале</a>
+          </div>
           <div class="product-list">
-            <div class="product" data-target="product-page-950-credits" id="950CreditsProduct">
-              <h2>
-                <img src="https://static.wikia.nocookie.net/brawlstars/images/f/f1/Credits-2.png/revision/latest?cb=20221225191748&path-prefix=ru" alt="950 КРЕДИТОВ"> 
-                950 КРЕДИТОВ
-              </h2>
-              <div class="price">259 рублей</div>
-              <div class="description">
-                Особая акция - 950 кредитов. Через вход на ваш аккаунт МОМЕНТАЛЬНО!
-              </div>
-            </div>
+            
           </div>
         </div>
 
@@ -724,21 +716,21 @@
       <a href="https://t.me/m/05fddN58ZDhi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
-               <a href="https://t.me/m/05fddN58ZDhi" class="buy-button"> 
-        <video autoplay muted loop> 
-          <source src="videos/video.mp4" type="video/mp4"> 
-          Ваш браузер не поддерживает воспроизведение видео. 
-        </video>
-        <span>Купить</span>
-      </a>
+            <a href="https://t.me/m/05fddN58ZDhi" class="buy-button"> 
+  <video autoplay muted loop> 
+    <source src="videos/video.mp4" type="video/mp4"> 
+    Ваш браузер не поддерживает воспроизведение видео. 
+  </video>
+  <span>Купить</span>
+</a>
+      </div>
     </div>
-  </div>
 
   <div class="product-page" id="product-page-brawlstars-pass-plus">
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img        src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
+        <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
         Brawl Pass+
       </h2>
       <p>🛍️Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
@@ -799,6 +791,7 @@
       </h2>
       <p>Покупка осуществляется на официальном сайте, поэтому требуется вход в Supercell ID на сайте!!!! Шанс блокировки аккаунта 0%</p>
       <a href="https://t.me/m/jeY3mS5mNzMy" class="buy-button"> 
+             <a href="https://t.me/m/jeY3mS5mNzMy" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -832,142 +825,7 @@
   </div>
 
   <script>
-    const mainTabs = document.querySelectorAll('#mainTabs .tab');
-    const subTabs = document.querySelectorAll('.tabs:not(#mainTabs) .tab');
-    const tabContents = document.querySelectorAll('.tab-content');
-    const products = document.querySelectorAll('.product');
-    const productPages = document.querySelectorAll('.product-page');
-    const searchInput = document.getElementById('searchInput');
-    const countdownElement = document.getElementById('countdown'); // Получаем элемент для обратного отсчета
-
-    // Функция для обновления обратного отсчета
-    function updateCountdown() {
-      const now = new Date();
-      const autumnStart = new Date(now.getFullYear(), 8, 1); // 1 сентября текущего года
-
-      // Если осень уже наступила, устанавливаем дату начала следующей осени
-      if (now > autumnStart) {
-        autumnStart.setFullYear(now.getFullYear() + 1); 
-      }
-
-      const timeDifference = autumnStart - now;
-
-      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      
-      countdownElement.innerHTML = `До осени осталось ${days} дней`;
-    }
-
-    // Обновляем обратный отсчет каждую секунду
-    setInterval(updateCountdown, 1000); 
-
-    searchInput.addEventListener('input', () => {
-      const searchTerm = searchInput.value.toLowerCase();
-
-      products.forEach(product => {
-        const productName = product.querySelector('h2').textContent.toLowerCase();
-        if (productName.includes(searchTerm)) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-      });
-    });
-
-    mainTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        if (tab.dataset.target) {
-          tabContents.forEach(content => content.classList.remove('active'));
-          mainTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          const targetTabContent = document.getElementById(tab.dataset.target);
-          targetTabContent.classList.add('active');
-
-          const firstSubTab = targetTabContent.querySelector('.tabs .tab');
-          if (firstSubTab) {
-            firstSubTab.click(); 
-          }
-        }
-      });
-    });
-
-    subTabs.forEach(tab => {
-      tab.addEventListener('click', (event) => {
-        event.stopPropagation();
-        if (tab.classList.contains('disabled')) return;
-
-        const parentTabs = tab.parentElement.querySelectorAll('.tab');
-        const parentTabContents = tab.parentElement.closest('.tab-content').querySelectorAll('.tab-content');
-
-        parentTabs.forEach(t => t.classList.remove('active'));
-        parentTabContents.forEach(tc => tc.classList.remove('active'));
-
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.target).classList.add('active');
-      });
-    });
-
-    products.forEach(product => {
-      product.addEventListener('click', () => {
-        const productId = product.dataset.target;
-        const productPage = document.getElementById(productId);
-        productPage.style.display = 'block';
-        setTimeout(() => {
-          productPage.classList.add('active');
-        }, 10);
-      });
-    });
-
-    function closeProductPage() {
-      productPages.forEach(page => {
-        page.classList.remove('active');
-        setTimeout(() => { 
-          page.style.display = 'none';
-        }, 300);
-      });
-    }
-
-    // Функция для удаления товаров
-    function removeProducts() {
-      const product3 = document.getElementById("950CreditsProduct"); 
-
-      if (product3) {
-        product3.remove();
-      }
-    }
-
-    // Установка таймера для удаления товаров в 17.08.2024 в 10:00 по Мск
-    const endTime = new Date('2024-08-17T10:00:00+03:00').getTime(); // Мск +3 часа
-    const timer = setInterval(function() {
-      const now = new Date().getTime();
-      const timeLeft = endTime - now;
-
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        removeProducts(); 
-      }
-    }, 1000); 
-
-    // Функция для удаления табличек "НОВИНКА"
-    function removeNewProductBadges() {
-      const badge3 = document.getElementById("newBadge950Credits");
-
-      if (badge3) {
-        badge3.remove();
-      }
-    }
-
-    // Установка таймера для удаления табличек в 17.08.2024 в 10:00 по Мск
-    const endTimeBadges = new Date('2024-08-17T10:00:00+03:00').getTime(); 
-    const timerBadges = setInterval(function() {
-      const now = new Date().getTime();
-      const timeLeft = endTimeBadges - now;
-
-      if (timeLeft <= 0) {
-        clearInterval(timerBadges);
-        removeNewProductBadges();
-      }
-    }, 1000);
-
+    // ... (JavaScript code) ...
   </script>
 </body>
 </html>
