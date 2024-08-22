@@ -35,7 +35,7 @@
       max-width: 900px;
       margin: 50px auto;
       padding: 30px;
-      background-color: rgba(26, 26, 26, 0.9);
+      background-color: rgba(26, 26, 26, 0.9); /* Убрал фоновую картинку */
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
@@ -55,6 +55,14 @@
       font-size: 0.9em;
       color: #ccc;
       margin-bottom: 30px;
+    }
+
+    /* Блок с обратным отсчетом */
+    .countdown {
+      text-align: center;
+      font-size: 1em;
+      color: #ffcc00;
+      margin-bottom: 30px; 
     }
 
     .search-bar {
@@ -138,7 +146,7 @@
     }
 
     .product {
-      background-color: #262626;
+      background-color: rgba(179, 13, 13, 0.5); /* Полупрозрачный темно-красный фон */
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -180,32 +188,6 @@
       font-size: 0.9em;
       color: #ccc;
       line-height: 1.6;
-    }
-
-    /* Стили для кнопки "Готовимся к обновлению" */
-    .update-badge {
-      background-color: #ff3333; 
-      color: white;
-      padding: 3px 8px;
-      font-weight: bold;
-      border-radius: 4px;
-      font-size: 0.8em;
-      position: absolute;
-      top: 10px; 
-      right: 10px; 
-    }
-
-    /* Стили для таблички "СКИДКА" */
-    .discount-badge {
-      background-color: #ff3333; 
-      color: white;
-      padding: 3px 8px;
-      font-weight: bold;
-      border-radius: 4px;
-      font-size: 0.8em;
-      position: absolute;
-      top: 10px; 
-      right: 10px; 
     }
 
     .product-page {
@@ -349,16 +331,6 @@
       text-decoration: none; 
     }
 
-    /* Осенние элементы */
-    .container {
-      background-image: url('https://i.imgur.com/8bS7C9z.jpg'); /* Замените на ссылку вашей осенней текстуры */
-      background-repeat: repeat; 
-      background-size: cover; 
-    }
-
-    .product {
-      background-color: rgba(51, 34, 17, 0.8); /* Полупрозрачный темно-оранжевый цвет */
-    }
   </style>
 </head>
 <body>
@@ -370,6 +342,9 @@
   <div class="container">
     <h1>Dextron Shop</h1>
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
+
+    <!-- Табличка с обратным отсчетом -->
+    <div class="countdown" id="countdown"></div> 
 
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
 
@@ -430,7 +405,6 @@
                 <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">
                 80 гемов
               </h2>
-              <div id="updateBadge80Gems" class="update-badge">Готовимся к обновлению</div> 
               <div class="price">489 рублей</div>
               <div class="description">
                 80 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
@@ -441,7 +415,6 @@
                 <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
                 170 гемов
               </h2>
-              <div id="discountBadge170Gems" class="discount-badge" style="display: none;">СКИДКА</div> 
               <div class="price">929 рублей</div>
               <div class="description">
                 170 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
@@ -566,13 +539,6 @@
               <div class="description">
                 Telegram Premium на 1 год без захода на аккаунт.
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-content" id="telegram-with-login">
-          <div style="color:#ccc; text-align: center; font-size: 1.
-                         </div>
             </div>
           </div>
         </div>
@@ -751,7 +717,7 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img src="videos/BrawlPass.png" alt="Brawl Stars Pass">
+             <img src="videos/BrawlPass.png" alt="Brawl Stars Pass">
         Brawl Pass
       </h2>
       <p> Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
@@ -872,10 +838,27 @@
     const products = document.querySelectorAll('.product');
     const productPages = document.querySelectorAll('.product-page');
     const searchInput = document.getElementById('searchInput');
+    const countdownElement = document.getElementById('countdown'); // Получаем элемент для обратного отсчета
 
-    // Получаем элементы табличек
-    const updateBadge80Gems = document.getElementById("updateBadge80Gems");
-    const discountBadge170Gems = document.getElementById("discountBadge170Gems"); 
+    // Функция для обновления обратного отсчета
+    function updateCountdown() {
+      const now = new Date();
+      const autumnStart = new Date(now.getFullYear(), 8, 1); // 1 сентября текущего года
+
+      // Если осень уже наступила, устанавливаем дату начала следующей осени
+      if (now > autumnStart) {
+        autumnStart.setFullYear(now.getFullYear() + 1); 
+      }
+
+      const timeDifference = autumnStart - now;
+
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      
+      countdownElement.innerHTML = `До осени осталось ${days} дней`;
+    }
+
+    // Обновляем обратный отсчет каждую секунду
+    setInterval(updateCountdown, 1000); 
 
     searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
@@ -982,48 +965,6 @@
       if (timeLeft <= 0) {
         clearInterval(timerBadges);
         removeNewProductBadges();
-      }
-    }, 1000);
-
-    // Установка таймера для удаления кнопки "Готовимся к обновлению" 27.08.2024 в 00:00
-    const endTimeUpdateBadge = new Date('2024-08-27T00:00:00+03:00').getTime();
-    const timerUpdateBadge = setInterval(function() {
-      const now = new Date().getTime();
-      const timeLeft = endTimeUpdateBadge - now;
-
-      if (timeLeft <= 0) {
-        clearInterval(timerUpdateBadge);
-        if (updateBadge80Gems) {
-          updateBadge80Gems.remove(); 
-        }
-      }
-    }, 1000);
-
-    // Установка таймера для добавления таблички "СКИДКА" 23.08.2024 в 10:00
-    const startTimeDiscountBadge = new Date('2024-08-23T10:00:00+03:00').getTime(); 
-    const timerStartDiscountBadge = setInterval(function() {
-      const now = new Date().getTime();
-      const timeLeft = startTimeDiscountBadge - now;
-
-      if (timeLeft <= 0) {
-        clearInterval(timerStartDiscountBadge);
-        if (discountBadge170Gems) {
-          discountBadge170Gems.style.display = "block"; 
-        }
-      }
-    }, 1000);
-
-    // Установка таймера для удаления таблички "СКИДКА" 27.08.2024 в 00:00
-    const endTimeDiscountBadge = new Date('2024-08-27T00:00:00+03:00').getTime(); 
-    const timerEndDiscountBadge = setInterval(function() {
-      const now = new Date().getTime();
-      const timeLeft = endTimeDiscountBadge - now;
-
-      if (timeLeft <= 0) {
-        clearInterval(timerEndDiscountBadge);
-        if (discountBadge170Gems) {
-          discountBadge170Gems.remove(); 
-        }
       }
     }, 1000);
 
