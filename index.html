@@ -119,6 +119,39 @@
       background: linear-gradient(to right, #ffcc00, #ffa500); 
       color: black; 
     }
+    
+    /* Стили для новой категории и кнопки */
+    .tab.accounts {
+      background: linear-gradient(to right, #fff, #e0ffff); /* Градиент белого с голубым */
+      color: black;
+    }
+
+    .accounts-notice {
+      background-color: #f44336;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .submit-ad-button {
+      display: block;
+      width: 200px;
+      margin: 0 auto;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(to right, #fff, #ccc); /* Градиент белого с серым */
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-ad-button:hover {
+      background: linear-gradient(to right, #ccc, #fff); /* Изменение градиента при наведении */
+    }
 
     .tab-content {
       display: none;
@@ -373,7 +406,8 @@
         <div class="tabs" id="brawlStarsTabs">
           <div class="tab active" data-target="brawlstars-no-login">Без захода</div>
           <div class="tab" data-target="brawlstars-with-login">С заходом</div>
-          <div class="tab special-offers" data-target="brawlstars-special-offers">Особые акции</div> 
+          <div class="tab special-offers" data-target="brawlstars-special-offers">Особые акции</div>
+          <div class="tab accounts" data-target="brawlstars-accounts">Аккаунты</div> 
         </div>
 
         <div class="tab-content active" id="brawlstars-no-login">
@@ -516,6 +550,16 @@
           <div id="specialOffersNotice">
             Все актуальные акции есть ЭКСКЛЮЗИВНО в нашем <a href="https://t.me/dextronshop" style="color: #888; transition: color 0.3s ease; text-decoration: none;">Телеграм канале</a> 
           </div>
+        </div>
+        
+        <!-- Раздел "Аккаунты" -->
+        <div class="tab-content" id="brawlstars-accounts">
+          <div class="accounts-notice">
+            Данным разделом управляют наши клиенты. <br>
+            Чтобы продать свой аккаунт, вам нужно обратиться к нашему Телеграм-боту <br>
+            Всю ответственность от сделок мы не несем! Вы всё делаете на свой страх и риск!
+          </div>
+          <a href="https://t.me/dextronaccounts_bot" class="submit-ad-button">Подать объявление</a>
         </div>
 
       </div>
@@ -915,6 +959,13 @@
     if (specialOffersContainer.children.length === 0) { 
       specialOffersNotice.style.display = 'block';
     }
+
+    // Добавляем обработчик события для новой категории "Аккаунты"
+    const accountsTab = document.querySelector('#brawlStarsTabs .tab.accounts');
+    accountsTab.addEventListener('click', (event) => {
+      event.stopPropagation(); 
+      // ... (код для переключения вкладок) ... 
+    });
   </script>
 </body>
 </html>
