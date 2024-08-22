@@ -323,18 +323,26 @@
       text-decoration: none; 
     }
 
-    /* Табличка "НОВИНКА" */
-    .new-product-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px; 
-      background-color: #f44336;
-      color: white;
-      padding: 5px 10px;
-      font-size: 0.6em; 
+    .autumn-countdown {
+      background: linear-gradient(to right, #ffcc00, #ffa500);
+      padding: 10px 20px;
       border-radius: 5px;
-      z-index: 2; 
-      font-weight: bold; 
+      text-align: center;
+      margin-bottom: 20px; 
+    }
+
+    .autumn-countdown strong {
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em; 
+    }
+
+    #specialOffersNotice {
+      color: #ccc; 
+      text-align: center; 
+      font-size: 1.2em;
+      margin-top: 20px; 
+      display: none; 
     }
   </style>
 </head>
@@ -347,6 +355,10 @@
   <div class="container">
     <h1>Dextron Shop</h1>
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
+
+    <div class="autumn-countdown" id="autumnCountdown">
+      <strong>Осталось <span id="daysLeft"></span> дней до осени</strong>
+    </div>
 
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
 
@@ -372,7 +384,7 @@
                 Пин Матчерино
               </h2>
               <div class="price">649 рублей</div>
-              <div class="description">
+                           <div class="description">
                 Данный товар будет доставлен на ваш аккаунт в течение 2 недель.
               </div>
             </div>
@@ -498,37 +510,11 @@
         <!-- Новая категория "Особые акции" -->
         <div class="tab-content" id="brawlstars-special-offers">
           <div class="product-list">
-            <div class="product" data-target="product-page-3000-blings" id="3000BlingsProduct">
-              <h2>
-                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e1f72ba0-a2b3-4808-a2f9-4691377a83be/dfvzp8g-c2c8ee4b-eada-46f5-ab42-cece789787b9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UxZjcyYmEwLWEyYjMtNDgwOC1hMmY5LTQ2OTEzNzdhODNiZVwvZGZ2enA4Zy1jMmM4ZWU0Yi1lYWRhLTQ2ZjUtYWI0Mi1jZWNlNzg5Nzg3YjkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QNH9fIeZEixyTNRNq2WHuOPTorK0FeHtnzfPuciEY2Q" alt="3000 Блингов"> 
-                3000 Блингов
-              </h2>
-              <div class="price">159 рублей</div>
-              <div class="description">
-                Особая акция - 3000 блингов. Через вход на ваш аккаунт МОМЕНТАЛЬНО! 
-              </div>
-            </div>
-            <div class="product" data-target="product-page-potato-squeak" id="PotatoSqueakProduct">
-              <h2>
-                <img src="https://i.pinimg.com/originals/6b/60/ad/6b60adeade0794680fd0acc66baa9dc1.png" alt="Картофельный Сквик"> 
-                Картофельный Сквик
-              </h2>
-              <div class="price">159 рублей</div>
-              <div class="description">
-                Особая акция - Картофельный Сквик. Через вход на ваш аккаунт МОМЕНТАЛЬНО! 
-              </div>
-            </div>
-            <div class="product" data-target="product-page-950-credits" id="950CreditsProduct">
-              <div class="new-product-badge" id="newBadge950Credits">НОВИНКА</div>
-              <h2>
-                <img src="https://static.wikia.nocookie.net/brawlstars/images/f/f1/Credits-2.png/revision/latest?cb=20221225191748&path-prefix=ru" alt="950 КРЕДИТОВ"> 
-                950 КРЕДИТОВ
-              </h2>
-              <div class="price">259 рублей</div>
-              <div class="description">
-                Особая акция - 950 кредитов. Через вход на ваш аккаунт МОМЕНТАЛЬНО!
-              </div>
-            </div>
+           
+          </div>
+
+          <div id="specialOffersNotice">
+            Все актуальные акции есть ЭКСКЛЮЗИВНО в нашем <a href="https://t.me/dextronshop" style="color: #888; transition: color 0.3s ease; text-decoration: none;">Телеграм канале</a> 
           </div>
         </div>
 
@@ -725,7 +711,7 @@
         <img src="videos/BrawlPass.png" alt="Brawl Stars Pass">
         Brawl Pass [ОСОБАЯ СКИДКА]
       </h2>
-      <p>🛍️Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта. [ОСОБАЯ СКИДКА]</p>
+      <p> Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта. [ОСОБАЯ СКИДКА]</p>
       <a href="https://t.me/m/JklMuiCJZmZi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
@@ -743,8 +729,11 @@
         <img src="videos/BrawlPass.png" alt="Brawl Stars Pass">
         Brawl Pass
       </h2>
-      <p>🛍️Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
+      <p> Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/m/05fddN58ZDhi" class="buy-button"> 
+        <video autoplay muted loop> 
+          <source src="videos/video.mp4" type="video/mp4"> 
+               <a href="https://t.me/m/05fddN58ZDhi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
@@ -828,63 +817,6 @@
     </div>
   </div>
 
-  <!-- Модальное окно для 3000 блингов -->
-  <div class="product-page" id="product-page-3000-blings">
-    <div class="content">
-      <span class="close-button" onclick="closeProductPage()">×</span>
-      <h2>
-        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e1f72ba0-a2b3-4808-a2f9-4691377a83be/dfvzp8g-c2c8ee4b-eada-46f5-ab42-cece789787b9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UxZjcyYmEwLWEyYjMtNDgwOC1hMmY5LTQ2OTEzNzdhODNiZVwvZGZ2enA4Zy1jMmM4ZWU0Yi1lYWRhLTQ2ZjUtYWI0Mi1jZWNlNzg5Nzg3YjkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QNH9fIeZEixyTNRNq2WHuOPTorK0FeHtnzfPuciEY2Q" alt="3000 Блингов"> 
-        3000 Блингов
-      </h2>
-      <p>Особая акция - 3000 блингов. Через вход на ваш аккаунт МОМЕНТАЛЬНО!</p> 
-      <a href="https://t.me/m/ZnK38ZoJMjYy" class="buy-button">
-        <video autoplay muted loop>
-          <source src="videos/video.mp4" type="video/mp4">
-          Ваш браузер не поддерживает воспроизведение видео.
-        </video>
-        <span>Купить</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- Модальное окно для Картофельного Сквика -->
-  <div class="product-page" id="product-page-potato-squeak">
-    <div class="content">
-      <span class="close-button" onclick="closeProductPage()">×</span>
-      <h2>
-        <img src="https://i.pinimg.com/originals/6b/60/ad/6b60adeade0794680fd0acc66baa9dc1.png" alt="Картофельный Сквик"> 
-        Картофельный Сквик
-      </h2>
-      <p>Особая акция - Картофельный Сквик. Через вход на ваш аккаунт МОМЕНТАЛЬНО!</p> 
-      <a href="https://t.me/m/df6CIuoTNTVi" class="buy-button">
-        <video autoplay muted loop>
-          <source src="videos/video.mp4" type="video/mp4">
-          Ваш браузер не поддерживает воспроизведение видео.
-        </video>
-        <span>Купить</span>
-      </a>
-    </div>
-  </div>
-
- <!-- Модальное окно для 950 кредитов -->
-  <div class="product-page" id="product-page-950-credits">
-    <div class="content">
-      <span class="close-button" onclick="closeProductPage()">×</span>
-      <h2>
-        <img src="https://static.wikia.nocookie.net/brawlstars/images/f/f1/Credits-2.png/revision/latest?cb=20221225191748&path-prefix=ru" alt="950 КРЕДИТОВ"> 
-        950 КРЕДИТОВ
-      </h2>
-      <p>Особая акция - 950 кредитов. Через вход на ваш аккаунт МОМЕНТАЛЬНО!</p> 
-      <a href="https://t.me/m/fT60VKVdMmYy" class="buy-button">
-        <video autoplay muted loop>
-          <source src="videos/video.mp4" type="video/mp4">
-          Ваш браузер не поддерживает воспроизведение видео.
-        </video>
-        <span>Купить</span>
-      </a>
-    </div>
-  </div>
-
   <div class="footer">
     <p><a href="https://t.me/dextronshop">Наш Телеграм канал</a> - Made by DextronComporation</p> 
   </div>
@@ -962,68 +894,27 @@
         }, 300);
       });
     }
-
-    // Функция для удаления товаров
-    function removeProducts() {
-      const product1 = document.getElementById("3000BlingsProduct");
-      const product2 = document.getElementById("PotatoSqueakProduct");
-      const product3 = document.getElementById("950CreditsProduct"); 
-
-      if (product1) {
-        product1.remove(); 
-      }
-
-      if (product2) {
-        product2.remove();
-      }
-
-      if (product3) {
-        product3.remove();
-      }
+    // Таймер обрасчета до осени (1 сентября)
+    const autumnStart = new Date(new Date().getFullYear(), 8, 1); 
+    if (new Date() > autumnStart) {
+      autumnStart.setFullYear(autumnStart.getFullYear() + 1); 
     }
-
-    // Установка таймера для удаления товаров в 17.08.2024 в 10:00 по Мск
-    const endTime = new Date('2024-08-17T10:00:00+03:00').getTime(); // Мск +3 часа
-    const timer = setInterval(function() {
-      const now = new Date().getTime();
-      const timeLeft = endTime - now;
-
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        removeProducts(); 
-      }
-    }, 1000); 
-
-    // Функция для удаления табличек "НОВИНКА"
-    function removeNewProductBadges() {
-      const badge1 = document.getElementById("newBadge3000Blings");
-      const badge2 = document.getElementById("newBadgePotatoSqueak");
-      const badge3 = document.getElementById("newBadge950Credits");
-
-      if (badge1) {
-        badge1.remove();
-      }
-
-      if (badge2) {
-        badge2.remove();
-      }
-      if (badge3) {
-        badge3.remove();
-      }
+    function updateCountdown() {
+      const now = new Date();
+      const diff = autumnStart - now;
+      const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24)); 
+      document.getElementById('daysLeft').textContent = daysLeft;
     }
+    updateCountdown();
+    setInterval(updateCountdown, 1000 * 60 * 60 * 24);
 
-    // Установка таймера для удаления табличек в 17.08.2024 в 10:00 по Мск
-    const endTimeBadges = new Date('2024-08-17T10:00:00+03:00').getTime(); 
-    const timerBadges = setInterval(function() {
-      const now = new Date().getTime();
-      const timeLeft = endTimeBadges - now;
+    // Проверка наличия товаров в разделе "Особые акции"
+    const specialOffersContainer = document.querySelector('#brawlstars-special-offers .product-list');
+    const specialOffersNotice = document.getElementById('specialOffersNotice');
 
-      if (timeLeft <= 0) {
-        clearInterval(timerBadges);
-        removeNewProductBadges();
-      }
-    }, 1000);
-
+    if (specialOffersContainer.children.length === 0) { 
+      specialOffersNotice.style.display = 'block';
+    }
   </script>
 </body>
 </html>
