@@ -182,6 +182,32 @@
       line-height: 1.6;
     }
 
+    /* Стили для кнопки "Готовимся к обновлению" */
+    .update-badge {
+      background-color: #ff3333; 
+      color: white;
+      padding: 3px 8px;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 0.8em;
+      position: absolute;
+      top: 10px; 
+      right: 10px; 
+    }
+
+    /* Стили для таблички "СКИДКА" */
+    .discount-badge {
+      background-color: #ff3333; 
+      color: white;
+      padding: 3px 8px;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 0.8em;
+      position: absolute;
+      top: 10px; 
+      right: 10px; 
+    }
+
     .product-page {
       display: none;
       position: fixed;
@@ -323,6 +349,16 @@
       text-decoration: none; 
     }
 
+    /* Осенние элементы */
+    .container {
+      background-image: url('https://i.imgur.com/8bS7C9z.jpg'); /* Замените на ссылку вашей осенней текстуры */
+      background-repeat: repeat; 
+      background-size: cover; 
+    }
+
+    .product {
+      background-color: rgba(51, 34, 17, 0.8); /* Полупрозрачный темно-оранжевый цвет */
+    }
   </style>
 </head>
 <body>
@@ -394,6 +430,7 @@
                 <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">
                 80 гемов
               </h2>
+              <div id="updateBadge80Gems" class="update-badge">Готовимся к обновлению</div> 
               <div class="price">489 рублей</div>
               <div class="description">
                 80 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
@@ -404,6 +441,7 @@
                 <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
                 170 гемов
               </h2>
+              <div id="discountBadge170Gems" class="discount-badge" style="display: none;">СКИДКА</div> 
               <div class="price">929 рублей</div>
               <div class="description">
                 170 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
@@ -528,6 +566,13 @@
               <div class="description">
                 Telegram Premium на 1 год без захода на аккаунт.
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="telegram-with-login">
+          <div style="color:#ccc; text-align: center; font-size: 1.
+                         </div>
             </div>
           </div>
         </div>
@@ -828,6 +873,10 @@
     const productPages = document.querySelectorAll('.product-page');
     const searchInput = document.getElementById('searchInput');
 
+    // Получаем элементы табличек
+    const updateBadge80Gems = document.getElementById("updateBadge80Gems");
+    const discountBadge170Gems = document.getElementById("discountBadge170Gems"); 
+
     searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
 
@@ -933,6 +982,48 @@
       if (timeLeft <= 0) {
         clearInterval(timerBadges);
         removeNewProductBadges();
+      }
+    }, 1000);
+
+    // Установка таймера для удаления кнопки "Готовимся к обновлению" 27.08.2024 в 00:00
+    const endTimeUpdateBadge = new Date('2024-08-27T00:00:00+03:00').getTime();
+    const timerUpdateBadge = setInterval(function() {
+      const now = new Date().getTime();
+      const timeLeft = endTimeUpdateBadge - now;
+
+      if (timeLeft <= 0) {
+        clearInterval(timerUpdateBadge);
+        if (updateBadge80Gems) {
+          updateBadge80Gems.remove(); 
+        }
+      }
+    }, 1000);
+
+    // Установка таймера для добавления таблички "СКИДКА" 23.08.2024 в 10:00
+    const startTimeDiscountBadge = new Date('2024-08-23T10:00:00+03:00').getTime(); 
+    const timerStartDiscountBadge = setInterval(function() {
+      const now = new Date().getTime();
+      const timeLeft = startTimeDiscountBadge - now;
+
+      if (timeLeft <= 0) {
+        clearInterval(timerStartDiscountBadge);
+        if (discountBadge170Gems) {
+          discountBadge170Gems.style.display = "block"; 
+        }
+      }
+    }, 1000);
+
+    // Установка таймера для удаления таблички "СКИДКА" 27.08.2024 в 00:00
+    const endTimeDiscountBadge = new Date('2024-08-27T00:00:00+03:00').getTime(); 
+    const timerEndDiscountBadge = setInterval(function() {
+      const now = new Date().getTime();
+      const timeLeft = endTimeDiscountBadge - now;
+
+      if (timeLeft <= 0) {
+        clearInterval(timerEndDiscountBadge);
+        if (discountBadge170Gems) {
+          discountBadge170Gems.remove(); 
+        }
       }
     }, 1000);
 
