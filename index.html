@@ -15,8 +15,14 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #f0d08a; /* Теплый бежевый фон */
-      color: #333; /* Темно-коричневый текст */
+      background-color: #f5f5f5; 
+      color: #333; 
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark {
+      background-color: #1a1a1a;
+      color: #fff;
     }
 
     .background-video {
@@ -35,9 +41,14 @@
       max-width: 900px;
       margin: 50px auto;
       padding: 30px;
-      background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+      background-color: #fff;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Легкая тень */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark .container {
+      background-color: #262626;
     }
 
     h1 {
@@ -45,7 +56,7 @@
       font-weight: 700;
       text-align: center;
       margin-bottom: 10px;
-      background: linear-gradient(to right, #e9692c, #a10303); /* Градиент осенних цветов */
+      background: linear-gradient(to right, #f44336, #e91e63);
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -57,19 +68,32 @@
       margin-bottom: 30px;
     }
 
+    body.dark .working-hours {
+      color: #ccc; 
+    }
+
     .search-bar {
       width: 100%;
       padding: 12px;
       margin-bottom: 30px;
-      border: 1px solid #d9b36b; /* Светло-коричневая рамка */
-      background-color: #fff;
-      color: #555;
+      border: none;
+      background-color: #eee;
+      color: #333;
       border-radius: 5px;
       font-size: 1em;
     }
 
+    body.dark .search-bar {
+      background-color: #333;
+      color: #fff;
+    }
+
     .search-bar::placeholder {
-      color: #aaa;
+      color: #888;
+    }
+
+    body.dark .search-bar::placeholder {
+      color: #ccc;
     }
 
     .tabs {
@@ -84,21 +108,30 @@
       padding: 10px 15px;
       border: none;
       border-radius: 5px;
-      background-color: #d9b36b; /* Светло-коричневый фон */
-      color: #fff;
+      background-color: #eee;
+      color: #333;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
       text-align: center;
       white-space: nowrap;
     }
 
+    body.dark .tab {
+      background-color: #262626;
+      color: #eee;
+    }
+
     .tab:hover {
-      background-color: #b38847; /* Более темный коричневый при наведении */
+      background-color: #ddd;
+    }
+
+    body.dark .tab:hover {
+      background-color: #333;
     }
 
     .tab.active {
-      background-color: #a10303; /* Темно-красный */
+      background-color: #f44336;
       color: #fff;
     }
 
@@ -138,12 +171,16 @@
     }
 
     .product {
-      background-color: #fff; /* Белый фон для продуктов */
+      background-color: #fff;
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       position: relative;
+    }
+
+    body.dark .product {
+      background-color: #262626;
     }
 
     .product:hover {
@@ -157,7 +194,14 @@
       margin-bottom: 10px;
       display: flex;
       align-items: center;
-      color: #333;
+    }
+
+    #brawlPassPlusProduct h2 {
+      color: white;
+    }
+
+    body.dark #brawlPassPlusProduct h2 {
+      color: #eee;
     }
 
     .product h2 img {
@@ -169,7 +213,7 @@
     .product .price {
       font-size: 1.1em;
       font-weight: 600;
-      color: #a10303; /* Темно-красный */
+      color: #ffcc00;
       margin-bottom: 10px;
     }
 
@@ -177,6 +221,10 @@
       font-size: 0.9em;
       color: #555;
       line-height: 1.6;
+    }
+
+    body.dark .product .description {
+      color: #ccc;
     }
 
     .product-page {
@@ -192,7 +240,7 @@
     }
 
     .product-page .content {
-      background-color: #fff; /* Белый фон */
+      background-color: #fff;
       margin: 10% auto;
       padding: 30px;
       border-radius: 10px;
@@ -201,6 +249,10 @@
       opacity: 0;
       transform: scale(0.95);
       transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    body.dark .product-page .content {
+      background-color: #181818;
     }
 
     .product-page.active .content {
@@ -215,7 +267,6 @@
       display: flex;
       align-items: flex-start;
       flex-direction: column;
-      color: #333;
     }
 
     .product-page .content h2 img {
@@ -232,19 +283,23 @@
       margin-bottom: 20px;
     }
 
+    body.dark .product-page .content p {
+      color: #ccc;
+    }
+
     .close-button {
       position: absolute;
       top: 10px;
       right: 15px;
       font-size: 20px;
       font-weight: bold;
-      color: #333; /* Темно-коричневый */
+      color: #333;
       cursor: pointer;
       transition: color 0.2s ease;
     }
 
     .close-button:hover {
-      color: #a10303; /* Темно-красный */
+      color: #f44336;
     }
 
     .buy-button {
@@ -256,9 +311,9 @@
       position: relative;
       overflow: hidden;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       margin: 30px auto;
-      background-color: #e9692c; /* Оранжевый */
+      background-color: #ff3300;
       color: white;
       font-weight: bold;
       font-size: 1.2em;
@@ -269,7 +324,7 @@
 
     .buy-button:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     }
 
     .buy-button video {
@@ -298,23 +353,27 @@
       left: 0;
       width: 100%;
       text-align: center;
-      background-color: rgba(217, 179, 107, 0.8); /* Полупрозрачный светло-коричневый */
+      background-color: transparent;
       padding: 10px 0;
     }
 
     .footer p {
-      color: #333;
+      color: #666;
       margin: 0;
       font-size: 0.8em;
     }
 
     .footer a {
-      color: #555;
+      color: #888;
       transition: color 0.3s ease;
     }
 
     .footer a:hover {
-      color: #a10303;
+      color: #333;
+    }
+
+    body.dark .footer a:hover {
+      color: white;
     }
 
     a {
@@ -322,7 +381,7 @@
     }
 
     .autumn-countdown {
-      background: linear-gradient(to right, #e9692c, #a10303); /* Градиент осенних цветов */
+      background: linear-gradient(to right, #ffcc00, #ffa500);
       padding: 10px 20px;
       border-radius: 5px;
       text-align: center;
@@ -341,13 +400,39 @@
       font-size: 1.2em;
       margin-top: 20px;
       display: none;
-     }
+    }
+
+    body.dark #specialOffersNotice {
+      color: #ccc;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .theme-toggle i {
+      font-size: 1.2em;
+    }
   </style>
 </head>
 <body>
+  <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
   <video class="background-video" autoplay muted loop>
     <source src="videos/background.mp4" type="video/mp4">
-    Ваш браузер не поддерживает воспроизведение видео. 
+    Ваш браузер не поддерживает воспроизведение видео.
   </video>
 
   <div class="container">
@@ -355,15 +440,15 @@
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
     <div class="autumn-countdown" id="autumnCountdown">
-      <strong>Осталось 9 дней до осени</strong>
+      <strong>Осталось <span id="daysLeft"></span> дней до осени</strong>
     </div>
 
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
 
     <div class="tabs" id="mainTabs">
-      <div class="tab active" data-target="brawlstars">Brawl Stars</div> 
+      <div class="tab active" data-target="brawlstars">Brawl Stars</div>
       <div class="tab" data-target="telegram">Telegram</div>
-      <a href="https://t.me/dextronreviews" class="tab reviews">Отзывы</a> 
+      <a href="https://t.me/dextronreviews" class="tab reviews">Отзывы</a>
     </div>
 
     <div class="tab-content-container">
@@ -371,7 +456,7 @@
         <div class="tabs" id="brawlStarsTabs">
           <div class="tab active" data-target="brawlstars-no-login">Без захода</div>
           <div class="tab" data-target="brawlstars-with-login">С заходом</div>
-          <div class="tab special-offers" data-target="brawlstars-special-offers">Особые акции</div> 
+          <div class="tab special-offers" data-target="brawlstars-special-offers">Особые акции</div>
         </div>
 
         <div class="tab-content active" id="brawlstars-no-login">
@@ -382,15 +467,15 @@
                 Пин Матчерино
               </h2>
               <div class="price">649 рублей</div>
-                           <div class="description">
+              <div class="description">
                 Данный товар будет доставлен на ваш аккаунт в течение 2 недель.
               </div>
             </div>
 
-            <div class="product" data-target="product-page-brawlstars-pass-gift" id="brawlPassGiftProduct"> 
+            <div class="product" data-target="product-page-brawlstars-pass-gift" id="brawlPassGiftProduct">
               <h2>
                 <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
-                Brawl Pass+ [ПОДАРКОМ] 
+                Brawl Pass+ [ПОДАРКОМ]
               </h2>
               <div class="price">999 рублей</div>
               <div class="description">
@@ -505,19 +590,16 @@
           </div>
         </div>
 
-        <!-- Новая категория "Особые акции" -->
         <div class="tab-content" id="brawlstars-special-offers">
           <div class="product-list">
-           
           </div>
 
           <div id="specialOffersNotice">
-            Все актуальные акции есть ЭКСКЛЮЗИВНО в нашем <a href="https://t.me/dextronshop" style="color: #888; transition: color 0.3s ease; text-decoration: none;">Телеграм канале</a> 
+            Все актуальные акции есть ЭКСКЛЮЗИВНО в нашем <a href="https://t.me/dextronshop" style="color: #888; transition: color 0.3s ease; text-decoration: none;">Телеграм канале</a>
           </div>
         </div>
 
       </div>
-
 
       <div class="tab-content" id="telegram">
         <div class="tabs" id="telegramTabs">
@@ -529,7 +611,7 @@
           <div class="product-list">
             <div class="product" data-target="product-page-telegram-premium" id="telegramPremiumProduct">
               <h2>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium">
                 Telegram Premium 1 месяц
               </h2>
               <div class="price">250 рублей</div>
@@ -539,7 +621,7 @@
             </div>
             <div class="product" data-target="product-page-telegram-premium-year" id="telegramPremiumYearProduct">
               <h2>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium">
                 Telegram Premium 1 год
               </h2>
               <div class="price">1650 рублей</div>
@@ -562,16 +644,16 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium">
         Telegram Premium 1 месяц
       </h2>
       <p> Telegram Premium сроком на 1 месяц. Покупка производится вами с помощью моей карты в @PremiumBot. Быстро и удобно</p>
       <a href="https://t.me/DextronSeller" class="buy-button">
-        <video autoplay muted loop> 
-          <source src="videos/video.mp4" type="video/mp4"> 
-          Ваш браузер не поддерживает воспроизведение видео. 
+        <video autoplay muted loop>
+          <source src="videos/video.mp4" type="video/mp4">
+          Ваш браузер не поддерживает воспроизведение видео.
         </video>
-        <span>Купить</span> 
+        <span>Купить</span>
       </a>
     </div>
   </div>
@@ -580,16 +662,16 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium">
         Telegram Premium 1 год
       </h2>
       <p> Telegram Premium сроком на 1 год. Покупка производится вами с помощью моей карты в @PremiumBot. Быстро и удобно</p>
       <a href="https://t.me/DextronSeller" class="buy-button">
-        <video autoplay muted loop> 
-          <source src="videos/video.mp4" type="video/mp4"> 
-          Ваш браузер не поддерживает воспроизведение видео. 
+        <video autoplay muted loop>
+          <source src="videos/video.mp4" type="video/mp4">
+          Ваш браузер не поддерживает воспроизведение видео.
         </video>
-        <span>Купить</span> 
+        <span>Купить</span>
       </a>
     </div>
   </div>
@@ -602,10 +684,10 @@
         30 гемов
       </h2>
       <p> 30 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/m/kZ-GCKbuMjAy" class="buy-button"> 
-        <video autoplay muted loop> 
-          <source src="videos/video.mp4" type="video/mp4"> 
-          Ваш браузер не поддерживает воспроизведение видео. 
+      <a href="https://t.me/m/kZ-GCKbuMjAy" class="buy-button">
+        <video autoplay muted loop>
+          <source src="videos/video.mp4" type="video/mp4">
+          Ваш браузер не поддерживает воспроизведение видео.
         </video>
         <span>Купить</span>
       </a>
@@ -620,10 +702,10 @@
         80 гемов
       </h2>
       <p> 80 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/m/bV-n3Ng-OGZi" class="buy-button"> 
-        <video autoplay muted loop> 
-          <source src="videos/video.mp4" type="video/mp4"> 
-          Ваш браузер не поддерживает воспроизведение видео. 
+      <a href="https://t.me/m/bV-n3Ng-OGZi" class="buy-button">
+        <video autoplay muted loop>
+          <source src="videos/video.mp4" type="video/mp4">
+          Ваш браузер не поддерживает воспроизведение видео.
         </video>
         <span>Купить</span>
       </a>
@@ -638,10 +720,10 @@
         170 гемов
       </h2>
       <p> 170 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/m/GqybarxoMjM6" class="buy-button"> 
-        <video autoplay muted loop> 
-          <source src="videos/video.mp4" type="video/mp4"> 
-          Ваш браузер не поддерживает воспроизведение видео. 
+      <a href="https://t.me/m/GqybarxoMjM6" class="buy-button">
+        <video autoplay muted loop>
+          <source src="videos/video.mp4" type="video/mp4">
+          Ваш браузер не поддерживает воспроизведение видео.
         </video>
         <span>Купить</span>
       </a>
@@ -656,10 +738,10 @@
         360 гемов
       </h2>
       <p> 360 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-          <a href="https://t.me/m/uvUIyQIKMzNi" class="buy-button"> 
-        <video autoplay muted loop> 
-          <source src="videos/video.mp4" type="video/mp4"> 
-          Ваш браузер не поддерживает воспроизведение видео. 
+      <a href="https://t.me/m/uvUIyQIKMzNi" class="buy-button">
+        <video autoplay muted loop>
+          <source src="videos/video.mp4" type="video/mp4">
+          Ваш браузер не поддерживает воспроизведение видео.
         </video>
         <span>Купить</span>
       </a>
@@ -670,18 +752,18 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl      Stars Gems">
+        <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
         950 гемов
       </h2>
       <p> 950 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/m/GLlNCHmMMjg6" class="buy-button"> 
-        <video autoplay muted loop> 
-          <source src="videos/video.mp4" type="video/mp4"> 
-          Ваш браузер не поддерживает воспроизведение видео. 
+            <a href="https://t.me/m/GLlNCHmMMjg6" class="buy-button">
+        <video autoplay muted loop>
+          <source src="videos/video.mp4" type="video/mp4">
+          Ваш браузер не поддерживает воспроизведение видео.
         </video>
         <span>Купить</span>
       </a>
-          </div>
+    </div>
   </div>
 
   <div class="product-page" id="product-page-brawlstars-gems-2000">
@@ -731,9 +813,6 @@
       <a href="https://t.me/m/05fddN58ZDhi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
-               <a href="https://t.me/m/05fddN58ZDhi" class="buy-button"> 
-        <video autoplay muted loop> 
-          <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
         </video>
         <span>Купить</span>
@@ -745,7 +824,7 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img        src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
+        <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
         Brawl Pass+
       </h2>
       <p>🛍️Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
@@ -826,6 +905,18 @@
     const products = document.querySelectorAll('.product');
     const productPages = document.querySelectorAll('.product-page');
     const searchInput = document.getElementById('searchInput');
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Проверка localStorage при загрузке страницы
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark');
+        themeToggle.querySelector('i').classList.remove('fa-moon');
+        themeToggle.querySelector('i').classList.add('fa-sun');
+      }
+    });
 
     searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
@@ -851,7 +942,7 @@
 
           const firstSubTab = targetTabContent.querySelector('.tabs .tab');
           if (firstSubTab) {
-            firstSubTab.click(); 
+            firstSubTab.click();
           }
         }
       });
@@ -887,20 +978,34 @@
     function closeProductPage() {
       productPages.forEach(page => {
         page.classList.remove('active');
-        setTimeout(() => { 
+        setTimeout(() => {
           page.style.display = 'none';
         }, 300);
       });
     }
-    // Таймер обрасчета до осени (1 сентября)
-    const autumnStart = new Date(new Date().getFullYear(), 8, 1); 
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+
+      const currentIcon = themeToggle.querySelector('i');
+      const isDarkMode = body.classList.contains('dark');
+
+      currentIcon.classList.remove(isDarkMode ? 'fa-sun' : 'fa-moon');
+      currentIcon.classList.add(isDarkMode ? 'fa-moon' : 'fa-sun');
+
+      // Сохранение выбранной темы в localStorage
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    });
+
+    // Таймер обратного отсчета до осени (1 сентября)
+    const autumnStart = new Date(new Date().getFullYear(), 8, 1);
     if (new Date() > autumnStart) {
-      autumnStart.setFullYear(autumnStart.getFullYear() + 1); 
+      autumnStart.setFullYear(autumnStart.getFullYear() + 1);
     }
     function updateCountdown() {
       const now = new Date();
       const diff = autumnStart - now;
-      const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24)); 
+      const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24));
       document.getElementById('daysLeft').textContent = daysLeft;
     }
     updateCountdown();
@@ -910,9 +1015,11 @@
     const specialOffersContainer = document.querySelector('#brawlstars-special-offers .product-list');
     const specialOffersNotice = document.getElementById('specialOffersNotice');
 
-    if (specialOffersContainer.children.length === 0) { 
+    if (specialOffersContainer.children.length === 0) {
       specialOffersNotice.style.display = 'block';
     }
   </script>
+
+  <script src="https://kit.fontawesome.com/f32900067c.js" crossorigin="anonymous"></script> 
 </body>
 </html>
