@@ -15,8 +15,8 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #1a1a1a;
-      color: #fff;
+      background: #f0d08a; /* Теплый бежевый фон */
+      color: #333; /* Темно-коричневый текст */
     }
 
     .background-video {
@@ -35,17 +35,17 @@
       max-width: 900px;
       margin: 50px auto;
       padding: 30px;
-      background-color: rgba(26, 26, 26, 0.9);
+      background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Легкая тень */
     }
 
     h1 {
       font-size: 2.5em;
       font-weight: 700;
       text-align: center;
-      margin-bottom: 10px; 
-      background: linear-gradient(to right, #f44336, #e91e63);
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #e9692c, #a10303); /* Градиент осенних цветов */
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -53,7 +53,7 @@
     .working-hours {
       text-align: center;
       font-size: 0.9em;
-      color: #ccc;
+      color: #555;
       margin-bottom: 30px;
     }
 
@@ -61,63 +61,63 @@
       width: 100%;
       padding: 12px;
       margin-bottom: 30px;
-      border: none;
-      background-color: #333;
-      color: #fff;
+      border: 1px solid #d9b36b; /* Светло-коричневая рамка */
+      background-color: #fff;
+      color: #555;
       border-radius: 5px;
       font-size: 1em;
     }
 
     .search-bar::placeholder {
-      color: #888;
+      color: #aaa;
     }
 
     .tabs {
       display: flex;
-      flex-wrap: wrap; 
+      flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 30px;
-      justify-content: center; 
+      justify-content: center;
     }
 
     .tab {
-      padding: 10px 15px; 
+      padding: 10px 15px;
       border: none;
       border-radius: 5px;
-      background-color: #262626;
-      color: #eee;
+      background-color: #d9b36b; /* Светло-коричневый фон */
+      color: #fff;
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s ease;
       text-align: center;
-      white-space: nowrap; 
+      white-space: nowrap;
     }
 
     .tab:hover {
-      background-color: #333;
+      background-color: #b38847; /* Более темный коричневый при наведении */
     }
 
     .tab.active {
-      background-color: #f44336;
+      background-color: #a10303; /* Темно-красный */
       color: #fff;
     }
 
-    .tab.reviews { 
+    .tab.reviews {
       background: linear-gradient(to right, #673ab7, #9c27b0);
       color: white;
       box-shadow: 0 4px 8px rgba(156, 39, 176, 0.5);
-      transition: transform 0.2s ease, box-shadow 0.2s ease; 
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .tab.reviews:hover {
       background: linear-gradient(to right, #9c27b0, #673ab7);
       box-shadow: 0 6px 12px rgba(156, 39, 176, 0.7);
-      transform: scale(1.05); 
+      transform: scale(1.05);
     }
-    
-    .tab.special-offers { 
-      background: linear-gradient(to right, #ffcc00, #ffa500); 
-      color: black; 
+
+    .tab.special-offers {
+      background: linear-gradient(to right, #ffcc00, #ffa500);
+      color: black;
     }
 
     .tab-content {
@@ -133,22 +133,22 @@
 
     .product-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
     .product {
-      background-color: #262626;
+      background-color: #fff; /* Белый фон для продуктов */
       border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      position: relative; 
+      position: relative;
     }
 
     .product:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .product h2 {
@@ -157,10 +157,7 @@
       margin-bottom: 10px;
       display: flex;
       align-items: center;
-    }
-
-    #brawlPassPlusProduct h2 {
-      color: white; 
+      color: #333;
     }
 
     .product h2 img {
@@ -172,13 +169,13 @@
     .product .price {
       font-size: 1.1em;
       font-weight: 600;
-      color: #ffcc00;
+      color: #a10303; /* Темно-красный */
       margin-bottom: 10px;
     }
 
     .product .description {
       font-size: 0.9em;
-      color: #ccc;
+      color: #555;
       line-height: 1.6;
     }
 
@@ -195,7 +192,7 @@
     }
 
     .product-page .content {
-      background-color: #181818;
+      background-color: #fff; /* Белый фон */
       margin: 10% auto;
       padding: 30px;
       border-radius: 10px;
@@ -203,11 +200,11 @@
       position: relative;
       opacity: 0;
       transform: scale(0.95);
-      transition: opacity 0.3s ease, transform 0.3s ease; 
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     .product-page.active .content {
-      opacity: 1; 
+      opacity: 1;
       transform: scale(1);
     }
 
@@ -217,19 +214,20 @@
       margin-bottom: 20px;
       display: flex;
       align-items: flex-start;
-      flex-direction: column; 
+      flex-direction: column;
+      color: #333;
     }
 
     .product-page .content h2 img {
       width: auto;
-      max-width: 100%; 
+      max-width: 100%;
       height: auto;
       margin-bottom: 10px;
     }
 
     .product-page .content p {
       font-size: 0.9em;
-      color: #ccc;
+      color: #555;
       line-height: 1.6;
       margin-bottom: 20px;
     }
@@ -240,16 +238,16 @@
       right: 15px;
       font-size: 20px;
       font-weight: bold;
-      color: #fff;
+      color: #333; /* Темно-коричневый */
       cursor: pointer;
-      transition: color 0.2s ease; 
+      transition: color 0.2s ease;
     }
 
     .close-button:hover {
-      color: #f44336; 
+      color: #a10303; /* Темно-красный */
     }
 
-    .buy-button { 
+    .buy-button {
       width: 180px;
       height: 50px;
       border: none;
@@ -258,9 +256,9 @@
       position: relative;
       overflow: hidden;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       margin: 30px auto;
-      background-color: #ff3300;
+      background-color: #e9692c; /* Оранжевый */
       color: white;
       font-weight: bold;
       font-size: 1.2em;
@@ -271,26 +269,26 @@
 
     .buy-button:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
     .buy-button video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      position: absolute; 
+      position: absolute;
       top: 0;
       left: 0;
       border-radius: 8px;
-      transition: transform 0.2s ease; 
+      transition: transform 0.2s ease;
     }
 
     .buy-button:hover video {
-      transform: scale(1.05); 
+      transform: scale(1.05);
     }
 
-    .buy-button span { 
-      position: relative; 
+    .buy-button span {
+      position: relative;
       z-index: 1;
     }
 
@@ -300,50 +298,50 @@
       left: 0;
       width: 100%;
       text-align: center;
-      background-color: transparent;
-      padding: 10px 0; 
+      background-color: rgba(217, 179, 107, 0.8); /* Полупрозрачный светло-коричневый */
+      padding: 10px 0;
     }
 
     .footer p {
-      color: #666;
+      color: #333;
       margin: 0;
       font-size: 0.8em;
     }
 
     .footer a {
-      color: #888; 
+      color: #555;
       transition: color 0.3s ease;
     }
 
     .footer a:hover {
-      color: white;
+      color: #a10303;
     }
 
     a {
-      text-decoration: none; 
+      text-decoration: none;
     }
 
     .autumn-countdown {
-      background: linear-gradient(to right, #ffcc00, #ffa500);
+      background: linear-gradient(to right, #e9692c, #a10303); /* Градиент осенних цветов */
       padding: 10px 20px;
       border-radius: 5px;
       text-align: center;
-      margin-bottom: 20px; 
+      margin-bottom: 20px;
     }
 
     .autumn-countdown strong {
       color: white;
       font-weight: bold;
-      font-size: 1.2em; 
+      font-size: 1.2em;
     }
 
     #specialOffersNotice {
-      color: #ccc; 
-      text-align: center; 
+      color: #555;
+      text-align: center;
       font-size: 1.2em;
-      margin-top: 20px; 
-      display: none; 
-    }
+      margin-top: 20px;
+      display: none;
+     }
   </style>
 </head>
 <body>
