@@ -324,7 +324,7 @@
     }
 
    .autumn-countdown {
-  background: linear-gradient(to right, #ff5733, #ffa500); 
+  background: linear-gradient(to right, #ff5733, #ffa500); /* Градиент красного с оранжевым */
   padding: 10px 20px;
   border-radius: 5px;
   text-align: center;
@@ -344,151 +344,6 @@
       margin-top: 20px; 
       display: none; 
     }
-
-    /* Стили для кнопки аккаунта */
-    .account-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      z-index: 101; 
-    }
-
-    .account-button img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-    }
-
-    .account-button .user-name {
-      position: absolute;
-      bottom: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.8em;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      white-space: nowrap;
-    }
-
-    .account-button:hover .user-name {
-      opacity: 1;
-    }
-
-    /* Стили для модального окна аккаунта */
-    .account-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 100; 
-      align-items: center;
-      justify-content: center; 
-    }
-
-    .account-modal.active {
-      display: flex; 
-    }
-
-    .account-modal .content {
-      background-color: #1a1a1a;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      text-align: center;
-      transform: scale(0.9);
-      opacity: 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .account-modal.active .content {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    .account-modal h2 {
-      font-size: 1.8em;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-
-    .account-modal input[type="text"],
-    .account-modal input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: none;
-      background-color: #333;
-      color: #fff;
-      border-radius: 5px;
-      font-size: 1em;
-    }
-
-    .account-modal button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 5px;
-      background-color: #f44336;
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .account-modal button:hover {
-      background-color: #d32f2f; 
-    }
-
-    .account-modal .tabs {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .account-modal .tab {
-      padding: 8px 15px;
-      border: none;
-      border-radius: 5px 5px 0 0;
-      background-color: #262626;
-      color: #eee;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .account-modal .tab.active {
-      background-color: #f44336;
-      color: #fff;
-    }
-
-    .account-modal .tab-content {
-      display: none;
-      padding: 20px;
-      border: 1px solid #333;
-      border-top: none;
-      border-radius: 0 0 5px 5px;
-    }
-
-    .account-modal .tab-content.active {
-      display: block;
-    }
-
-    /* Добавьте стили для размытия фона */
-    .blur-background {
-      filter: blur(5px); 
-    }
   </style>
 </head>
 <body>
@@ -497,41 +352,12 @@
     Ваш браузер не поддерживает воспроизведение видео. 
   </video>
 
-  <!-- Кнопка аккаунта -->
-  <button class="account-button" id="accountButton">
-    <img src="путь/к/изображению.png" alt="Account">
-    <span class="user-name" id="userName"></span>
-  </button>
-
-  <!-- Модальное окно аккаунта -->
-  <div class="account-modal" id="accountModal">
-    <div class="content">
-      <div class="tabs">
-        <div class="tab active" data-target="login">Вход</div>
-        <div class="tab" data-target="register">Регистрация</div>
-      </div>
-      <div class="tab-content active" id="login">
-        <h2>Вход</h2>
-        <input type="text" id="loginEmail" placeholder="Email">
-        <input type="password" id="loginPassword" placeholder="Пароль">
-        <button onclick="loginUser()">Войти</button>
-      </div>
-      <div class="tab-content" id="register">
-        <h2>Регистрация</h2>
-        <input type="text" id="registerUsername" placeholder="Имя пользователя">
-        <input type="text" id="registerEmail" placeholder="Email">
-        <input type="password" id="registerPassword" placeholder="Пароль">
-        <button onclick="registerUser()">Зарегистрироваться</button>
-      </div>
-    </div>
-  </div>
-
   <div class="container">
     <h1>Dextron Shop</h1>
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
     <div class="autumn-countdown" id="autumnCountdown">
-      <strong>До осени осталось: <span id="daysLeft"></span> дней</strong>
+      <strong>До осени осталось: 8 дней</strong>
     </div>
 
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
@@ -681,6 +507,7 @@
           </div>
         </div>
 
+        <!-- Новая категория "Особые акции" -->
         <div class="tab-content" id="brawlstars-special-offers">
           <div class="product-list">
            
@@ -794,7 +621,7 @@
         <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">
         80 гемов
       </h2>
-       <p> 80 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
+      <p> 80 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/m/bV-n3Ng-OGZi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
@@ -1001,10 +828,6 @@
     const products = document.querySelectorAll('.product');
     const productPages = document.querySelectorAll('.product-page');
     const searchInput = document.getElementById('searchInput');
-    const accountButton = document.getElementById('accountButton');
-    const accountModal = document.getElementById('accountModal');
-    const userNameSpan = document.getElementById('userName');
-    const body = document.querySelector('body');
 
     searchInput.addEventListener('input', () => {
       const searchTerm = searchInput.value.toLowerCase();
@@ -1071,7 +894,7 @@
         }, 300);
       });
     }
-
+    // Таймер обрасчета до осени (1 сентября)
     const autumnStart = new Date(new Date().getFullYear(), 8, 1); 
     if (new Date() > autumnStart) {
       autumnStart.setFullYear(autumnStart.getFullYear() + 1); 
@@ -1085,45 +908,12 @@
     updateCountdown();
     setInterval(updateCountdown, 1000 * 60 * 60 * 24);
 
+    // Проверка наличия товаров в разделе "Особые акции"
     const specialOffersContainer = document.querySelector('#brawlstars-special-offers .product-list');
     const specialOffersNotice = document.getElementById('specialOffersNotice');
 
     if (specialOffersContainer.children.length === 0) { 
       specialOffersNotice.style.display = 'block';
-    }
-
-    accountButton.addEventListener('click', () => {
-      accountModal.classList.add('active');
-      body.classList.add('blur-background'); 
-    });
-
-    const tabs = document.querySelectorAll('.account-modal .tab');
-    const tabContents = document.querySelectorAll('.account-modal .tab-content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tabContents.forEach(tc => tc.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.target).classList.add('active');
-      });
-    });
-
-    function loginUser() {
-      // Логика для входа пользователя
-      console.log('Попытка входа...');
-      const username = 'username'; // Получите имя пользователя после входа
-      userNameSpan.textContent = username;
-      accountModal.classList.remove('active');
-      body.classList.remove('blur-background'); 
-    }
-
-    function registerUser() {
-      console.log('Попытка регистрации...');
-      const username = 'username'; // Получите имя пользователя после регистрации
-      userNameSpan.textContent = username;
-      accountModal.classList.remove('active');
-      body.classList.remove('blur-background'); 
     }
   </script>
 </body>
