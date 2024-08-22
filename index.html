@@ -15,8 +15,8 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #f5f5f5; /* Светло-серый фон */
-      color: #333; /* Темно-серый текст */
+      background-color: #1a1a1a;
+      color: #fff;
     }
 
     .background-video {
@@ -35,9 +35,9 @@
       max-width: 900px;
       margin: 50px auto;
       padding: 30px;
-      background-color: #fff; /* Белый фон контейнера */
+      background-color: rgba(26, 26, 26, 0.9);
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
     h1 {
@@ -45,7 +45,7 @@
       font-weight: 700;
       text-align: center;
       margin-bottom: 10px; 
-      background: linear-gradient(to right, #f44336, #e91e63); /* Красный градиент */
+      background: linear-gradient(to right, #f44336, #e91e63);
       -webkit-background-clip: text;
       color: transparent;
     }
@@ -53,7 +53,7 @@
     .working-hours {
       text-align: center;
       font-size: 0.9em;
-      color: #666; /* Серый цвет */
+      color: #ccc;
       margin-bottom: 30px;
     }
 
@@ -61,9 +61,9 @@
       width: 100%;
       padding: 12px;
       margin-bottom: 30px;
-      border: 1px solid #ccc; /* Светло-серая рамка */
-      background-color: #fff;
-      color: #333;
+      border: none;
+      background-color: #333;
+      color: #fff;
       border-radius: 5px;
       font-size: 1em;
     }
@@ -84,8 +84,8 @@
       padding: 10px 15px; 
       border: none;
       border-radius: 5px;
-      background-color: #eee; /* Светло-серый фон вкладок */
-      color: #333;
+      background-color: #262626;
+      color: #eee;
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -94,11 +94,11 @@
     }
 
     .tab:hover {
-      background-color: #ddd; /* Более темный серый при наведении */
+      background-color: #333;
     }
 
     .tab.active {
-      background-color: #f44336; /* Красный фон активной вкладки */
+      background-color: #f44336;
       color: #fff;
     }
 
@@ -116,14 +116,14 @@
     }
     
     .tab.special-offers { 
-      background: linear-gradient(to right, #ffcc00, #ffa500); /* Желтый градиент */
+      background: linear-gradient(to right, #ffcc00, #ffa500); 
       color: black; 
     }
     
     /* Стили для новой категории и кнопки */
     .tab.accounts {
-      background: linear-gradient(to right, #42a5f5, #f44336); /* Голубой с красным */ 
-      color: white;
+      background: linear-gradient(to right, #fff, #e0ffff); /* Градиент белого с голубым */
+      color: black;
     }
 
     .accounts-notice {
@@ -142,15 +142,15 @@
       padding: 12px;
       border: none;
       border-radius: 5px;
-      background: linear-gradient(to right, #eee, #ddd); /* Светло-серый градиент */
-      color: #333; /* Темно-серый текст */
+      background: linear-gradient(to right, #fff, #ccc); /* Градиент белого с серым */
+      color: black;
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
 
     .submit-ad-button:hover {
-      background: linear-gradient(to right, #ddd, #eee); /* Изменение градиента при наведении */
+      background: linear-gradient(to right, #ccc, #fff); /* Изменение градиента при наведении */
     }
 
     .tab-content {
@@ -171,17 +171,17 @@
     }
 
     .product {
-      background-color: #fff; /* Белый фон товара */
+      background-color: #262626;
       border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       position: relative; 
     }
 
     .product:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более темная тень */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
     .product h2 {
@@ -190,7 +190,6 @@
       margin-bottom: 10px;
       display: flex;
       align-items: center;
-      color: #333; /* Темно-серый текст */
     }
 
     #brawlPassPlusProduct h2 {
@@ -206,13 +205,13 @@
     .product .price {
       font-size: 1.1em;
       font-weight: 600;
-      color: #ffcc00; /* Желтый цвет цены */
+      color: #ffcc00;
       margin-bottom: 10px;
     }
 
     .product .description {
       font-size: 0.9em;
-      color: #666; /* Серый цвет */
+      color: #ccc;
       line-height: 1.6;
     }
 
@@ -229,7 +228,7 @@
     }
 
     .product-page .content {
-      background-color: #fff; /* Белый фон модального окна */
+      background-color: #181818;
       margin: 10% auto;
       padding: 30px;
       border-radius: 10px;
@@ -251,8 +250,7 @@
       margin-bottom: 20px;
       display: flex;
       align-items: flex-start;
-      flex-direction: column;
-      color: #333; /* Темно-серый текст */ 
+      flex-direction: column; 
     }
 
     .product-page .content h2 img {
@@ -264,7 +262,7 @@
 
     .product-page .content p {
       font-size: 0.9em;
-      color: #666; /* Серый цвет */
+      color: #ccc;
       line-height: 1.6;
       margin-bottom: 20px;
     }
@@ -275,13 +273,13 @@
       right: 15px;
       font-size: 20px;
       font-weight: bold;
-      color: #333; /* Темно-серый цвет */
+      color: #fff;
       cursor: pointer;
       transition: color 0.2s ease; 
     }
 
     .close-button:hover {
-      color: #f44336; /* Красный цвет при наведении */
+      color: #f44336; 
     }
 
     .buy-button { 
@@ -293,9 +291,9 @@
       position: relative;
       overflow: hidden;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
       margin: 30px auto;
-      background-color: #ff3300; /* Красный фон кнопки */
+      background-color: #ff3300;
       color: white;
       font-weight: bold;
       font-size: 1.2em;
@@ -306,7 +304,7 @@
 
     .buy-button:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Более темная тень */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     }
 
     .buy-button video {
@@ -340,7 +338,7 @@
     }
 
     .footer p {
-      color: #666; /* Серый цвет */
+      color: #666;
       margin: 0;
       font-size: 0.8em;
     }
@@ -351,20 +349,20 @@
     }
 
     .footer a:hover {
-      color: #333; /* Темно-серый цвет */
+      color: white;
     }
 
     a {
       text-decoration: none; 
     }
 
-    .autumn-countdown {
-      background: linear-gradient(to right, #ff5733, #ffa500); /* Градиент красного с оранжевым */
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-align: center;
-      margin-bottom: 20px; 
-    }
+   .autumn-countdown {
+  background: linear-gradient(to right, #ff5733, #ffa500); /* Градиент красного с оранжевым */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px; 
+}
 
     .autumn-countdown strong {
       color: white;
@@ -373,7 +371,7 @@
     }
 
     #specialOffersNotice {
-      color: #666; /* Серый цвет */
+      color: #ccc; 
       text-align: center; 
       font-size: 1.2em;
       margin-top: 20px; 
@@ -392,7 +390,7 @@
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
     <div class="autumn-countdown" id="autumnCountdown">
-      <strong>До осени осталось: <span id="daysLeft">8</span> дней</strong>
+      <strong>До осени осталось: 8 дней</strong>
     </div>
 
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
