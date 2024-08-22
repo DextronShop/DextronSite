@@ -171,7 +171,7 @@
     }
 
     .product {
-      background-color: #fff;
+      background-color: #eee; /* Серый фон в светлой теме */
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -313,13 +313,18 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       margin: 30px auto;
-      background-color: #ff3300;
+      background-color: #ff3300; /* Цвет кнопки */
       color: white;
       font-weight: bold;
       font-size: 1.2em;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       text-align: center;
       line-height: 50px;
+    }
+
+    /* Используем тот же цвет кнопки и для темной темы */
+    body.dark .buy-button { 
+      background-color: #ff3300;
     }
 
     .buy-button:hover {
@@ -756,7 +761,7 @@
         950 гемов
       </h2>
       <p> 950 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-            <a href="https://t.me/m/GLlNCHmMMjg6" class="buy-button">
+                <a href="https://t.me/m/GLlNCHmMMjg6" class="buy-button">
         <video autoplay muted loop>
           <source src="videos/video.mp4" type="video/mp4">
           Ваш браузер не поддерживает воспроизведение видео.
