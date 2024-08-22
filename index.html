@@ -124,6 +124,14 @@
       color: black;
     }
 
+    /* Добавим стили для картинок в кнопках */
+    #mainTabs .tab img {
+      width: 24px; /* Можно изменить размер */
+      height: 24px;
+      vertical-align: middle; /* Выравнивание по вертикали */
+      margin-right: 5px; /* Отступ справа от картинки */
+    }
+
     .tab-content {
       display: none;
       opacity: 0;
@@ -403,8 +411,12 @@
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
 
     <div class="tabs" id="mainTabs">
-      <div class="tab active" data-target="brawlstars">Brawl Stars</div>
-      <div class="tab" data-target="telegram">Telegram</div>
+      <div class="tab active" data-target="brawlstars">
+        <img src="https://png.klev.club/uploads/posts/2024-03/png-klev-club-p-bravo-stars-ikonka-png-17.png" alt="Brawl Stars"> 
+      </div>
+      <div class="tab" data-target="telegram">
+        <img src="https://w7.pngwing.com/pngs/402/10/png-transparent-telegram-logo-scalable-graphics-icon-logo-blue-angle-triangle.png" alt="Telegram">
+      </div>
       <a href="https://t.me/dextronreviews" class="tab reviews">Отзывы</a>
     </div>
 
@@ -727,22 +739,7 @@
   <div class="product-page" id="product-page-brawlstars-gems-2000">
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
-      <h2>
-        <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
-        2000 гемов
-      </h2>
-      <p>2000 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/m/2uWZpGnEOGFi" class="buy-button">
-        <video autoplay muted loop>
-          <source src="videos/video.mp4" type="video/mp4">
-          Ваш браузер не поддерживает воспроизведение видео.
-        </video>
-        <span>Купить</span>
-      </a>
-    </div>
-  </div>
-
-   <div class="product-page" id="product-page-brawlstars-gems-2000">
+       <div class="product-page" id="product-page-brawlstars-gems-2000">
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
