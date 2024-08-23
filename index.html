@@ -966,6 +966,64 @@
     accountsTab.addEventListener('click', (event) => {
       event.stopPropagation(); 
       // ... (код для переключения вкладок) ... 
+   document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.container');
+  const title = document.querySelector('h1');
+  const workingHours = document.querySelector('.working-hours');
+  const tabs = document.querySelectorAll('.tab');
+  const products = document.querySelectorAll('.product');
+
+  // Сначала скрываем элементы
+  container.style.opacity = 0;
+  container.style.transform = 'translateY(30px)';
+  title.style.opacity = 0;
+  title.style.transform = 'scale(0.95)';
+  workingHours.style.opacity = 0;
+  workingHours.style.transform = 'translateY(10px)';
+  tabs.forEach(tab => {
+    tab.style.opacity = 0;
+    tab.style.transform = 'translateX(-10px)';
+  });
+  products.forEach(product => {
+    product.style.opacity = 0;
+    product.style.transform = 'translateY(20px)';
+  });
+
+  // Запускаем анимацию после загрузки страницы
+  setTimeout(() => {
+    container.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    container.style.opacity = 1;
+    container.style.transform = 'translateY(0)';
+
+    setTimeout(() => {
+      title.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      title.style.opacity = 1;
+      title.style.transform = 'scale(1)';
+
+      setTimeout(() => {
+        workingHours.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        workingHours.style.opacity = 1;
+        workingHours.style.transform = 'translateY(0)';
+
+        tabs.forEach((tab, index) => {
+          setTimeout(() => {
+            tab.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            tab.style.opacity = 1;
+            tab.style.transform = 'translateX(0)';
+          }, 100 * index); 
+        });
+
+        products.forEach((product, index) => {
+          setTimeout(() => {
+            product.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            product.style.opacity = 1;
+            product.style.transform = 'translateY(0)';
+          }, 150 * index); 
+        });
+      }, 300);
+    }, 200);
+  }, 500); 
+});
     });
   </script>
 </body>
