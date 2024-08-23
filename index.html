@@ -4,203 +4,411 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dextron Shop - Официальный Сайт</title>
-  <link rel="stylesheet" href="https://afzshop.ru/_nuxt/css/5092c9.css"> 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f2f2f2; 
-      color: #333; 
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
     }
+
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.1;
+      filter: blur(8px);
+    }
+
     .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: rgba(26, 26, 26, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
-    header {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .logo {
+
+    h1 {
+      font-size: 2.5em;
+      font-weight: 700;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px; 
+      background: linear-gradient(to right, #f44336, #e91e63);
+      -webkit-background-clip: text;
+      color: transparent;
     }
-    .logo img {
-      max-width: 200px;
-    }
+
     .working-hours {
       text-align: center;
-      font-size: 1em;
-      color: #666;
-      margin-bottom: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+      margin-bottom: 30px;
     }
+
     .search-bar {
       width: 100%;
       padding: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc; 
+      margin-bottom: 30px;
+      border: none;
+      background-color: #333;
+      color: #fff;
       border-radius: 5px;
       font-size: 1em;
     }
+
     .search-bar::placeholder {
-      color: #999; 
+      color: #888;
     }
+
     .tabs {
       display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
+      flex-wrap: wrap; 
+      gap: 10px;
+      margin-bottom: 30px;
+      justify-content: center; 
     }
+
     .tab {
-      padding: 10px 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px 5px 0 0; 
-      margin: 0 5px;
-      background-color: #e0e0e0; 
-      color: #333;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .tab:hover {
-      background-color: #d4d4d4;
-    }
-    .tab.active {
-      background-color: #fff;
-      border-bottom-color: transparent; 
-    }
-    .tab-content {
-      display: none;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-top: none; 
-      border-radius: 0 0 8px 8px; 
-      background-color: #fff; 
-    }
-    .tab-content.active {
-      display: block;
-    }
-    .product-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .product {
-      border: 1px solid #ccc; 
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #fff; 
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      text-align: center; 
-    }
-    .product:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .product img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-    .product h2 {
-      font-size: 1.1em;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-    .product .price {
-      font-size: 1.2em;
-      font-weight: 700;
-      color: #007bff; 
-      margin-bottom: 10px;
-    }
-    .buy-button { 
-      display: inline-block;
-      padding: 10px 20px;
+      padding: 10px 15px; 
       border: none;
       border-radius: 5px;
-      background-color: #28a745; 
+      background-color: #262626;
+      color: #eee;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      white-space: nowrap; 
+    }
+
+    .tab:hover {
+      background-color: #333;
+    }
+
+    .tab.active {
+      background-color: #f44336;
+      color: #fff;
+    }
+
+    .tab.reviews { 
+      background: linear-gradient(to right, #673ab7, #9c27b0);
       color: white;
+      box-shadow: 0 4px 8px rgba(156, 39, 176, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.2s ease; 
+    }
+
+    .tab.reviews:hover {
+      background: linear-gradient(to right, #9c27b0, #673ab7);
+      box-shadow: 0 6px 12px rgba(156, 39, 176, 0.7);
+      transform: scale(1.05); 
+    }
+    
+    .tab.special-offers { 
+      background: linear-gradient(to right, #ffcc00, #ffa500); 
+      color: black; 
+    }
+    
+    /* Стили для новой категории и кнопки */
+    .tab.accounts {
+      background: linear-gradient(to right, #fff, #e0ffff); /* Градиент белого с голубым */
+      color: black;
+    }
+
+    .accounts-notice {
+      background-color: #f44336;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    .submit-ad-button {
+      display: block;
+      width: 200px;
+      margin: 0 auto;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(to right, #fff, #ccc); /* Градиент белого с серым */
+      color: black;
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
-    .buy-button:hover {
-      background-color: #218838; 
+
+    .submit-ad-button:hover {
+      background: linear-gradient(to right, #ccc, #fff); /* Изменение градиента при наведении */
     }
-    footer {
-      background-color: #333; 
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-      margin-top: 20px;
+
+    .tab-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
-    footer p {
-      margin: 0;
+
+    .tab-content.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 20px;
+    }
+
+    .product {
+      background-color: #262626;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative; 
+    }
+
+    .product:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .product h2 {
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    #brawlPassPlusProduct h2 {
+      color: white; 
+    }
+
+    .product h2 img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .product .price {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+
+    .product .description {
       font-size: 0.9em;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .product-page {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .product-page .content {
+      background-color: #181818;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      position: relative;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.3s ease, transform 0.3s ease; 
+    }
+
+    .product-page.active .content {
+      opacity: 1; 
+      transform: scale(1);
+    }
+
+    .product-page .content h2 {
+      font-size: 1.5em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column; 
+    }
+
+    .product-page .content h2 img {
+      width: auto;
+      max-width: 100%; 
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .product-page .content p {
+      font-size: 0.9em;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.2s ease; 
+    }
+
+    .close-button:hover {
+      color: #f44336; 
+    }
+
+    .buy-button { 
+      width: 180px;
+      height: 50px;
+      border: none;
+      display: block;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+      margin: 30px auto;
+      background-color: #ff3300;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .buy-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .buy-button video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute; 
+      top: 0;
+      left: 0;
+      border-radius: 8px;
+      transition: transform 0.2s ease; 
+    }
+
+    .buy-button:hover video {
+      transform: scale(1.05); 
+    }
+
+    .buy-button span { 
+      position: relative; 
+      z-index: 1;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background-color: transparent;
+      padding: 10px 0; 
+    }
+
+    .footer p {
+      color: #666;
+      margin: 0;
+      font-size: 0.8em;
+    }
+
+    .footer a {
+      color: #888; 
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: white;
+    }
+
+    a {
+      text-decoration: none; 
+    }
+
+   .autumn-countdown {
+  background: linear-gradient(to right, #ff5733, #ffa500); /* Градиент красного с оранжевым */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 20px; 
+}
+
+    .autumn-countdown strong {
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em; 
+    }
+
+    #specialOffersNotice {
+      color: #ccc; 
+      text-align: center; 
+      font-size: 1.2em;
+      margin-top: 20px; 
+      display: none; 
     }
   </style>
 </head>
 <body>
+  <video class="background-video" autoplay muted loop>
+    <source src="videos/background.mp4" type="video/mp4">
+    Ваш браузер не поддерживает воспроизведение видео. 
+  </video>
+
   <div class="container">
-    <header>
-      <div class="logo">
-        <h1>Dextron Shop</h1> 
-      </div>
-      <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
-      <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
-    </header>
-    <div class="tabs">
-      <div class="tab active" data-target="brawlstars">Brawl Stars</div>
-      <div class="tab" data-target="telegram">Telegram</div>
-      </div>
-    <div class="tab-content-container">
-      <div class="tab-content active" id="brawlstars"> 
-        <div class="product-list">
-          <div class="product">
-            <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="30 гемов">
-            <h2>30 гемов</h2>
-            <div class="price">209 рублей</div>
-            <a href="#" class="buy-button">Купить</a>
-          </div>
-          <div class="product">
-            <img src="videos/BrawlPass.png" alt="Brawl Pass">
-            <h2>Brawl Pass</h2>
-            <div class="price">599 рублей</div>
-            <a href="#" class="buy-button">Купить</a>
-          </div>
-          </div>
-      </div>
-      <div class="tab-content" id="telegram"> 
-        <div class="product-list">
-          <div class="product">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium">
-            <h2>Telegram Premium 1 месяц</h2>
-            <div class="price">250 рублей</div>
-            <a href="#" class="buy-button">Купить</a>
-          </div>
-          </div>
-      </div>
+    <h1>Dextron Shop</h1>
+    <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
+
+    <div class="autumn-countdown" id="autumnCountdown">
+      <strong>До осени осталось: 8 дней</strong>
     </div>
-    <footer>
-      <p>Made by DextronComporation</p>
-    </footer>
-  </div>
-  <script>
-    const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const targetTabContent = document.getElementById(tab.dataset.target);
+    <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
 
-        tabContents.forEach(tc => tc.classList.remove('active'));
-        tabs.forEach(t => t.classList.remove('active'));
+    <div class="tabs" id="mainTabs">
+      <div class="tab active" data-target="brawlstars">Brawl Stars</div> 
+      <div class="tab" data-target="telegram">Telegram</div>
+      <a href="https://t.me/dextronreviews" class="tab reviews">Отзывы</a> 
+    </div>
 
-        tab.classList.add('active');
-        targetTabContent.classList.add('active');
-     
+    <div class="tab-content-container">
+      <div class="tab-content active" id="brawlstars">
+        <div class="tabs" id="brawlStarsTabs">
+          <div class="tab active" data-target="brawlstars-no-login">Без захода</div>
+          <div class="tab" data-target="brawlstars-with-login">С заходом</div>
+          <div class="tab special-offers" data-target="brawlstars-special-offers">Особые акции</div>
+          <div class="tab accounts" data-target="brawlstars-accounts">Аккаунты</div> 
+        </div>
 
         <div class="tab-content active" id="brawlstars-no-login">
           <div class="product-list">
