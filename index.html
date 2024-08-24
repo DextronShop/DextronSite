@@ -62,16 +62,13 @@
     .search-bar {
       width: 100%;
       padding: 12px 16px;
-      /* Добавлен отступ справа для иконки */
       margin-bottom: 30px;
       border: none;
       background-color: #333;
       color: #fff;
       border-radius: 25px;
-      /* Закругленные края */
       font-size: 1em;
       position: relative;
-      /* Для позиционирования иконки */
     }
 
     .search-bar::placeholder {
@@ -99,7 +96,6 @@
       padding: 10px 20px;
       border: none;
       border-radius: 20px;
-      /* Более закругленные края */
       background-color: #262626;
       color: #eee;
       font-weight: 600;
@@ -108,22 +104,24 @@
       text-align: center;
       white-space: nowrap;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      /* Тень по умолчанию */
+    }
+
+    /* Верхние кнопки больше */
+    #mainTabs .tab {
+      padding: 12px 24px;
+      font-size: 1.1em;
     }
 
     .tab:hover {
       background-color: #333;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      /* Увеличенная тень при наведении */
       transform: translateY(-2px);
-      /* Слегка поднимается при наведении */
     }
 
     .tab.active {
       background-color: #f44336;
       color: #fff;
       box-shadow: 0 4px 8px rgba(244, 67, 54, 0.5);
-      /* Тень активной кнопки */
     }
 
     .tab.reviews {
@@ -138,15 +136,16 @@
       transform: scale(1.05);
     }
 
+    /* Переливающаяся кнопка "Особые акции" */
     .tab.special-offers {
-      background: linear-gradient(to right, #ffcc00, #ffa500);
+      background: linear-gradient(45deg, #ffcc00, #ffa500, #ff8800, #ffcc00);
+      background-size: 400% 400%;
       color: black;
+      animation: gradientAnimation 5s linear infinite;
     }
 
-    /* Стили для новой категории и кнопки */
     .tab.accounts {
       background: linear-gradient(to right, white, #3498db);
-      /* Градиент белого с синим */
       color: black;
       animation: gradientAnimation 5s linear infinite;
       background-size: 400% 400%;
@@ -207,10 +206,10 @@
     .product-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      /* Одна карточка на строку для мобильных */
       gap: 20px;
     }
 
+    /* Уменьшение и красная обводка карточки товара */
     .product {
       background-color: #262626;
       border-radius: 10px;
@@ -221,14 +220,13 @@
       display: flex;
       flex-direction: column;
       border: 2px solid transparent;
-      /* Прозрачная обводка по умолчанию */
+      max-width: 220px; /* Уменьшение ширины карточки */
     }
 
     .product:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       border-color: #f44336;
-      /* Красная обводка при наведении */
     }
 
     .product img {
@@ -245,6 +243,10 @@
       margin-bottom: 5px;
       display: flex;
       align-items: center;
+      /* Градиент текста названия товара */
+      background: linear-gradient(to right, #fff, #ccc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     #brawlPassPlusProduct h2 {
@@ -257,11 +259,15 @@
       margin-right: 10px;
     }
 
+    /* Полупрозрачная белая вставка цены */
     .product .price {
       font-size: 1em;
       font-weight: 600;
       color: #ffcc00;
       margin-bottom: 5px;
+      background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый фон */
+      padding: 5px 10px; /* Отступы для текста */
+      border-radius: 5px; /* Закругление углов */
     }
 
     .product .description {
@@ -270,7 +276,6 @@
       line-height: 1.4;
     }
 
-    /* Новый стиль модального окна */
     .product-page {
       display: none;
       position: fixed;
@@ -286,76 +291,61 @@
     .product-page .content {
       background-color: #181818;
       margin: 5% auto;
-      /* Отступ сверху */
       padding: 30px;
       border-radius: 10px;
       max-width: 800px;
-      /* Ширина */
       position: relative;
       opacity: 0;
       transform: translateY(-30px);
-      /* Сдвиг вверх */
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     .product-page.active .content {
       opacity: 1;
       transform: translateY(0);
-      /* Возврат на место */
     }
 
     .product-page .content h2 {
       font-size: 1.8em;
-      /* Размер шрифта названия */
       font-weight: 700;
       color: red;
-      /* Цвет названия */
       margin-bottom: 10px;
       text-align: center;
-      /* Центрирование названия */
     }
 
     .product-page .content .price {
       font-size: 1em;
-      /* Размер шрифта цены */
       font-weight: 600;
       color: #ffcc00;
-      /* Цвет цены */
       margin-bottom: 20px;
       text-align: center;
-      /* Центрирование цены */
     }
-
 
     .product-page .content .product-image {
       display: flex;
       justify-content: center;
-      /* Центрирование изображения */
       margin-bottom: 20px;
     }
 
     .product-page .content .product-image img {
       max-width: 50%;
-      /* Максимальная ширина изображения */
       height: auto;
     }
 
     .product-page .content p {
       font-size: 1em;
-      /* Размер шрифта описания */
       color: #ccc;
       line-height: 1.6;
       text-align: center;
-      /* Центрирование описания */
       font-family: 'Arial', sans-serif;
-      /* Шрифт описания */
     }
 
+    /* Увеличенный крестик закрытия */
     .close-button {
       position: absolute;
       top: 10px;
       right: 15px;
-      font-size: 20px;
+      font-size: 30px; /* Увеличенный размер */
       font-weight: bold;
       color: #fff;
       cursor: pointer;
@@ -366,6 +356,7 @@
       color: #f44336;
     }
 
+    /* Градиент кнопки "Купить" */
     .buy-button {
       width: 180px;
       height: 50px;
@@ -377,8 +368,7 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       margin: 30px auto;
-      background: linear-gradient(to right, #f44336, #e91e63);
-      /* Градиент кнопки */
+      background: linear-gradient(to right, #fff, #f44336); /* Измененный градиент */
       color: white;
       font-weight: bold;
       font-size: 1.2em;
@@ -476,13 +466,12 @@
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
     <div class="autumn-countdown" id="autumnCountdown">
-      <strong>До осени осталось: 7 дней</strong>
+      <strong>До осени осталось: <span id="daysLeft"></span> дней</strong>
     </div>
 
     <div class="search-bar" id="searchInput">
       <input type="text" placeholder="Поиск...">
       <i class="fas fa-search"></i>
-      </input>
     </div>
 
     <div class="tabs" id="mainTabs">
@@ -494,14 +483,13 @@
     <div class="tab-content-container">
       <div class="tab-content active" id="brawlstars">
         <div class="tabs" id="brawlStarsTabs">
-          <div class="tab" data-target="brawlstars-with-login">С заходом</div>
-          <div class="tab active" data-target="brawlstars-no-login">Без захода</div>
+          <div class="tab active" data-target="brawlstars-with-login">С заходом</div>
+          <div class="tab" data-target="brawlstars-no-login">Без захода</div>
           <div class="tab special-offers" data-target="brawlstars-special-offers">Особые акции</div>
           <div class="tab accounts" data-target="brawlstars-accounts">Аккаунты</div>
         </div>
 
-        <!-- "С заходом" теперь идет первым -->
-        <div class="tab-content" id="brawlstars-with-login">
+        <div class="tab-content active" id="brawlstars-with-login">
           <div class="product-list">
             <div class="product" data-target="product-page-brawlstars-gems" id="brawlStarsGemsProduct">
               <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
@@ -626,7 +614,7 @@
           </div>
         </div>
 
-        <div class="tab-content active" id="brawlstars-no-login">
+        <div class="tab-content" id="brawlstars-no-login">
           <div class="product-list">
             <div class="product" data-target="product-page-pin" id="pinProduct">
               <img src="videos/pin.png" alt="Brawl Stars Pin">
@@ -660,12 +648,11 @@
 
         <div class="tab-content" id="brawlstars-special-offers">
           <div class="product-list">
-            <!-- Перемещенный товар "Brawl Pass [ОСОБАЯ СКИДКА]" -->
             <div class="product" data-target="product-page-brawlstars-pass-discount" id="brawlPassDiscountProduct">
-              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
+              <img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png"
                 alt="Brawl Pass">
               <h2>
-                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
+                <img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png"
                   alt="Brawl Pass">
                 Brawl Pass [ОСОБАЯ СКИДКА]
               </h2>
@@ -683,7 +670,6 @@
           </div>
         </div>
 
-        <!-- Раздел "Аккаунты" -->
         <div class="tab-content" id="brawlstars-accounts">
           <div class="accounts-notice">
             Данным разделом управляют наши клиенты. <br>
@@ -743,7 +729,6 @@
     </div>
   </div>
 
-  <!-- Измененные модальные окна -->
   <div class="product-page" id="product-page-telegram-premium">
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
@@ -752,10 +737,10 @@
           alt="Telegram Premium">
       </div>
       <h2>Telegram Premium 1 месяц</h2>
-           <div class="price">250 рублей</div>
+      <div class="price">250 рублей</div>
       <p> Telegram Premium сроком на 1 месяц. Покупка производится вами с помощью моей карты в @PremiumBot. Быстро и
         удобно</p>
-      <a href="https://t.me/DextronSeller" class="buy-button">
+           <a href="https://t.me/DextronSeller" class="buy-button">
         <video autoplay muted loop>
           <source src="videos/video.mp4" type="video/mp4">
           Ваш браузер не поддерживает воспроизведение видео.
@@ -1134,6 +1119,19 @@
     if (specialOffersContainer.children.length === 0) {
       specialOffersNotice.style.display = 'block';
     }
+
+
+    // ДОБАВЛЕНО: Анимация для .product при наведении
+    products.forEach(product => {
+      product.addEventListener('mouseover', () => {
+        product.style.transform = 'scale(1.1) rotate(5deg)'; // Увеличиваем и немного поворачиваем
+      });
+
+      product.addEventListener('mouseout', () => {
+        product.style.transform = 'scale(1) rotate(0deg)'; // Возвращаем к исходному состоянию
+      });
+    });
+
   </script>
 </body>
 </html>
