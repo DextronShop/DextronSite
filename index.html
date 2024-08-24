@@ -46,9 +46,11 @@
       font-weight: 700;
       text-align: center;
       margin-bottom: 10px;
-      background: linear-gradient(to right, #f44336, #e91e63);
+      background: linear-gradient(to right, #f44336, #e91e63, #f44336);
       -webkit-background-clip: text;
       color: transparent;
+      background-size: 400% 400%;
+      animation: gradientAnimation 5s linear infinite; 
     }
 
     .working-hours {
@@ -182,7 +184,7 @@
     .submit-ad-button {
       display: block;
       width: 200px;
-      margin: 20px auto; /* Центрируем кнопку */
+      margin: 0 auto;
       padding: 12px;
       border: none;
       border-radius: 5px;
@@ -191,7 +193,6 @@
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      text-align: center; /* Центрируем текст внутри кнопки */
     }
 
     .submit-ad-button:hover {
@@ -293,6 +294,11 @@
       font-size: 0.8em;
       color: #ccc;
       line-height: 1.4;
+    }
+
+    /* Красный цвет ссылок в описании товаров "Аккаунты" */
+    #brawlstars-accounts .description a {
+      color: #f44336;
     }
 
     .product-page {
@@ -434,13 +440,11 @@
     }
 
     .autumn-countdown {
-      background: linear-gradient(45deg, #ff5733, #ffa500, #ff8800, #ff5733);
-      background-size: 400% 400%;
+      background: linear-gradient(to right, #ff5733, #ffa500);
       padding: 10px 20px;
       border-radius: 5px;
       text-align: center;
       margin-bottom: 20px;
-      animation: gradientAnimation 5s linear infinite;
     }
 
     .autumn-countdown strong {
@@ -493,7 +497,7 @@
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
     <div class="autumn-countdown" id="autumnCountdown">
-      <strong>До осени осталось: 7 дней</strong>
+      <strong>До осени осталось: 6 дней</strong>
     </div>
 
     <div class="search-container">
@@ -592,8 +596,7 @@
             </div>
 
             <div class="product" data-target="product-page-brawlstars-pass" id="brawlPassProduct">
-              <img
-                src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png.png"
+              <img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png"
                 alt="Brawl Pass">
               <h2>
                 Brawl Pass
@@ -663,8 +666,7 @@
           <div class="product-list" style="justify-content: center;">
             <div class="product" data-target="product-page-brawlstars-pass-discount"
               id="brawlPassDiscountProduct">
-              <img
-                src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png.png"
+              <img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png"
                 alt="Brawl Pass">
               <h2>
                 Brawl Pass [ОСОБАЯ СКИДКА]
@@ -686,10 +688,9 @@
           <div class="accounts-notice">
             Данным разделом управляют наши клиенты. <br>
             Для продажи аккаунта прочтите туториал на выставление объявления <br>
-            Все сделки проходят через нас. <br>
-            Комиссия от сделки - 10%
+            Все сделки проходят через нас. Комиссия от сделки - 10%
           </div>
-          <a href="https://t.me/DextronAccounts" class="submit-ad-button">Подробнее</a>
+          <a href="https://t.me/DextronAccounts" class="submit-ad-button">       Подробнее</a>
           <div class="product-list">
             <!-- Новый товар 1 -->
             <div class="product" data-target="product-page-account-1">
@@ -777,7 +778,7 @@
           src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822"
           alt="Telegram Premium">
       </div>
-      <h2>Telegram Premium 1 месяц</h2>
+           <h2>Telegram Premium 1 месяц</h2>
       <div class="price">250 рублей</div>
       <p style="color: #fff;"> Telegram Premium сроком на 1 месяц. Покупка производится вами с помощью моей карты в
         @PremiumBot. Быстро и
@@ -835,7 +836,7 @@
       <div class="price">489 рублей</div>
       <p style="color: #fff;"> 80 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта
       </p>
-      <a href="https://t.me/m/bV-n3Ng-OGZi" class="buy-button">
+           <a href="https://t.me/m/bV-n3Ng-OGZi" class="buy-button">
         <span>Купить</span>
       </a>
     </div>
@@ -913,7 +914,7 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
-        <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png.png"
+        <img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png"
           alt="Brawl Stars Pass">
       </div>
       <h2 style="color: #fff;">Brawl Pass [ОСОБАЯ СКИДКА]</h2>
