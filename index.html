@@ -122,22 +122,8 @@
     
     /* Стили для новой категории и кнопки */
     .tab.accounts {
-      background: linear-gradient(to right, white, #3498db); /* Градиент белого с синим */
+      background: linear-gradient(to right, #fff, #e0ffff); /* Градиент белого с голубым */
       color: black;
-      animation: gradientAnimation 5s linear infinite; 
-      background-size: 400% 400%; 
-    }
-
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
     }
 
     .accounts-notice {
@@ -156,7 +142,7 @@
       padding: 12px;
       border: none;
       border-radius: 5px;
-      background: linear-gradient(to right, #fff, #ccc); 
+      background: linear-gradient(to right, #fff, #ccc); /* Градиент белого с серым */
       color: black;
       font-weight: bold;
       text-decoration: none;
@@ -164,7 +150,7 @@
     }
 
     .submit-ad-button:hover {
-      background: linear-gradient(to right, #ccc, #fff); 
+      background: linear-gradient(to right, #ccc, #fff); /* Изменение градиента при наведении */
     }
 
     .tab-content {
@@ -187,33 +173,21 @@
     .product {
       background-color: #262626;
       border-radius: 10px;
-      padding: 10px; 
+      padding: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       position: relative; 
-      display: flex;
-      flex-direction: column;
-      border: 2px solid transparent; /* Прозрачная обводка по умолчанию */
     }
 
     .product:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      border-color: #f44336; /* Красная обводка при наведении */
-    }
-
-    .product img { 
-      width: 100%;
-      height: 150px; 
-      object-fit: contain; 
-      border-radius: 5px;
-      margin-bottom: 10px;
     }
 
     .product h2 {
-      font-size: 1.1em;
+      font-size: 1.2em;
       font-weight: 600;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
     }
@@ -229,16 +203,16 @@
     }
 
     .product .price {
-      font-size: 1em; 
+      font-size: 1.1em;
       font-weight: 600;
       color: #ffcc00;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
 
     .product .description {
-      font-size: 0.8em; 
+      font-size: 0.9em;
       color: #ccc;
-      line-height: 1.4;
+      line-height: 1.6;
     }
 
     .product-page {
@@ -383,7 +357,7 @@
     }
 
    .autumn-countdown {
-  background: linear-gradient(to right, #ff5733, #ffa500);
+  background: linear-gradient(to right, #ff5733, #ffa500); /* Градиент красного с оранжевым */
   padding: 10px 20px;
   border-radius: 5px;
   text-align: center;
@@ -403,13 +377,6 @@
       margin-top: 20px; 
       display: none; 
     }
-
-    /* Стили для мобильных устройств */
-    @media (max-width: 600px) {
-      .product-list {
-        grid-template-columns: 1fr; /* Одна карточка на строку */
-      }
-    }
   </style>
 </head>
 <body>
@@ -423,7 +390,7 @@
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
     <div class="autumn-countdown" id="autumnCountdown">
-      <strong>До осени осталось: 7 дней</strong>
+      <strong>До осени осталось: 8 дней</strong>
     </div>
 
     <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
@@ -437,133 +404,26 @@
     <div class="tab-content-container">
       <div class="tab-content active" id="brawlstars">
         <div class="tabs" id="brawlStarsTabs">
-          <div class="tab" data-target="brawlstars-with-login">С заходом</div> <div class="tab active" data-target="brawlstars-no-login">Без захода</div>
+          <div class="tab active" data-target="brawlstars-no-login">Без захода</div>
+          <div class="tab" data-target="brawlstars-with-login">С заходом</div>
           <div class="tab special-offers" data-target="brawlstars-special-offers">Особые акции</div>
           <div class="tab accounts" data-target="brawlstars-accounts">Аккаунты</div> 
         </div>
 
-        <!-- "С заходом" теперь идет первым -->
-        <div class="tab-content" id="brawlstars-with-login"> 
-          <div class="product-list">
-            <div class="product" data-target="product-page-brawlstars-gems" id="brawlStarsGemsProduct">
-              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems"> 
-              <h2>
-                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">
-                30 гемов
-              </h2>
-              <div class="price">209 рублей</div>
-              <div class="description">
-                30 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-gems-80" id="brawlStarsGems80Product">
-              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems"> 
-              <h2>
-                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">
-                80 гемов
-              </h2>
-              <div class="price">489 рублей</div>
-              <div class="description">
-                80 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-gems-170" id="brawlStarsGems170Product">
-              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems"> 
-              <h2>
-                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">
-                170 гемов
-              </h2>
-              <div class="price">929 рублей</div>
-              <div class="description">
-                170 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-gems-360" id="brawlStarsGems360Product">
-              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems"> 
-              <h2>
-                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">
-                360 гемов
-              </h2>
-              <div class="price">1869 рублей</div>
-              <div class="description">
-                360 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-gems-950" id="brawlStarsGems950Product">
-              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems"> 
-              <h2>
-                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">
-                950 гемов
-              </h2>
-              <div class="price">4329 рублей</div>
-              <div class="description">
-                950 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-gems-2000" id="brawlStarsGems2000Product">
-              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems"> 
-              <h2>
-                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">
-                2000 гемов
-              </h2>
-              <div class="price">8699 рублей</div>
-              <div class="description">
-                2000 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
-              </div>
-            </div>
-            
-            <div class="product" data-target="product-page-brawlstars-pass" id="brawlPassProduct">
-              <img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png" alt="Brawl Pass">
-              <h2>
-                <img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png" alt="Brawl Pass">
-                Brawl Pass
-              </h2>
-              <div class="price">599 рублей</div>
-              <div class="description">
-                Brawl Pass для Brawl Stars.
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-pass-plus" id="brawlPassPlusProduct">
-              <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
-              <h2>
-                <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
-                Brawl Pass+
-              </h2>
-              <div class="price">899 рублей</div>
-              <div class="description">
-                Brawl Pass+ для Brawl Stars.
-              </div>
-            </div>
-            <div class="product" data-target="product-page-brawlstars-pass-upgrade" id="brawlPassUpgradeProduct">
-              <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
-              <h2>
-                <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+" alt="Brawl Pass">
-                Улучшение Brawl Pass >>> Brawl Pass Plus
-              </h2>
-              <div class="price">399 рублей</div>
-              <div class="description">
-                Улучшение Brawl Pass до Brawl Pass Plus в Brawl Stars.
-              </div>
-            </div>
-          </div>
-        </div> 
-
         <div class="tab-content active" id="brawlstars-no-login">
           <div class="product-list">
             <div class="product" data-target="product-page-pin" id="pinProduct">
-              <img src="videos/pin.png" alt="Brawl Stars Pin"> 
               <h2>
                 <img src="videos/pin.png" alt="Brawl Stars Pin">
                 Пин Матчерино
               </h2>
               <div class="price">649 рублей</div>
-              <div class="description">
+                           <div class="description">
                 Данный товар будет доставлен на ваш аккаунт в течение 2 недель.
               </div>
             </div>
 
             <div class="product" data-target="product-page-brawlstars-pass-gift" id="brawlPassGiftProduct"> 
-              <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+"> 
               <h2>
                 <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
                 Brawl Pass+ [ПОДАРКОМ] 
@@ -576,13 +436,71 @@
           </div>
         </div>
 
-        <div class="tab-content" id="brawlstars-special-offers">
+        <div class="tab-content" id="brawlstars-with-login">
           <div class="product-list">
-            <!-- Перемещенный товар "Brawl Pass [ОСОБАЯ СКИДКА]" -->
-            <div class="product" data-target="product-page-brawlstars-pass-discount" id="brawlPassDiscountProduct">
-              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Pass"> 
+            <div class="product" data-target="product-page-brawlstars-gems" id="brawlStarsGemsProduct">
               <h2>
-                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Pass">
+                <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
+                30 гемов
+              </h2>
+              <div class="price">209 рублей</div>
+              <div class="description">
+                30 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
+              </div>
+            </div>
+            <div class="product" data-target="product-page-brawlstars-gems-80" id="brawlStarsGems80Product">
+              <h2>
+                <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">
+                80 гемов
+              </h2>
+              <div class="price">489 рублей</div>
+              <div class="description">
+                80 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
+              </div>
+            </div>
+            <div class="product" data-target="product-page-brawlstars-gems-170" id="brawlStarsGems170Product">
+              <h2>
+                <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
+                170 гемов
+              </h2>
+              <div class="price">929 рублей</div>
+              <div class="description">
+                170 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
+              </div>
+            </div>
+            <div class="product" data-target="product-page-brawlstars-gems-360" id="brawlStarsGems360Product">
+              <h2>
+                <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
+                360 гемов
+              </h2>
+              <div class="price">1869 рублей</div>
+              <div class="description">
+                360 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
+              </div>
+            </div>
+            <div class="product" data-target="product-page-brawlstars-gems-950" id="brawlStarsGems950Product">
+              <h2>
+                <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
+                950 гемов
+              </h2>
+              <div class="price">4329 рублей</div>
+              <div class="description">
+                950 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
+              </div>
+            </div>
+            <div class="product" data-target="product-page-brawlstars-gems-2000" id="brawlStarsGems2000Product">
+              <h2>
+                <img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems">
+                2000 гемов
+              </h2>
+              <div class="price">8699 рублей</div>
+              <div class="description">
+                2000 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
+              </div>
+            </div>
+            <div class="product" data-target="product-page-brawlstars-pass-discount" id="brawlPassDiscountProduct">
+              <h2>
+                <img src="videos/BrawlPass.png" alt="Brawl Pass">
                 Brawl Pass [ОСОБАЯ СКИДКА]
               </h2>
               <div class="price">329 рублей</div>
@@ -590,6 +508,43 @@
                 Brawl Pass для Brawl Stars. [ОСОБАЯ СКИДКА]
               </div>
             </div>
+            <div class="product" data-target="product-page-brawlstars-pass" id="brawlPassProduct">
+              <h2>
+                <img src="videos/BrawlPass.png" alt="Brawl Pass">
+                Brawl Pass
+              </h2>
+              <div class="price">599 рублей</div>
+              <div class="description">
+                Brawl Pass для Brawl Stars.
+              </div>
+            </div>
+            <div class="product" data-target="product-page-brawlstars-pass-plus" id="brawlPassPlusProduct">
+              <h2>
+                <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
+                Brawl Pass+
+              </h2>
+              <div class="price">899 рублей</div>
+              <div class="description">
+                Brawl Pass+ для Brawl Stars.
+              </div>
+            </div>
+            <div class="product" data-target="product-page-brawlstars-pass-upgrade" id="brawlPassUpgradeProduct">
+              <h2>
+                <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+" alt="Brawl Pass">
+                Улучшение Brawl Pass >>> Brawl Pass Plus
+              </h2>
+              <div class="price">399 рублей</div>
+              <div class="description">
+                Улучшение Brawl Pass до Brawl Pass Plus в Brawl Stars.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Новая категория "Особые акции" -->
+        <div class="tab-content" id="brawlstars-special-offers">
+          <div class="product-list">
+           
           </div>
 
           <div id="specialOffersNotice">
@@ -620,7 +575,6 @@
         <div class="tab-content active" id="telegram-no-login">
           <div class="product-list">
             <div class="product" data-target="product-page-telegram-premium" id="telegramPremiumProduct">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium">
               <h2>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
                 Telegram Premium 1 месяц
@@ -631,7 +585,6 @@
               </div>
             </div>
             <div class="product" data-target="product-page-telegram-premium-year" id="telegramPremiumYearProduct">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
               <h2>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"> 
                 Telegram Premium 1 год
@@ -800,7 +753,7 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png" alt="Brawl Stars Pass">
+        <img src="videos/BrawlPass.png" alt="Brawl Stars Pass">
         Brawl Pass [ОСОБАЯ СКИДКА]
       </h2>
       <p> Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта. [ОСОБАЯ СКИДКА]</p>
@@ -818,17 +771,20 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <h2>
-        <img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png" alt="Brawl Stars Pass">
+        <img src="videos/BrawlPass.png" alt="Brawl Stars Pass">
         Brawl Pass
       </h2>
       <p> Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
       <a href="https://t.me/m/05fddN58ZDhi" class="buy-button"> 
         <video autoplay muted loop> 
           <source src="videos/video.mp4" type="video/mp4"> 
+               <a href="https://t.me/m/05fddN58ZDhi" class="buy-button"> 
+        <video autoplay muted loop> 
+          <source src="videos/video.mp4" type="video/mp4"> 
           Ваш браузер не поддерживает воспроизведение видео. 
         </video>
         <span>Купить</span>
-      </a> 
+      </a>
     </div>
   </div>
 
@@ -983,7 +939,6 @@
         }, 300);
       });
     }
-
     // Таймер обрасчета до осени (1 сентября)
     const autumnStart = new Date(new Date().getFullYear(), 8, 1); 
     if (new Date() > autumnStart) {
@@ -1005,6 +960,13 @@
     if (specialOffersContainer.children.length === 0) { 
       specialOffersNotice.style.display = 'block';
     }
+
+    // Добавляем обработчик события для новой категории "Аккаунты"
+    const accountsTab = document.querySelector('#brawlStarsTabs .tab.accounts');
+    accountsTab.addEventListener('click', (event) => {
+      event.stopPropagation(); 
+      // ... (код для переключения вкладок) ... 
+    });
   </script>
 </body>
 </html>
