@@ -247,19 +247,24 @@
     }
 
     .product h2 {
+      /* Изменения в стилях для h2 внутри .product */
+    .product h2 {
       font-size: 1.1em;
       font-weight: 600;
       margin-bottom: 5px;
       display: flex;
       align-items: center;
-      /* Градиент текста названия товара */
+      justify-content: center; /* Центрируем текст */
       background: linear-gradient(to right, #fff, #ccc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      /* Новый шрифт для названия товара */
-      font-family: 'Arial Black', sans-serif; 
+      font-family: 'Arial Black', sans-serif;
     }
-
+ /* Убираем картинки из h2 */
+    .product h2 img {
+      display: none; 
+    }
+      
     #brawlPassPlusProduct h2,
     #telegramPremiumYearProduct h2 {
       color: white;
