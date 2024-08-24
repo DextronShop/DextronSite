@@ -253,7 +253,8 @@
       margin-bottom: 5px;
       display: flex;
       align-items: center;
-      justify-content: center; /* Центрируем текст */
+      justify-content: center;
+      /* Центрируем текст */
       background: linear-gradient(to right, #fff, #ccc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -464,6 +465,17 @@
         max-width: 100%;
       }
     }
+
+    /* Стили для таблички "Выгодное предложение" */
+    .special-offer-tag {
+      background-color: #f44336;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 
@@ -673,6 +685,36 @@
             Все сделки проходят через нас. Комиссия от сделки - 10%
           </div>
           <a href="https://t.me/DextronAccounts" class="submit-ad-button">Подробнее</a>
+          <div class="product-list">
+            <!-- Новый товар 1 -->
+            <div class="product" data-target="product-page-account-1">
+              <div class="special-offer-tag">Выгодное предложение</div>
+              <img
+                src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngfind.com%2Fmpng%2FiibhbiT_june-png-brawl-stars-trophy-png-transparent-png%2F&psig=AOvVaw0KLpvScYqI1Zk94MegQqpL&ust=1724615120683000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKDy85eyjogDFQAAAAAdAAAAABAE"
+                alt="Brawl Stars Account">
+              <h2>50679 кубков, 79 бойцов</h2>
+              <div class="price">3200 рублей</div>
+              <div class="description">
+                Жирный аккаунт, цена хорошая. Перепривязка на вашу почту. Много скинов, высоких рангов! (2019 год)
+                Обзор аккаунта - <a href="https://youtu.be/a2aGDeWdubo?feature=shared"
+                  target="_blank">https://youtu.be/a2aGDeWdubo?feature=shared</a>
+              </div>
+            </div>
+
+            <!-- Новый товар 2 -->
+            <div class="product" data-target="product-page-account-2">
+              <img
+                src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngfind.com%2Fmpng%2FiibhbiT_june-png-brawl-stars-trophy-png-transparent-png%2F&psig=AOvVaw0KLpvScYqI1Zk94MegQqpL&ust=1724615120683000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKDy85eyjogDFQAAAAAdAAAAABAE"
+                alt="Brawl Stars Account">
+              <h2>26950 кубков, 78 бойцов</h2>
+              <div class="price">2000 рублей</div>
+              <div class="description">
+                Прекрасный аккаунт, много дорогих и классных скинов. Перепривязка на вашу почту.
+                Обзор аккаунта - <a href="https://youtu.be/AP-xmMXXcgg?feature=shared"
+                  target="_blank">https://youtu.be/AP-xmMXXcgg?feature=shared</a>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -730,7 +772,7 @@
           src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822"
           alt="Telegram Premium">
       </div>
-      <h2>Telegram Premium 1 месяц</h2>
+           <h2>Telegram Premium 1 месяц</h2>
       <div class="price">250 рублей</div>
       <p style="color: #fff;"> Telegram Premium сроком на 1 месяц. Покупка производится вами с помощью моей карты в
         @PremiumBot. Быстро и
@@ -969,6 +1011,47 @@
         сайте!!!! Шанс
         блокировки аккаунта 0%</p>
       <a href="https://t.me/m/jeY3mS5mNzMy" class="buy-button">
+        <span>Купить</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Модальное окно для нового товара 1 -->
+  <div class="product-page" id="product-page-account-1">
+    <div class="content">
+      <span class="close-button" onclick="closeProductPage()">×</span>
+      <div class="product-image">
+        <img
+          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngfind.com%2Fmpng%2FiibhbiT_june-png-brawl-stars-trophy-png-transparent-png%2F&psig=AOvVaw0KLpvScYqI1Zk94MegQqpL&ust=1724615120683000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKDy85eyjogDFQAAAAAdAAAAABAE"
+          alt="Brawl Stars Account">
+      </div>
+      <h2 style="color: #fff;">50679 кубков, 79 бойцов</h2>
+      <div class="price">3200 рублей</div>
+      <p style="color: #fff;">Жирный аккаунт, цена хорошая. Перепривязка на вашу почту. Много скинов, высоких рангов!
+        (2019 год)
+        Обзор аккаунта - <a href="https://youtu.be/a2aGDeWdubo?feature=shared"
+          target="_blank">https://youtu.be/a2aGDeWdubo?feature=shared</a></p>
+      <a href="https://t.me/DextronSeller" class="buy-button">
+        <span>Купить</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Модальное окно для нового товара 2 -->
+  <div class="product-page" id="product-page-account-2">
+    <div class="content">
+      <span class="close-button" onclick="closeProductPage()">×</span>
+      <div class="product-image">
+        <img
+          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngfind.com%2Fmpng%2FiibhbiT_june-png-brawl-stars-trophy-png-transparent-png%2F&psig=AOvVaw0KLpvScYqI1Zk94MegQqpL&ust=1724615120683000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKDy85eyjogDFQAAAAAdAAAAABAE"
+          alt="Brawl Stars Account">
+      </div>
+      <h2 style="color: #fff;">26950 кубков, 78 бойцов</h2>
+      <div class="price">2000 рублей</div>
+      <p style="color: #fff;">Прекрасный аккаунт, много дорогих и классных скинов. Перепривязка на вашу почту.
+        Обзор аккаунта - <a href="https://youtu.be/AP-xmMXXcgg?feature=shared"
+          target="_blank">https://youtu.be/AP-xmMXXcgg?feature=shared</a></p>
+      <a href="https://t.me/DextronSeller" class="buy-button">
         <span>Купить</span>
       </a>
     </div>
