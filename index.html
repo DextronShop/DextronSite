@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,18 +58,31 @@
       margin-bottom: 30px;
     }
 
+    /* Улучшенный дизайн поиска */
     .search-bar {
       width: 100%;
-      padding: 12px;
+      padding: 12px 16px;
+      /* Добавлен отступ справа для иконки */
       margin-bottom: 30px;
       border: none;
       background-color: #333;
       color: #fff;
-      border-radius: 5px;
+      border-radius: 25px;
+      /* Закругленные края */
       font-size: 1em;
+      position: relative;
+      /* Для позиционирования иконки */
     }
 
     .search-bar::placeholder {
+      color: #888;
+    }
+
+    .search-bar i {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
       color: #888;
     }
 
@@ -80,33 +94,42 @@
       justify-content: center;
     }
 
+    /* Улучшенный дизайн кнопок разделов и категорий */
     .tab {
-      padding: 10px 15px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 5px;
+      border-radius: 20px;
+      /* Более закругленные края */
       background-color: #262626;
       color: #eee;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
       text-align: center;
       white-space: nowrap;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      /* Тень по умолчанию */
     }
 
     .tab:hover {
       background-color: #333;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      /* Увеличенная тень при наведении */
+      transform: translateY(-2px);
+      /* Слегка поднимается при наведении */
     }
 
     .tab.active {
       background-color: #f44336;
       color: #fff;
+      box-shadow: 0 4px 8px rgba(244, 67, 54, 0.5);
+      /* Тень активной кнопки */
     }
 
     .tab.reviews {
       background: linear-gradient(to right, #673ab7, #9c27b0);
       color: white;
       box-shadow: 0 4px 8px rgba(156, 39, 176, 0.5);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .tab.reviews:hover {
@@ -441,6 +464,7 @@
     }
   </style>
 </head>
+
 <body>
   <video class="background-video" autoplay muted loop>
     <source src="videos/background.mp4" type="video/mp4">
@@ -455,7 +479,11 @@
       <strong>До осени осталось: 7 дней</strong>
     </div>
 
-    <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
+    <div class="search-bar" id="searchInput">
+      <input type="text" placeholder="Поиск...">
+      <i class="fas fa-search"></i>
+      </input>
+    </div>
 
     <div class="tabs" id="mainTabs">
       <div class="tab active" data-target="brawlstars">Brawl Stars</div>
@@ -724,7 +752,7 @@
           alt="Telegram Premium">
       </div>
       <h2>Telegram Premium 1 месяц</h2>
-      <div class="price">250 рублей</div>
+           <div class="price">250 рублей</div>
       <p> Telegram Premium сроком на 1 месяц. Покупка производится вами с помощью моей карты в @PremiumBot. Быстро и
         удобно</p>
       <a href="https://t.me/DextronSeller" class="buy-button">
