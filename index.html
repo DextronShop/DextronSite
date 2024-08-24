@@ -50,7 +50,7 @@
       -webkit-background-clip: text;
       color: transparent;
       background-size: 400% 400%;
-      animation: gradientAnimation 5s linear infinite; 
+      animation: gradientAnimation 5s linear infinite;
     }
 
     .working-hours {
@@ -193,6 +193,11 @@
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
+
+      /* Центрируем текст внутри кнопки */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .submit-ad-button:hover {
@@ -296,9 +301,15 @@
       line-height: 1.4;
     }
 
-    /* Красный цвет ссылок в описании товаров "Аккаунты" */
+    /* Красный цвет ссылок в описании товаров "Аккаунты" при наведении и фокусе */
     #brawlstars-accounts .description a {
       color: #f44336;
+      transition: color 0.3s ease; /* Добавляем плавный переход */
+    }
+
+    #brawlstars-accounts .description a:hover,
+    #brawlstars-accounts .description a:focus {
+      color: #ff0000; /* Меняем цвет при наведении и фокусе */
     }
 
     .product-page {
@@ -778,7 +789,7 @@
           src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822"
           alt="Telegram Premium">
       </div>
-           <h2>Telegram Premium 1 месяц</h2>
+            <h2>Telegram Premium 1 месяц</h2>
       <div class="price">250 рублей</div>
       <p style="color: #fff;"> Telegram Premium сроком на 1 месяц. Покупка производится вами с помощью моей карты в
         @PremiumBot. Быстро и
