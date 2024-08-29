@@ -18,6 +18,8 @@
       font-family: 'Montserrat', sans-serif;
       background-color: #1a1a1a;
       color: #fff;
+      overflow-x: hidden;
+      /* Отключаем горизонтальную прокрутку */
     }
 
     .background-video {
@@ -39,7 +41,60 @@
       background-color: rgba(26, 26, 26, 0.9);
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      position: relative;
+      /* Добавляем position: relative */
     }
+
+    /* Стили для фонарных столбов */
+    .lamp-post {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 100px;
+      background-color: #333;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .lamp-post.left {
+      left: -40px;
+      /* Позиционируем слева от контейнера */
+    }
+
+    .lamp-post.right {
+      right: -40px;
+      /* Позиционируем справа от контейнера */
+    }
+
+    .lamp {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(145deg, #ffbb33, #ffff66);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 187, 51, 0.8);
+      /* Добавляем свечение */
+      animation: lampGlow 3s linear infinite;
+      /* Добавляем анимацию */
+    }
+
+    @keyframes lampGlow {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
 
     h1 {
       font-size: 2.5em;
@@ -49,6 +104,8 @@
       background: linear-gradient(to right, #f44336, #e91e63);
       -webkit-background-clip: text;
       color: transparent;
+      z-index: 1;
+      /* Ставим заголовок выше фонарных столбов */
     }
 
     .working-hours {
@@ -182,7 +239,8 @@
     .submit-ad-button {
       display: block;
       width: 200px;
-      margin: 20px auto; /* Центрируем кнопку */
+      margin: 20px auto;
+      /* Центрируем кнопку */
       padding: 12px;
       border: none;
       border-radius: 5px;
@@ -191,7 +249,8 @@
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      text-align: center; /* Центрируем текст внутри кнопки */
+      text-align: center;
+      /* Центрируем текст внутри кнопки */
     }
 
     .submit-ad-button:hover {
@@ -433,6 +492,7 @@
       text-decoration: none;
     }
 
+    /* Переделанная таблица с обратным отсчетом */
     .autumn-countdown {
       background: linear-gradient(45deg, #ff5733, #ffa500, #ff8800, #ff5733);
       background-size: 400% 400%;
@@ -441,6 +501,25 @@
       text-align: center;
       margin-bottom: 20px;
       animation: gradientAnimation 5s linear infinite;
+      display: flex;
+      /* Используем flexbox для выравнивания */
+      align-items: center;
+      /* Выравниваем элементы по вертикали */
+      justify-content: center;
+      /* Выравниваем элементы по горизонтали */
+    }
+
+    .autumn-countdown .leaf {
+      width: 20px;
+      height: 20px;
+      background-image: url('https://i.imgur.com/yW2ZKWQ.png');
+      /* Замените на ссылку на ваше изображение листика */
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: 0 10px;
+      /* Добавляем отступы по бокам */
+      animation: leafAnimation 5s linear infinite;
+      /* Добавляем анимацию падения листьев */
     }
 
     .autumn-countdown strong {
@@ -467,6 +546,11 @@
       .product {
         max-width: 100%;
       }
+
+      .lamp-post {
+        display: none;
+        /* Скрываем фонарные столбы на мобильных */
+      }
     }
 
     /* Стили для таблички "Выгодное предложение" */
@@ -479,6 +563,29 @@
       text-align: center;
       margin-bottom: 10px;
     }
+
+    /* Анимация падения листьев */
+    @keyframes leafAnimation {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      25% {
+        transform: translateY(-5px) rotate(-10deg);
+      }
+
+      50% {
+        transform: translateY(0px) rotate(10deg);
+      }
+
+      75% {
+        transform: translateY(5px) rotate(-10deg);
+      }
+
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+    }
   </style>
 </head>
 
@@ -489,11 +596,21 @@
   </video>
 
   <div class="container">
+    <!-- Фонарные столбы -->
+    <div class="lamp-post left">
+      <div class="lamp"></div>
+    </div>
+    <div class="lamp-post right">
+      <div class="lamp"></div>
+    </div>
+
     <h1>Dextron Shop</h1>
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
     <div class="autumn-countdown" id="autumnCountdown">
-      <strong>До осени осталось: 7 дней</strong>
+      <div class="leaf"></div>
+      <strong>Золотая осень уже здесь!</strong>
+      <div class="leaf"></div>
     </div>
 
     <div class="search-container">
@@ -713,7 +830,8 @@
                 alt="Brawl Stars Account">
               <h2>26950 кубков, 78 бойцов</h2>
               <div class="price">2000 рублей</div>
-              <div class="description">
+              <div class
+                             <div class="description">
                 Прекрасный аккаунт, много дорогих и классных скинов. Перепривязка на вашу почту.
                 Обзор аккаунта - <a href="https://youtu.be/AP-xmMXXcgg?feature=shared"
                   target="_blank">https://youtu.be/AP-xmMXXcgg?feature=shared</a>
