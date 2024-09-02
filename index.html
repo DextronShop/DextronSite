@@ -41,6 +41,7 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
+    /* Анимация появления заголовка */
     h1 {
       font-size: 2.5em;
       font-weight: 700;
@@ -49,6 +50,23 @@
       background: linear-gradient(to right, #f44336, #e91e63);
       -webkit-background-clip: text;
       color: transparent;
+      opacity: 0;
+      /* Начальное состояние: текст невидимый */
+      animation: fadeInUp 1s ease forwards;
+      /* Применяем анимацию fadeInUp */
+    }
+
+    /* Ключевые кадры для анимации появления */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .working-hours {
@@ -56,6 +74,10 @@
       font-size: 0.9em;
       color: #ccc;
       margin-bottom: 30px;
+      background-color: rgba(255, 255, 255, 0.1);
+      /* Полупрозрачная белая вставка */
+      padding: 5px 10px;
+      border-radius: 5px;
     }
 
     /* Улучшенный дизайн поиска */
@@ -182,7 +204,8 @@
     .submit-ad-button {
       display: block;
       width: 200px;
-      margin: 20px auto; /* Центрируем кнопку */
+      margin: 20px auto;
+      /* Центрируем кнопку */
       padding: 12px;
       border: none;
       border-radius: 5px;
@@ -191,7 +214,8 @@
       font-weight: bold;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      text-align: center; /* Центрируем текст внутри кнопки */
+      text-align: center;
+      /* Центрируем текст внутри кнопки */
     }
 
     .submit-ad-button:hover {
@@ -433,7 +457,8 @@
       text-decoration: none;
     }
 
-    .autumn-countdown {
+    /* Табличка "Осенние скидки" */
+    .autumn-sales {
       background: linear-gradient(45deg, #ff5733, #ffa500, #ff8800, #ff5733);
       background-size: 400% 400%;
       padding: 10px 20px;
@@ -443,7 +468,7 @@
       animation: gradientAnimation 5s linear infinite;
     }
 
-    .autumn-countdown strong {
+    .autumn-sales strong {
       color: white;
       font-weight: bold;
       font-size: 1.2em;
@@ -492,8 +517,8 @@
     <h1>Dextron Shop</h1>
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
-    <div class="autumn-countdown" id="autumnCountdown">
-      <strong>До осени осталось: 7 дней</strong>
+    <div class="autumn-sales">
+      <strong>Осенние скидки - скоро</strong>
     </div>
 
     <div class="search-container">
@@ -774,7 +799,7 @@
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822"
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20       20829061822"
           alt="Telegram Premium">
       </div>
       <h2>Telegram Premium 1 месяц</h2>
@@ -1159,21 +1184,6 @@
       });
     }
 
-    // Таймер обрасчета до осени (1 сентября)
-    const autumnStart = new Date(new Date().getFullYear(), 8, 1);
-    if (new Date() > autumnStart) {
-      autumnStart.setFullYear(autumnStart.getFullYear() + 1);
-    }
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = autumnStart - now;
-      const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24));
-      document.getElementById('daysLeft').textContent = daysLeft;
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000 * 60 * 60 * 24);
-
     // Проверка наличия товаров в разделе "Особые акции"
     const specialOffersContainer = document.querySelector('#brawlstars-special-offers .product-list');
     const specialOffersNotice = document.getElementById('specialOffersNotice');
@@ -1181,7 +1191,6 @@
     if (specialOffersContainer.children.length === 0) {
       specialOffersNotice.style.display = 'block';
     }
-
 
     // ДОБАВЛЕНО: Анимация для .product при наведении
     products.forEach(product => {
