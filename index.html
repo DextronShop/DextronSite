@@ -504,6 +504,43 @@
       text-align: center;
       margin-bottom: 10px;
     }
+
+    /* Стили для кнопки назад */
+    .back-button {
+      display: none;
+      /* Изначально скрываем кнопку */
+      position: relative;
+      left: 20px;
+      top: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button.active {
+      display: block;
+      /* Показываем при активном разделе */
+    }
+
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .back-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(135deg);
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 8px;
+    }
   </style>
 </head>
 
@@ -515,7 +552,8 @@
 
   <div class="container">
     <h1>Dextron Shop</h1>
-    <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
+    <button class="back-button" onclick="goBackToMainTabs()"></button> <div class="working-hours">Время работы: 12:00 -
+        00:00 МСК</div>
 
     <div class="autumn-sales">
       <strong>Осенние скидки - скоро</strong>
@@ -770,7 +808,7 @@
                 Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в
                 @PremiumBot
               </div>
-            </div>
+                          </div>
             <div class="product" data-target="product-page-telegram-premium-year"
               id="telegramPremiumYearProduct">
               <img
@@ -799,7 +837,7 @@
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20       20829061822"
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822"
           alt="Telegram Premium">
       </div>
       <h2>Telegram Premium 1 месяц</h2>
@@ -1098,6 +1136,7 @@
     const products = document.querySelectorAll('.product');
     const productPages = document.querySelectorAll('.product-page');
     const searchInput = document.getElementById('searchInput');
+    const backButton = document.querySelector('.back-button'); // Получаем кнопку назад
 
     // Функция для применения фильтра по поиску
     function applySearchFilter() {
@@ -1140,6 +1179,16 @@
 
           // Применяем фильтр поиска при переключении вкладки
           applySearchFilter();
+
+          // Скрываем остальные главные вкладки
+          mainTabs.forEach(t => {
+            if (t !== tab) {
+              t.style.display = 'none';
+            }
+          });
+
+          // Показываем кнопку назад
+          backButton.classList.add('active');
         }
       });
     });
@@ -1203,6 +1252,19 @@
       });
     });
 
+    // Функция для возврата к главным вкладкам
+    function goBackToMainTabs() {
+      // Показываем все главные вкладки
+      mainTabs.forEach(t => {
+        t.style.display = 'block';
+      });
+
+      // Скрываем кнопку назад
+      backButton.classList.remove('active');
+
+      // Активируем первую главную вкладку
+      mainTabs[0].click();
+    }
   </script>
 </body>
 
