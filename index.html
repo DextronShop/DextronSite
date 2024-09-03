@@ -123,7 +123,6 @@
       padding: 10px 20px;
       border: none;
       border-radius: 20px;
-      background-color: #262626;
       color: #eee;
       font-weight: 600;
       cursor: pointer;
@@ -131,6 +130,9 @@
       text-align: center;
       white-space: nowrap;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+      /* Добавлен градиент по умолчанию */
+      background: linear-gradient(to right, #eee, #ddd);
     }
 
     /* Верхние кнопки больше */
@@ -140,16 +142,48 @@
     }
 
     .tab:hover {
-      background-color: #333;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       transform: translateY(-2px);
     }
 
+    /* Активные кнопки */
     .tab.active {
-      background-color: #f44336;
       color: #fff;
       box-shadow: 0 4px 8px rgba(244, 67, 54, 0.5);
     }
+
+    /* Кнопка Brawl Stars */
+    #mainTabs .tab[data-target="brawlstars"] {
+      background: linear-gradient(to right, #ff5722, #ff9800);
+    }
+
+    /* Кнопка Telegram */
+    #mainTabs .tab[data-target="telegram"] {
+      background: linear-gradient(to right, #2196F3, #ffffff);
+    }
+
+    /* Кнопки "Особые акции" и "Аккаунты" */
+    .tab.special-offers,
+    .tab.accounts {
+      background: linear-gradient(to right, #eee, #ddd);
+    }
+
+    .tab.special-offers.active,
+    .tab.accounts.active {
+      background: linear-gradient(to right, #f44336, #ffffff);
+    }
+
+    /* Кнопки "С заходом" и "Без захода" */
+    .tab[data-target$="-with-login"],
+    .tab[data-target$="-no-login"] {
+      background: linear-gradient(to right, #eee, #ddd);
+    }
+
+    .tab[data-target$="-with-login"].active,
+    .tab[data-target$="-no-login"].active {
+      background: linear-gradient(to right, #f44336, #ffffff);
+    }
+
 
     .tab.reviews {
       background: linear-gradient(to right, #673ab7, #9c27b0);
@@ -161,35 +195,6 @@
       background: linear-gradient(to right, #9c27b0, #673ab7);
       box-shadow: 0 6px 12px rgba(156, 39, 176, 0.7);
       transform: scale(1.05);
-    }
-
-    /* Переливающаяся кнопка "Особые акции" */
-    .tab.special-offers {
-      background: linear-gradient(45deg, #ffcc00, #ffa500, #ff8800, #ffcc00);
-      background-size: 400% 400%;
-      color: black;
-      animation: gradientAnimation 5s linear infinite;
-    }
-
-    .tab.accounts {
-      background: linear-gradient(to right, white, #3498db);
-      color: black;
-      animation: gradientAnimation 5s linear infinite;
-      background-size: 400% 400%;
-    }
-
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
     }
 
     .accounts-notice {
@@ -244,7 +249,7 @@
 
     /* Уменьшение  карточки товара */
     .product {
-      background-color: #262626;
+      background: linear-gradient(to bottom, #333, #222); /* Градиент для карточек товаров */
       border-radius: 10px;
       padding: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -504,43 +509,6 @@
       text-align: center;
       margin-bottom: 10px;
     }
-
-    /* Стили для кнопки назад */
-    .back-button {
-      display: none;
-      /* Изначально скрываем кнопку */
-      position: relative;
-      left: 20px;
-      top: 20px;
-      width: 40px;
-      height: 40px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-button.active {
-      display: block;
-      /* Показываем при активном разделе */
-    }
-
-    .back-button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .back-button::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(135deg);
-      border: solid white;
-      border-width: 0 3px 3px 0;
-      display: inline-block;
-      padding: 8px;
-    }
   </style>
 </head>
 
@@ -552,8 +520,7 @@
 
   <div class="container">
     <h1>Dextron Shop</h1>
-    <button class="back-button" onclick="goBackToMainTabs()"></button> <div class="working-hours">Время работы: 12:00 -
-        00:00 МСК</div>
+    <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
     <div class="autumn-sales">
       <strong>Осенние скидки - скоро</strong>
@@ -808,7 +775,7 @@
                 Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в
                 @PremiumBot
               </div>
-                          </div>
+            </div>
             <div class="product" data-target="product-page-telegram-premium-year"
               id="telegramPremiumYearProduct">
               <img
@@ -828,6 +795,7 @@
         <div class="tab-content" id="telegram-with-login">
           <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Тут пока что пусто!</div>
         </div>
+             </div>
       </div>
     </div>
   </div>
@@ -837,7 +805,7 @@
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822"
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20       20829061822"
           alt="Telegram Premium">
       </div>
       <h2>Telegram Premium 1 месяц</h2>
@@ -1136,7 +1104,6 @@
     const products = document.querySelectorAll('.product');
     const productPages = document.querySelectorAll('.product-page');
     const searchInput = document.getElementById('searchInput');
-    const backButton = document.querySelector('.back-button'); // Получаем кнопку назад
 
     // Функция для применения фильтра по поиску
     function applySearchFilter() {
@@ -1179,16 +1146,6 @@
 
           // Применяем фильтр поиска при переключении вкладки
           applySearchFilter();
-
-          // Скрываем остальные главные вкладки
-          mainTabs.forEach(t => {
-            if (t !== tab) {
-              t.style.display = 'none';
-            }
-          });
-
-          // Показываем кнопку назад
-          backButton.classList.add('active');
         }
       });
     });
@@ -1252,19 +1209,6 @@
       });
     });
 
-    // Функция для возврата к главным вкладкам
-    function goBackToMainTabs() {
-      // Показываем все главные вкладки
-      mainTabs.forEach(t => {
-        t.style.display = 'block';
-      });
-
-      // Скрываем кнопку назад
-      backButton.classList.remove('active');
-
-      // Активируем первую главную вкладку
-      mainTabs[0].click();
-    }
   </script>
 </body>
 
