@@ -123,6 +123,7 @@
       padding: 10px 20px;
       border: none;
       border-radius: 20px;
+      background-color: #262626;
       color: #eee;
       font-weight: 600;
       cursor: pointer;
@@ -130,9 +131,6 @@
       text-align: center;
       white-space: nowrap;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
-      /* Добавлен градиент по умолчанию */
-      background: linear-gradient(to right, #eee, #ddd);
     }
 
     /* Верхние кнопки больше */
@@ -142,48 +140,16 @@
     }
 
     .tab:hover {
+      background-color: #333;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       transform: translateY(-2px);
     }
 
-    /* Активные кнопки */
     .tab.active {
+      background-color: #f44336;
       color: #fff;
       box-shadow: 0 4px 8px rgba(244, 67, 54, 0.5);
     }
-
-    /* Кнопка Brawl Stars */
-    #mainTabs .tab[data-target="brawlstars"] {
-      background: linear-gradient(to right, #ff5722, #ff9800);
-    }
-
-    /* Кнопка Telegram */
-    #mainTabs .tab[data-target="telegram"] {
-      background: linear-gradient(to right, #2196F3, #ffffff);
-    }
-
-    /* Кнопки "Особые акции" и "Аккаунты" */
-    .tab.special-offers,
-    .tab.accounts {
-      background: linear-gradient(to right, #eee, #ddd);
-    }
-
-    .tab.special-offers.active,
-    .tab.accounts.active {
-      background: linear-gradient(to right, #f44336, #ffffff);
-    }
-
-    /* Кнопки "С заходом" и "Без захода" */
-    .tab[data-target$="-with-login"],
-    .tab[data-target$="-no-login"] {
-      background: linear-gradient(to right, #eee, #ddd);
-    }
-
-    .tab[data-target$="-with-login"].active,
-    .tab[data-target$="-no-login"].active {
-      background: linear-gradient(to right, #f44336, #ffffff);
-    }
-
 
     .tab.reviews {
       background: linear-gradient(to right, #673ab7, #9c27b0);
@@ -195,6 +161,35 @@
       background: linear-gradient(to right, #9c27b0, #673ab7);
       box-shadow: 0 6px 12px rgba(156, 39, 176, 0.7);
       transform: scale(1.05);
+    }
+
+    /* Переливающаяся кнопка "Особые акции" */
+    .tab.special-offers {
+      background: linear-gradient(45deg, #ffcc00, #ffa500, #ff8800, #ffcc00);
+      background-size: 400% 400%;
+      color: black;
+      animation: gradientAnimation 5s linear infinite;
+    }
+
+    .tab.accounts {
+      background: linear-gradient(to right, white, #3498db);
+      color: black;
+      animation: gradientAnimation 5s linear infinite;
+      background-size: 400% 400%;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     .accounts-notice {
@@ -249,7 +244,7 @@
 
     /* Уменьшение  карточки товара */
     .product {
-      background: linear-gradient(to bottom, #333, #222); /* Градиент для карточек товаров */
+      background-color: #262626;
       border-radius: 10px;
       padding: 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -527,7 +522,7 @@
     </div>
 
     <div class="search-container">
-      <input type="text" class="search-bar" id="searchInput" placeholder="Поиск...">
+      <input type="text" class="search-bar" id="searchInput" placeholder="Я ищу...">
     </div>
 
     <div class="tabs" id="mainTabs">
@@ -795,7 +790,6 @@
         <div class="tab-content" id="telegram-with-login">
           <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Тут пока что пусто!</div>
         </div>
-             </div>
       </div>
     </div>
   </div>
