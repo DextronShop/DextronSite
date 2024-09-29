@@ -48,6 +48,11 @@
       line-height: 1.6;
     }
 
+    .maintenance-message .bold-text { /* Новый класс для жирного текста */
+      font-weight: bold;
+      font-family: 'Impact', sans-serif; /* Пример другого шрифта */
+    }
+    
     .maintenance-message .shop-name {
       position: absolute;
       bottom: 10px;
@@ -58,16 +63,15 @@
       color: rgba(255, 255, 255, 0.8);
     }
 
-    .maintenance-message strong {
-      font-family: 'Impact', sans-serif;
-      font-weight: bold;
+    .image-container { /* Контейнер для картинки и обводки */
+      margin-top: 20px; /* Отступ сверху */
+      display: flex;
+      justify-content: center; /* Центрирование по горизонтали */
     }
 
-    .maintenance-image {
-      display: block;
-      margin: 30px auto;
-      border-radius: 50%;
-      border: 3px solid white;
+    .image-container img {
+      border: 5px solid white; /* Белая обводка */
+      border-radius: 10px; /* Скругление углов обводки */
     }
 
     @keyframes gradientAnimation {
@@ -93,10 +97,12 @@
   </video>
   <div class="maintenance-message">
     <h2>САЙТ ВРЕМЕННО НЕ РАБОТАЕТ</h2>
-    <p><strong>На данный момент происходит техническое обслуживание ЛИБО получение обновления.<br>Просим прощения!</strong></p>
+    <p><span class="bold-text">На данный момент происходит техническое обслуживание ЛИБО получение обновления.<br>Просим прощения!</span></p>
     <span class="shop-name">Dextron Shop</span>
   </div>
-  <img class="maintenance-image" src="https://steamuserimages-a.akamaihd.net/ugc/2274944075027313802/AE7E716B690C9E181CDB5C2A467648A264ABE2C5/?imw=512&imh=454&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" alt="Картинка">
+  <div class="image-container">
+    <img src="https://steamuserimages-a.akamaihd.net/ugc/2274944075027313802/AE7E716B690C9E181CDB5C2A467648A264ABE2C5/?imw=512&imh=454&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" alt="Картинка">
+  </div>
 </body>
 
 </html>
