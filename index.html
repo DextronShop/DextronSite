@@ -30,7 +30,7 @@
       transform: translate(-50%, -50%);
       background: linear-gradient(45deg, #ffcc00, #ff5733, #ffa500, #ffcc00);
       background-size: 400% 400%;
-      padding: 30px 50px;
+      padding: 20px 30px; /* Уменьшаем padding */
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -39,13 +39,13 @@
     }
 
     .maintenance-message h2 {
-      font-size: 2em;
+      font-size: 1.5em; /* Уменьшаем размер шрифта */
       margin-bottom: 10px;
     }
 
     .maintenance-message p {
-      font-size: 1.2em;
-      line-height: 1.6;
+      font-size: 1em; /* Уменьшаем размер шрифта */
+      line-height: 1.4;
     }
 
     @keyframes gradientAnimation {
@@ -62,18 +62,19 @@
       }
     }
 
-    /* Медиа-запрос для мобильных устройств */
-    @media (max-width: 768px) {
+    /* Стили для мобильных устройств */
+    @media (max-width: 768px) { 
       .maintenance-message {
-        padding: 20px 30px; /* Уменьшаем отступы */
+        padding: 15px 20px; /* Ещё уменьшаем padding */
+        border-radius: 5px; /* Уменьшаем радиус углов */
       }
 
       .maintenance-message h2 {
-        font-size: 1.5em; /* Уменьшаем заголовок */
+        font-size: 1.2em; /* Ещё уменьшаем размер шрифта */
       }
 
       .maintenance-message p {
-        font-size: 1em; /* Уменьшаем текст */
+        font-size: 0.9em; /* Ещё уменьшаем размер шрифта */
       }
     }
   </style>
