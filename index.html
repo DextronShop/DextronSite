@@ -62,14 +62,20 @@
       }
     }
 
-    @media (max-width: 768px) {
-      .maintenance-message {
-        padding: 20px 30px; /* уменьшаем padding */
-        font-size: 0.9em; /* уменьшаем общий размер шрифта */
-      }
-      .maintenance-message h2 {
-        font-size: 1.5em; /* уменьшаем размер заголовка */
-      }
+    .footer-watermark {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5); 
+      color: white;
+      text-align: center;
+      padding: 10px 0; 
+      font-family: 'Dextron', sans-serif;
+    }
+
+    @font-face {
+      font-family: 'Dextron';
+      src: url('fonts/Dextron.ttf') format('truetype'); 
     }
   </style>
 </head>
@@ -83,6 +89,10 @@
     <h2>САЙТ ВРЕМЕННО НЕ РАБОТАЕТ</h2>
     <p>На данный момент происходит техническое обслуживание ЛИБО получение обновления.<br>Просим прощения!</p>
   </div>
+
+  <footer class="footer-watermark">
+    Dextron Shop
+  </footer>
 </body>
 
 </html>
