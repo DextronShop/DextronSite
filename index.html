@@ -24,7 +24,7 @@
     }
 
     .maintenance-message {
-      position: absolute;
+      position: relative; /* Чтобы вставка с названием магазина позиционировалась внутри */
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -47,6 +47,16 @@
       font-size: 1.2em;
       line-height: 1.6;
     }
+    
+    .maintenance-message .shop-name {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Papyrus', cursive; /* Или другой "особый" шрифт */
+      font-size: 1.5em;
+      color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый текст */
+    }
 
     @keyframes gradientAnimation {
       0% {
@@ -61,22 +71,6 @@
         background-position: 0% 50%;
       }
     }
-
-    .footer-watermark {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.5); 
-      color: white;
-      text-align: center;
-      padding: 10px 0; 
-      font-family: 'Dextron', sans-serif;
-    }
-
-    @font-face {
-      font-family: 'Dextron';
-      src: url('fonts/Dextron.ttf') format('truetype'); 
-    }
   </style>
 </head>
 
@@ -88,11 +82,8 @@
   <div class="maintenance-message">
     <h2>САЙТ ВРЕМЕННО НЕ РАБОТАЕТ</h2>
     <p>На данный момент происходит техническое обслуживание ЛИБО получение обновления.<br>Просим прощения!</p>
+    <span class="shop-name">Dextron Shop</span>
   </div>
-
-  <footer class="footer-watermark">
-    Dextron Shop
-  </footer>
 </body>
 
 </html>
