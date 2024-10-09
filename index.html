@@ -457,38 +457,31 @@
       text-decoration: none;
     }
 
-   /* Стили для таблички "Выгодное предложение" */
-    .special-offer-tag {
-      background-color: #f44336;
-      color: white;
-      padding: 5px 10px;
+    /* Табличка "Осенние скидки" */
+    .autumn-sales {
+      background: linear-gradient(45deg, #ff5733, #ffa500, #ff8800, #ff5733);
+      background-size: 400% 400%;
+      padding: 10px 20px;
       border-radius: 5px;
-      font-weight: bold;
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      animation: gradientAnimation 5s linear infinite;
     }
 
-    /* Табличка "Выдуманный Товар" */
-    .fake-product-tag {
-      background: linear-gradient(45deg, #ffa500, #ff5733);
+    .autumn-sales strong {
       color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
       font-weight: bold;
-      text-align: center;
-      margin-bottom: 10px;
+      font-size: 1.2em;
     }
 
-    /* Табличка "Нет в наличии" */
-    .out-of-stock-tag {
-      background-color: #f44336;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-weight: bold;
+    #specialOffersNotice {
+      color: #ccc;
       text-align: center;
-      margin-bottom: 10px;
+      font-size: 1.2em;
+      margin-top: 20px;
+      display: none;
     }
+
 
     /* Стили для мобильных устройств */
     @media (max-width: 768px) {
@@ -499,6 +492,17 @@
       .product {
         max-width: 100%;
       }
+    }
+
+    /* Стили для таблички "Выгодное предложение" */
+    .special-offer-tag {
+      background-color: #f44336;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -513,10 +517,8 @@
     <h1>Dextron Shop</h1>
     <div class="working-hours">Время работы: 12:00 - 00:00 МСК</div>
 
-    <div style="font-weight: bold; color: red; text-align: center; margin-bottom: 20px;">
-      В связи с некоторыми проблемами, перейти на аккаунт продавца можно лишь введя в поиске телеграма:
-      @dextronseller. <br>
-      Данный аккаунт официальный и только один!!!
+    <div class="autumn-sales">
+      <strong>Осенние скидки - скоро</strong>
     </div>
 
     <div class="search-container">
@@ -616,7 +618,7 @@
 
             <div class="product" data-target="product-page-brawlstars-pass" id="brawlPassProduct">
               <img
-                src="https://static.wikia.nocookie.net/a154a337-c10d-43e6-a905-e0f78186cb40"
+                src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png.png"
                 alt="Brawl Pass">
               <h2>
                 Brawl Pass
@@ -686,7 +688,8 @@
           <div class="product-list" style="justify-content: center;">
             <div class="product" data-target="product-page-brawlstars-pass-discount"
               id="brawlPassDiscountProduct">
-              <img src="https://static.wikia.nocookie.net/a154a337-c10d-43e6-a905-e0f78186cb40"
+              <img
+                src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png.png"
                 alt="Brawl Pass">
               <h2>
                 Brawl Pass [ОСОБАЯ СКИДКА]
@@ -755,8 +758,7 @@
 
         <div class="tab-content active" id="telegram-no-login">
           <div class="product-list">
-            <div class="product" data-target="product-page-telegram-premium">
-              <div class="out-of-stock-tag">Нет в наличии</div> 
+            <div class="product" data-target="product-page-telegram-premium" id="telegramPremiumProduct">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822"
                 alt="Telegram Premium">
@@ -768,10 +770,9 @@
                 Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в
                 @PremiumBot
               </div>
-              <div class="out-of-stock-tag" style="width: 180px;">Нет в наличии</div>
             </div>
-            <div class="product" data-target="product-page-telegram-premium-year">
-              <div class="out-of-stock-tag">Нет в наличии</div> 
+            <div class="product" data-target="product-page-telegram-premium-year"
+              id="telegramPremiumYearProduct">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822"
                 alt="Telegram Premium">
@@ -782,21 +783,6 @@
               <div class="description">
                 Telegram Premium на 1 год без захода на аккаунт.
               </div>
-              <div class="out-of-stock-tag" style="width: 180px;">Нет в наличии</div>
-            </div>
-            <div class="product" data-target="product-page-shchavel"> 
-             <div class="fake-product-tag">Выдуманный Товар</div>
-              <img 
-                src="https://banner2.cleanpng.com/20180627/qyu/kisspng-spinach-komatsuna-food-vegetable-collard-greens-5b33140edbbbb0.5671323215300741269.jpg"
-                alt="Щавель">
-              <h2>
-                Щавель
-              </h2>
-              <div class="price">49 рублей</div>
-              <div class="description">
-                Вкусный, сочный щавелищка с тонким тоном ароматной пиписьки со СПИДом. Покупайте, пока свежий)))
-              </div>
-              <div class="out-of-stock-tag" style="width: 180px;">Нет в наличии</div>
             </div>
           </div>
         </div>
@@ -813,7 +799,7 @@
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822"
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20       20829061822"
           alt="Telegram Premium">
       </div>
       <h2>Telegram Premium 1 месяц</h2>
@@ -827,7 +813,7 @@
     </div>
   </div>
 
-  <div class="product-page" id="product-page-telegram-premium-year">
+   <div class="product-page" id="product-page-telegram-premium-year">
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
@@ -952,7 +938,7 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
-        <img src="https://static.wikia.nocookie.net/a154a337-c10d-43e6-a905-e0f78186cb40"
+        <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png.png"
           alt="Brawl Stars Pass">
       </div>
       <h2 style="color: #fff;">Brawl Pass [ОСОБАЯ СКИДКА]</h2>
@@ -969,7 +955,7 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
-        <img src="https://static.wikia.nocookie.net/a154a337-c10d-43e6-a905-e0f78186cb40"
+        <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png.png"
           alt="Brawl Stars Pass">
       </div>
       <h2 style="color: #fff;">Brawl Pass</h2>
