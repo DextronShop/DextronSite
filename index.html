@@ -80,35 +80,10 @@
       border-radius: 5px;
     }
 
-    /* Улучшенный дизайн поиска */
+    /* Удаляем стили поиска */
     .search-container {
-      /* Контейнер для позиционирования */
-      position: relative;
-      width: 100%;
-      margin-bottom: 30px;
+      display: none;
     }
-
-    .search-bar {
-      width: 100%;
-      padding: 12px 16px;
-      border: none;
-      background-color: #333;
-      color: #fff;
-      border-radius: 25px;
-      font-size: 1em;
-    }
-
-    .search-bar::placeholder {
-      color: #888;
-    }
-
-    .search-bar:focus {
-      outline: none;
-      /* Убираем стандартное выделение */
-      box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.3);
-      /* Добавляем свечение при фокусе */
-    }
-
 
     .tabs {
       display: flex;
@@ -457,7 +432,7 @@
       text-decoration: none;
     }
 
-   /* Стили для таблички "Выгодное предложение" */
+    /* Стили для таблички "Выгодное предложение" */
     .special-offer-tag {
       background-color: #f44336;
       color: white;
@@ -500,6 +475,15 @@
         max-width: 100%;
       }
     }
+
+    /* Стили для разделительной строки */
+    .divider {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #f44336, #e91e63);
+      margin: 30px 0;
+      /* Отступы сверху и снизу */
+    }
   </style>
 </head>
 
@@ -519,9 +503,7 @@
       Сайт временно неработоспособен.
     </div>
 
-    <div class="search-container">
-      <input type="text" class="search-bar" id="searchInput" placeholder="Я ищу...">
-    </div>
+    <div class="divider"></div> <!-- Разделительная строка -->
 
     <div class="tabs" id="mainTabs">
       <div class="tab active" data-target="brawlstars">Brawl Stars</div>
@@ -564,7 +546,8 @@
                 80 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
               </div>
             </div>
-            <div class="product" data-target="product-page-brawlstars-gems-170" id="brawlStarsGems170Product">
+            <div class="product" data-target="product-page-brawlstars-gems-170"
+              id="brawlStarsGems170Product">
               <img
                 src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
                 alt="Brawl Stars Gems">
@@ -576,7 +559,8 @@
                 170 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
               </div>
             </div>
-            <div class="product" data-target="product-page-brawlstars-gems-360" id="brawlStarsGems360Product">
+            <div class="product" data-target="product-page-brawlstars-gems-360"
+              id="brawlStarsGems360Product">
               <img
                 src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
                 alt="Brawl Stars Gems">
@@ -588,7 +572,8 @@
                 360 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.
               </div>
             </div>
-            <div class="product" data-target="product-page-brawlstars-gems-950" id="brawlStarsGems950Product">
+            <div class="product" data-target="product-page-brawlstars-gems-950"
+              id="brawlStarsGems950Product">
               <img
                 src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
                 alt="Brawl Stars Gems">
@@ -626,7 +611,8 @@
                 Brawl Pass для Brawl Stars.
               </div>
             </div>
-            <div class="product" data-target="product-page-brawlstars-pass-plus" id="brawlPassPlusProduct">
+            <div class="product" data-target="product-page-brawlstars-pass-plus"
+              id="brawlPassPlusProduct">
               <img
                 src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26"
                 alt="Brawl Pass+">
@@ -667,7 +653,8 @@
               </div>
             </div>
 
-            <div class="product" data-target="product-page-brawlstars-pass-gift" id="brawlPassGiftProduct">
+            <div class="product" data-target="product-page-brawlstars-pass-gift"
+              id="brawlPassGiftProduct">
               <img
                 src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26"
                 alt="Brawl Pass+">
@@ -700,7 +687,8 @@
           <div id="specialOffersNotice">
             Все актуальные акции есть ЭКСКЛЮЗИВНО в нашем
             <a href="https://t.me/dextronshop"
-              style="color: #888; transition: color 0.3s ease; text-decoration: none;">Телеграм канале</a>
+              style="color: #888; transition: color 0.3s ease; text-decoration: none;">Телеграм
+              канале</a>
           </div>
         </div>
 
@@ -722,7 +710,8 @@
               <h2>50679 кубков, 79 бойцов</h2>
               <div class="price">3200 рублей</div>
               <div class="description">
-                Жирный аккаунт, цена хорошая. Перепривязка на вашу почту. Много скинов, высоких рангов! (2019 год)
+                Жирный аккаунт, цена хорошая. Перепривязка на вашу почту. Много скинов, высоких рангов!
+                (2019 год)
                 Обзор аккаунта - <a href="https://youtu.be/a2aGDeWdubo?feature=shared"
                   target="_blank">https://youtu.be/a2aGDeWdubo?feature=shared</a>
               </div>
@@ -780,9 +769,9 @@
                 Telegram Premium на 1 год без захода на аккаунт.
               </div>
             </div>
-            <div class="product" data-target="product-page-shchavel"> 
-             <div class="fake-product-tag">Выдуманный Товар</div>
-              <img 
+            <div class="product" data-target="product-page-shchavel">
+              <div class="fake-product-tag">Выдуманный Товар</div>
+              <img
                 src="https://banner2.cleanpng.com/20180627/qyu/kisspng-spinach-komatsuna-food-vegetable-collard-greens-5b33140edbbbb0.5671323215300741269.jpg"
                 alt="Щавель">
               <h2>
@@ -790,7 +779,8 @@
               </h2>
               <div class="price">49 рублей</div>
               <div class="description">
-                Вкусный, сочный щавелищка с тонким тоном ароматной пиписьки со СПИДом. Покупайте, пока свежий)))
+                Вкусный, сочный щавелищка с тонким тоном ароматной пиписьки со СПИДом. Покупайте, пока
+                свежий)))
               </div>
             </div>
           </div>
@@ -798,8 +788,7 @@
 
         <div class="tab-content" id="telegram-with-login">
           <div style="color:#ccc; text-align: center; font-size: 1.2em;">Упс... Тут пока что пусто!</div>
-        </div>
-      </div>
+          </div>
     </div>
   </div>
 
@@ -845,7 +834,8 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
-        <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
+        <img
+          src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
           alt="Brawl Stars Gems">
       </div>
       <h2 style="color: #fff;">30 гемов</h2>
@@ -862,7 +852,8 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
-        <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
+        <img
+          src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
           alt="Brawl Stars 80 Gems">
       </div>
       <h2 style="color: #fff;">80 гемов</h2>
@@ -879,7 +870,8 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
-        <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
+        <img
+          src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
           alt="Brawl Stars Gems">
       </div>
       <h2 style="color: #fff;">170 гемов</h2>
@@ -896,7 +888,8 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
-        <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
+        <img
+          src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
           alt="Brawl Stars Gems">
       </div>
       <h2 style="color: #fff;">360 гемов</h2>
@@ -913,7 +906,8 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
-        <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
+        <img
+          src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
           alt="Brawl Stars Gems">
       </div>
       <h2 style="color: #fff;">950 гемов</h2>
@@ -930,7 +924,8 @@
     <div class="content">
       <span class="close-button" onclick="closeProductPage()">×</span>
       <div class="product-image">
-        <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
+        <img
+          src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
           alt="Brawl Stars Gems">
       </div>
       <h2 style="color: #fff;">2000 гемов</h2>
@@ -1106,32 +1101,6 @@
     const tabContents = document.querySelectorAll('.tab-content');
     const products = document.querySelectorAll('.product');
     const productPages = document.querySelectorAll('.product-page');
-    const searchInput = document.getElementById('searchInput');
-
-    // Функция для применения фильтра по поиску
-    function applySearchFilter() {
-      const searchTerm = searchInput.value.toLowerCase();
-      const productList = document.querySelectorAll('.product-list');
-
-      productList.forEach(list => {
-        const products = list.querySelectorAll('.product');
-        let visibleProducts = 0;
-
-        products.forEach(product => {
-          const productName = product.querySelector('h2').textContent.toLowerCase();
-          const isVisible = productName.includes(searchTerm);
-          product.style.display = isVisible ? 'block' : 'none';
-          if (isVisible) visibleProducts++;
-        });
-
-        // Скрываем родительский .product-list, если нет видимых товаров
-        list.style.display = visibleProducts > 0 ? 'grid' : 'none';
-      });
-    }
-
-    // Обработчик события input для поисковой строки
-    searchInput.addEventListener('input', applySearchFilter);
-
 
     mainTabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -1146,9 +1115,6 @@
           if (firstSubTab) {
             firstSubTab.click();
           }
-
-          // Применяем фильтр поиска при переключении вкладки
-          applySearchFilter();
         }
       });
     });
@@ -1167,9 +1133,6 @@
 
         tab.classList.add('active');
         document.getElementById(tab.dataset.target).classList.add('active');
-
-        // Применяем фильтр поиска при переключении вкладки
-        applySearchFilter();
       });
     });
 
@@ -1194,7 +1157,8 @@
     }
 
     // Проверка наличия товаров в разделе "Особые акции"
-    const specialOffersContainer = document.querySelector('#brawlstars-special-offers .product-list');
+    const specialOffersContainer = document.querySelector(
+      '#brawlstars-special-offers .product-list');
     const specialOffersNotice = document.getElementById('specialOffersNotice');
 
     if (specialOffersContainer.children.length === 0) {
@@ -1207,11 +1171,10 @@
         product.style.transform = 'scale(1.05) rotate(2deg)'; // Уменьшаем градус поворота
       });
 
-      product.addEventListener('mouseout', () => {
+                          product.addEventListener('mouseout', () => {
         product.style.transform = 'scale(1) rotate(0deg)';
       });
     });
-
   </script>
 </body>
 
