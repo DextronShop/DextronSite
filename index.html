@@ -287,7 +287,20 @@
       text-align: center;
       /* Центрирование текста цены */
     }
-
+       /* Стили для сообщения о проблемах */
+    .problem-notice {
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачная белая вставка */
+      padding: 10px 20px;
+      border-radius: 5px;
+      /* Градиент текста */
+      background: linear-gradient(to right, #ffcc00, #ffa500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    } 
+    
     .product .description {
       font-size: 0.8em;
       color: #ccc;
@@ -505,19 +518,6 @@
     .arrow-line::after {
       transform: rotate(45deg) translateX(50%); /* Поворот правой стрелки */
     }
-      /* Стили для сообщения о проблемах */
-    .problem-notice {
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 20px;
-      background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачная белая вставка */
-      padding: 10px 20px;
-      border-radius: 5px;
-      /* Градиент текста */
-      background: linear-gradient(to right, #ffcc00, #ffa500);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    } 
       </style>
 </head>
 
