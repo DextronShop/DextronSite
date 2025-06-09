@@ -7,6 +7,15 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
+    :root {
+      --main-red: #f44336;
+      --main-dark: #1a1a1a;
+      --secondary-dark: #262626;
+      --text-primary: #fff;
+      --text-secondary: #ccc;
+      --accent-gold: #ffcc00;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,8 +24,8 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #1a1a1a;
-      color: #fff;
+      background-color: var(--main-dark);
+      color: var(--text-primary);
     }
 
     .background-video {
@@ -57,7 +66,6 @@
       margin-bottom: 30px;
     }
 
-    /* Новый дизайн поиска */
     .search-container {
       position: relative;
       margin-bottom: 30px;
@@ -65,23 +73,20 @@
 
     .search-bar {
       width: 100%;
-      padding: 15px 20px 15px 50px; /* Отступ для иконки */
+      padding: 15px 20px 15px 50px;
       border: 1px solid #444;
       background-color: #2a2a2a;
       color: #fff;
-      border-radius: 30px; /* Более округлая форма */
+      border-radius: 30px;
       font-size: 1em;
       transition: all 0.3s ease;
       box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
     }
 
-    .search-bar::placeholder {
-      color: #888;
-    }
-
+    .search-bar::placeholder { color: #888; }
     .search-bar:focus {
       outline: none;
-      border-color: #f44336;
+      border-color: var(--main-red);
       box-shadow: 0 0 10px rgba(244, 67, 54, 0.5), inset 0 2px 4px rgba(0,0,0,0.2);
     }
 
@@ -91,18 +96,17 @@
       left: 20px;
       transform: translateY(-50%);
       color: #888;
-      pointer-events: none; /* Иконка не перехватывает клики */
+      pointer-events: none;
     }
 
     .tabs {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px; /* Увеличил отступ */
+      gap: 15px;
       margin-bottom: 30px;
       justify-content: center;
     }
 
-    /* Новый дизайн кнопок разделов */
     .tab {
       padding: 12px 20px;
       border: none;
@@ -125,21 +129,12 @@
     }
 
     .tab.active {
-      background-color: #f44336;
+      background-color: var(--main-red);
       color: #fff;
       transform: translateY(1px);
       box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4);
     }
-
-    .tab.reviews {
-      background: linear-gradient(to right, #673ab7, #9c27b0);
-      color: white;
-    }
-
-    .tab.reviews:hover {
-      background: linear-gradient(to right, #9c27b0, #673ab7);
-    }
-
+    
     .tab.special-offers {
       background: linear-gradient(to right, #ffcc00, #ffa500);
       color: black;
@@ -159,7 +154,7 @@
     }
 
     .accounts-notice {
-      background-color: #f44336;
+      background-color: var(--main-red);
       border-radius: 5px;
       padding: 20px;
       margin-bottom: 20px;
@@ -181,45 +176,29 @@
       transition: background-color 0.3s ease;
     }
 
-    .submit-ad-button:hover {
-      background: linear-gradient(to right, #ccc, #fff);
-    }
-
-    .tab-content {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .tab-content.active {
-      display: block;
-      opacity: 1;
-    }
-
-    .product-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+    .submit-ad-button:hover { background: linear-gradient(to right, #ccc, #fff); }
+    .tab-content { display: none; opacity: 0; transition: opacity 0.5s ease; }
+    .tab-content.active { display: block; opacity: 1; }
+    .product-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     
-    /* Изменения в карточке товара */
     .product {
-      background-color: #262626;
+      background-color: var(--secondary-dark);
       border-radius: 10px;
-      padding: 15px; /* Увеличил паддинг */
+      padding: 15px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Центрирование контента по горизонтали */
+      align-items: center;
       border: 2px solid transparent;
+      cursor: pointer;
     }
 
     .product:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      border-color: #f44336;
+      border-color: var(--main-red);
     }
 
     .product img {
@@ -227,33 +206,24 @@
       height: 150px;
       object-fit: contain;
       border-radius: 5px;
-      margin-bottom: 15px; /* Увеличил отступ */
+      margin-bottom: 15px;
     }
 
     .product h2 {
       font-size: 1.1em;
       font-weight: 600;
-      margin-bottom: 10px; /* Увеличил отступ */
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      text-align: center; /* Центрирование текста */
+      text-align: center;
     }
+    .product h2 img { width: 20px; height: 20px; margin-right: 10px; }
+    #brawlPassPlusProduct h2 { color: white; }
 
-    #brawlPassPlusProduct h2 {
-      color: white;
-    }
-
-    .product h2 img {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-    }
-
-    /* Новый стиль цены */
     .product .price {
       font-size: 1em;
       font-weight: 600;
-      color: #ffcc00;
+      color: var(--accent-gold);
       margin-bottom: 10px;
       background-color: rgba(255, 204, 0, 0.1);
       padding: 5px 15px;
@@ -264,13 +234,13 @@
 
     .product .description {
       font-size: 0.8em;
-      color: #ccc;
+      color: var(--text-secondary);
       line-height: 1.4;
-      text-align: center; /* Центрирование текста */
-      flex-grow: 1; /* Чтобы описание занимало доступное место */
+      text-align: center;
+      flex-grow: 1;
     }
 
-    /* Общие стили для модальных окон */
+    /* --- Стили модальных окон --- */
     .modal-page {
       display: none;
       position: fixed;
@@ -283,126 +253,98 @@
       background-color: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(5px);
     }
+    .modal-page.active { display: flex; align-items: center; justify-content: center; }
 
     .modal-page .content {
       background-color: #181818;
-      margin: 5% auto;
-      padding: 30px;
+      padding: 20px;
       border-radius: 10px;
-      max-width: 800px;
+      max-width: 95%;
       position: relative;
       opacity: 0;
       transform: translateY(-30px);
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
     
-    .modal-page.active .content {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .modal-page .content h2 {
-      font-size: 1.8em;
-      font-weight: 700;
-      color: #f44336;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .modal-page .content .price {
-      font-size: 1.2em;
-      font-weight: 600;
-      color: #ffcc00;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    
-    .product-page .content .product-image {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-    
-    .product-page .content .product-image img {
-        max-width: 50%;
-        height: auto;
-    }
-
-    .modal-page .content p {
-      font-size: 1em;
-      color: #ccc;
-      line-height: 1.6;
-      text-align: justify;
-    }
-
-    .modal-page .content p a {
-        color: #3498db;
-        text-decoration: none;
-    }
-     .modal-page .content p a:hover {
-        text-decoration: underline;
-    }
-
+    .modal-page.active .content { opacity: 1; transform: translateY(0); }
     .close-button {
       position: absolute;
       top: 10px;
       right: 15px;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
       color: #fff;
       cursor: pointer;
       transition: color 0.2s ease;
+      z-index: 10;
     }
+    .close-button:hover { color: var(--main-red); }
 
-    .close-button:hover {
-      color: #f44336;
+    /* --- Новый дизайн модального окна продукта --- */
+    .product-page .content { max-width: 700px; }
+    .modal-product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 30px;
+      align-items: center;
     }
+    .modal-image-container img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .modal-details-container h2 {
+      font-size: 1.8em;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .modal-details-container .price {
+      display: inline-block;
+      font-size: 1.4em;
+      font-weight: 700;
+      color: var(--main-dark);
+      background-color: var(--accent-gold);
+      padding: 8px 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .modal-details-container p { font-size: 0.9em; color: var(--text-secondary); line-height: 1.6; }
 
-    .buy-button {
-      width: 180px;
+    @media (max-width: 600px) {
+      .modal-product-layout { grid-template-columns: 1fr; gap: 20px; }
+      .modal-details-container { text-align: center; }
+    }
+    
+    .legal-page .content { max-width: 800px; }
+    .legal-page h2 { color: var(--main-red); margin-bottom: 15px; text-align: center; }
+    .legal-page p { color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px; }
+    .legal-page p a { color: #3498db; text-decoration: none; }
+    .legal-page p a:hover { text-decoration: underline; }
+
+    .add-to-cart-btn, .buy-button {
+      width: 100%;
+      max-width: 250px;
       height: 50px;
       border: none;
       display: block;
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      margin: 30px auto;
-      background: linear-gradient(to right, #f44336, #e91e63);
+      margin: 30px auto 0;
+      background: linear-gradient(to right, var(--main-red), #e91e63);
       color: white;
       font-weight: bold;
-      font-size: 1.2em;
+      font-size: 1.1em;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       text-align: center;
       line-height: 50px;
     }
-
-    .buy-button:hover {
+    .add-to-cart-btn:hover, .buy-button:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     }
-
-    .buy-button video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-radius: 8px;
-      transition: transform 0.2s ease;
-    }
-
-    .buy-button:hover video {
-      transform: scale(1.05);
-    }
-
-    .buy-button span {
-      position: relative;
-      z-index: 1;
-    }
-
+    
     .footer {
       text-align: center;
       padding: 20px 0;
@@ -410,42 +352,102 @@
       background-color: transparent;
       border-top: 1px solid #333;
     }
+    .footer p { color: #888; margin: 0 0 10px 0; font-size: 0.9em; }
+    .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .footer-links a { color: #aaa; transition: color 0.3s ease; text-decoration: none; font-size: 0.9em; }
+    .footer-links a:hover { color: white; }
 
-    .footer p {
-      color: #888;
-      margin: 0 0 10px 0;
-      font-size: 0.9em;
+    /* --- Стили корзины и плавающих кнопок --- */
+    .floating-action-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 99;
     }
-    
-    .footer-links {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: #aaa;
-      transition: color 0.3s ease;
-      text-decoration: none;
-      font-size: 0.9em;
-    }
-
-    .footer-links a:hover {
+    .fab {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .fab:hover { transform: scale(1.1); }
+    .fab svg { width: 28px; height: 28px; }
+
+    .support-fab { background: linear-gradient(135deg, #0088cc, #00a0e9); }
+    .reviews-fab { background: linear-gradient(135deg, #673ab7, #9c27b0); text-decoration: none;}
+
+    #cart-button {
+      background: linear-gradient(135deg, #f44336, #e91e63);
+      display: none; /* Скрыто по умолчанию */
+    }
+    #cart-button.visible { display: flex; }
+    .cart-counter {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--accent-gold);
+      color: var(--main-dark);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--main-dark);
     }
 
-    a {
-      text-decoration: none;
+    #cart-modal .content {
+      max-width: 600px;
+      width: 95%;
     }
+    #cart-modal h2 { text-align: center; margin-bottom: 20px; color: var(--main-red); }
+    #cart-items-container { max-height: 50vh; overflow-y: auto; margin-bottom: 20px; padding-right: 10px; }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: var(--secondary-dark);
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .cart-item-image { width: 60px; height: 60px; object-fit: contain; }
+    .cart-item-details { flex-grow: 1; }
+    .cart-item-details h3 { font-size: 1em; margin-bottom: 5px; }
+    .cart-item-details .price { font-size: 0.9em; color: var(--accent-gold); }
+    .cart-item-controls { display: flex; align-items: center; gap: 10px; }
+    .quantity-controls { display: flex; align-items: center; gap: 8px; }
+    .quantity-btn {
+      background: #444;
+      border: none;
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .remove-item-btn { background: none; border: none; color: #888; cursor: pointer; font-size: 20px; transition: color 0.2s; }
+    .remove-item-btn:hover { color: var(--main-red); }
+    .cart-summary { text-align: right; font-size: 1.2em; font-weight: bold; margin: 20px 0; }
+    #checkout-button { text-decoration: none; }
+    #empty-cart-message { text-align: center; color: var(--text-secondary); padding: 20px 0; }
+    /* --- Конец стилей корзины --- */
 
-    #specialOffersNotice {
-      color: #ccc;
-      text-align: center;
-      font-size: 1.2em;
-      margin-top: 20px;
-      display: none;
-    }
+    a { text-decoration: none; }
+    #specialOffersNotice { color: #ccc; text-align: center; font-size: 1.2em; margin-top: 20px; display: none; }
   </style>
 </head>
 <body>
@@ -468,7 +470,6 @@
     <div class="tabs" id="mainTabs">
       <div class="tab active" data-target="brawlstars">Brawl Stars</div>
       <div class="tab" data-target="telegram">Telegram</div>
-      <a href="https://t.me/dextronreviews" class="tab reviews">Отзывы</a>
     </div>
 
     <div class="tab-content-container">
@@ -482,60 +483,60 @@
 
         <div class="tab-content" id="brawlstars-with-login">
           <div class="product-list">
+            <!-- Продукты "С заходом" -->
             <div class="product" data-target="product-page-brawlstars-gems" id="brawlStarsGemsProduct">
-              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png"
-                alt="Brawl Stars Gems">
-              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">30 гемов</h2>
+              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">
+              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="">30 гемов</h2>
               <div class="price">209 рублей</div>
               <div class="description">30 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.</div>
             </div>
             <div class="product" data-target="product-page-brawlstars-gems-80" id="brawlStarsGems80Product">
               <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">
-              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems">80 гемов</h2>
+              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="">80 гемов</h2>
               <div class="price">489 рублей</div>
               <div class="description">80 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.</div>
             </div>
             <div class="product" data-target="product-page-brawlstars-gems-170" id="brawlStarsGems170Product">
               <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">
-              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">170 гемов</h2>
+              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="">170 гемов</h2>
               <div class="price">929 рублей</div>
-              <div class="description">170 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.</div>
+              <div class="description">170 гемов. Необходим вход в аккаунт.</div>
             </div>
             <div class="product" data-target="product-page-brawlstars-gems-360" id="brawlStarsGems360Product">
               <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">
-              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">360 гемов</h2>
+              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="">360 гемов</h2>
               <div class="price">1869 рублей</div>
-              <div class="description">360 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.</div>
+              <div class="description">360 гемов. Необходим вход в аккаунт.</div>
             </div>
             <div class="product" data-target="product-page-brawlstars-gems-950" id="brawlStarsGems950Product">
               <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">
-              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">950 гемов</h2>
+              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="">950 гемов</h2>
               <div class="price">4329 рублей</div>
-              <div class="description">950 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.</div>
+              <div class="description">950 гемов. Необходим вход в аккаунт.</div>
             </div>
             <div class="product" data-target="product-page-brawlstars-gems-2000" id="brawlStarsGems2000Product">
               <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">
-              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems">2000 гемов</h2>
+              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="">2000 гемов</h2>
               <div class="price">8699 рублей</div>
-              <div class="description">2000 гемов для Brawl Stars. Для покупки необходим вход в аккаунт.</div>
+              <div class="description">2000 гемов. Необходим вход в аккаунт.</div>
             </div>
             <div class="product" data-target="product-page-brawlstars-pass" id="brawlPassProduct">
-              <img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png" alt="Brawl Pass">
-              <h2><img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png" alt="Brawl Pass">Brawl Pass</h2>
+              <img src="https://game-assets.store.supercell.com/brawlstars/a34de5b2-05f1-4100-9ef6-468643f72275.png" alt="Brawl Pass">
+              <h2><img src="https://game-assets.store.supercell.com/brawlstars/a34de5b2-05f1-4100-9ef6-468643f72275.png" alt="">Brawl Pass</h2>
               <div class="price">599 рублей</div>
               <div class="description">Brawl Pass для Brawl Stars.</div>
             </div>
             <div class="product" data-target="product-page-brawlstars-pass-plus" id="brawlPassPlusProduct">
               <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
-              <h2><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">Brawl Pass+</h2>
+              <h2><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="">Brawl Pass+</h2>
               <div class="price">899 рублей</div>
               <div class="description">Brawl Pass+ для Brawl Stars.</div>
             </div>
             <div class="product" data-target="product-page-brawlstars-pass-upgrade" id="brawlPassUpgradeProduct">
               <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
-              <h2><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">Улучшение BP до BP+</h2>
+              <h2><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="">Улучшение BP до BP+</h2>
               <div class="price">399 рублей</div>
-              <div class="description">Улучшение Brawl Pass до Brawl Pass Plus в Brawl Stars.</div>
+              <div class="description">Улучшение Brawl Pass до Brawl Pass Plus.</div>
             </div>
           </div>
         </div>
@@ -544,15 +545,15 @@
           <div class="product-list">
             <div class="product" data-target="product-page-pin" id="pinProduct">
               <img src="videos/pin.png" alt="Brawl Stars Pin">
-              <h2><img src="videos/pin.png" alt="Brawl Stars Pin">Пин Матчерино</h2>
+              <h2><img src="videos/pin.png" alt="">Пин Матчерино</h2>
               <div class="price">649 рублей</div>
-              <div class="description">Данный товар будет доставлен на ваш аккаунт в течение 2 недель.</div>
+              <div class="description">Доставка на ваш аккаунт в течение 2 недель.</div>
             </div>
             <div class="product" data-target="product-page-brawlstars-pass-gift" id="brawlPassGiftProduct">
               <img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">
-              <h2><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+">Brawl Pass+ [ПОДАРКОМ]</h2>
+              <h2><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="">Brawl Pass+ [ПОДАРКОМ]</h2>
               <div class="price">999 рублей</div>
-              <div class="description">Данный товара будет доставлен на ваш аккаунт после 24 часов.</div>
+              <div class="description">Доставка на ваш аккаунт после 24 часов.</div>
             </div>
           </div>
         </div>
@@ -560,8 +561,8 @@
         <div class="tab-content" id="brawlstars-special-offers">
           <div class="product-list">
             <div class="product" data-target="product-page-brawlstars-pass-discount" id="brawlPassDiscountProduct">
-              <img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Pass">
-              <h2><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Pass">Brawl Pass [ОСОБАЯ СКИДКА]</h2>
+              <img src="https://game-assets.store.supercell.com/brawlstars/a34de5b2-05f1-4100-9ef6-468643f72275.png" alt="Brawl Pass">
+              <h2><img src="https://game-assets.store.supercell.com/brawlstars/a34de5b2-05f1-4100-9ef6-468643f72275.png" alt="">Brawl Pass [ОСОБАЯ СКИДКА]</h2>
               <div class="price">329 рублей</div>
               <div class="description">Brawl Pass для Brawl Stars. [ОСОБАЯ СКИДКА]</div>
             </div>
@@ -593,15 +594,15 @@
           <div class="product-list">
             <div class="product" data-target="product-page-telegram-premium" id="telegramPremiumProduct">
               <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium">
-              <h2><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium">Telegram Premium 1 месяц</h2>
+              <h2><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="">Telegram Premium 1 месяц</h2>
               <div class="price">250 рублей</div>
-              <div class="description">Telegram Premium без захода на аккаунт. После покупки вам дадутся данные карты для оплаты в @PremiumBot</div>
+              <div class="description">Telegram Premium без захода на аккаунт.</div>
             </div>
             <div class="product" data-target="product-page-telegram-premium-year" id="telegramPremiumYearProduct">
               <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium">
-              <h2><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium">Telegram Premium 1 год</h2>
+              <h2><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="">Telegram Premium 1 год</h2>
               <div class="price">1650 рублей</div>
-              <div class="description">Telegram Premium на 1 год без захода на аккаунт.</div>
+              <div class="description">Telegram Premium на 1 год без захода.</div>
             </div>
           </div>
         </div>
@@ -626,157 +627,203 @@
   <div class="modal-page product-page" id="product-page-telegram-premium">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"></div>
-      <h2>Telegram Premium 1 месяц</h2>
-      <div class="price">250 рублей</div>
-      <p style="text-align:center;"> Telegram Premium сроком на 1 месяц. Покупка производится вами с помощью моей карты в @PremiumBot. Быстро и удобно</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"></div>
+        <div class="modal-details-container">
+          <h2>Telegram Premium 1 месяц</h2>
+          <div class="price">250 рублей</div>
+          <p>Покупка производится вами с помощью моей карты в @PremiumBot. Быстро и удобно.</p>
+          <button class="add-to-cart-btn" data-id="tg-prem-1m" data-name="Telegram Premium 1 месяц" data-price="250" data-image="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
-   <div class="modal-page product-page" id="product-page-telegram-premium-year">
+  
+  <div class="modal-page product-page" id="product-page-telegram-premium-year">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"></div>
-      <h2>Telegram Premium 1 год</h2>
-      <div class="price">1650 рублей</div>
-      <p style="text-align:center;"> Telegram Premium сроком на 1 год. Покупка производится вами с помощью моей карты в @PremiumBot. Быстро и удобно</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822" alt="Telegram Premium"></div>
+        <div class="modal-details-container">
+          <h2>Telegram Premium 1 год</h2>
+          <div class="price">1650 рублей</div>
+          <p>Покупка производится вами с помощью моей карты в @PremiumBot. Быстро и удобно.</p>
+          <button class="add-to-cart-btn" data-id="tg-prem-1y" data-name="Telegram Premium 1 год" data-price="1650" data-image="https://upload.wikimedia.org/wikipedia/commons/0/08/Telegram_Premium.png?20220829061822">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- Модальные окна Brawl Stars -->
   <div class="modal-page product-page" id="product-page-brawlstars-gems">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems"></div>
-      <h2>30 гемов</h2>
-      <div class="price">209 рублей</div>
-      <p style="text-align:center;"> 30 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars Gems"></div>
+        <div class="modal-details-container">
+          <h2>30 гемов</h2>
+          <div class="price">209 рублей</div>
+          <p>30 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
+          <button class="add-to-cart-btn" data-id="bs-gems-30" data-name="30 гемов" data-price="209" data-image="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="modal-page product-page" id="product-page-brawlstars-gems-80">
+    <div class="modal-page product-page" id="product-page-brawlstars-gems-80">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems"></div>
-      <h2>80 гемов</h2>
-      <div class="price">489 рублей</div>
-      <p style="text-align:center;"> 80 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 80 Gems"></div>
+        <div class="modal-details-container">
+          <h2>80 гемов</h2>
+          <div class="price">489 рублей</div>
+          <p>80 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
+          <button class="add-to-cart-btn" data-id="bs-gems-80" data-name="80 гемов" data-price="489" data-image="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
   <div class="modal-page product-page" id="product-page-brawlstars-gems-170">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems"></div>
-      <h2>170 гемов</h2>
-      <div class="price">929 рублей</div>
-      <p style="text-align:center;"> 170 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 170 Gems"></div>
+        <div class="modal-details-container">
+          <h2>170 гемов</h2>
+          <div class="price">929 рублей</div>
+          <p>170 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
+          <button class="add-to-cart-btn" data-id="bs-gems-170" data-name="170 гемов" data-price="929" data-image="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
   <div class="modal-page product-page" id="product-page-brawlstars-gems-360">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems"></div>
-      <h2>360 гемов</h2>
-      <div class="price">1869 рублей</div>
-      <p style="text-align:center;"> 360 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 360 Gems"></div>
+        <div class="modal-details-container">
+          <h2>360 гемов</h2>
+          <div class="price">1869 рублей</div>
+          <p>360 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
+          <button class="add-to-cart-btn" data-id="bs-gems-360" data-name="360 гемов" data-price="1869" data-image="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
   <div class="modal-page product-page" id="product-page-brawlstars-gems-950">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems"></div>
-      <h2>950 гемов</h2>
-      <div class="price">4329 рублей</div>
-      <p style="text-align:center;"> 950 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 950 Gems"></div>
+        <div class="modal-details-container">
+          <h2>950 гемов</h2>
+          <div class="price">4329 рублей</div>
+          <p>950 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
+          <button class="add-to-cart-btn" data-id="bs-gems-950" data-name="950 гемов" data-price="4329" data-image="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
   <div class="modal-page product-page" id="product-page-brawlstars-gems-2000">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://store.supercell.com/images/brawlstars/d399702f09774d49020d14f484000a3f.png" alt="Brawl Stars Gems"></div>
-      <h2>2000 гемов</h2>
-      <div class="price">8699 рублей</div>
-      <p style="text-align:center;"> 2000 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png" alt="Brawl Stars 2000 Gems"></div>
+        <div class="modal-details-container">
+          <h2>2000 гемов</h2>
+          <div class="price">8699 рублей</div>
+          <p>2000 гемов, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
+          <button class="add-to-cart-btn" data-id="bs-gems-2000" data-name="2000 гемов" data-price="8699" data-image="https://png.klev.club/uploads/posts/2024-04/png-klev-club-tav6-p-gemi-bravo-stars-png-1.png">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="modal-page product-page" id="product-page-brawlstars-pass-discount">
-    <div class="content">
-      <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png" alt="Brawl Stars Pass"></div>
-      <h2>Brawl Pass [ОСОБАЯ СКИДКА]</h2>
-      <div class="price">329 рублей</div>
-      <p style="text-align:center;"> Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта. [ОСОБАЯ СКИДКА]</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
-    </div>
-  </div>
-
   <div class="modal-page product-page" id="product-page-brawlstars-pass">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://brawlcases.com/static/media/brawlpass.bec5937ae5bc15d12a95.png" alt="Brawl Stars Pass"></div>
-      <h2>Brawl Pass</h2>
-      <div class="price">599 рублей</div>
-      <p style="text-align:center;"> Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://game-assets.store.supercell.com/brawlstars/a34de5b2-05f1-4100-9ef6-468643f72275.png" alt="Brawl Stars Pass"></div>
+        <div class="modal-details-container">
+          <h2>Brawl Pass</h2>
+          <div class="price">599 рублей</div>
+          <p>Brawl Pass, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
+          <button class="add-to-cart-btn" data-id="bs-pass" data-name="Brawl Pass" data-price="599" data-image="https://game-assets.store.supercell.com/brawlstars/a34de5b2-05f1-4100-9ef6-468643f72275.png">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
   <div class="modal-page product-page" id="product-page-brawlstars-pass-plus">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+"></div>
-      <h2>Brawl Pass+</h2>
-      <div class="price">899 рублей</div>
-      <p style="text-align:center;">🛍️Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+"></div>
+        <div class="modal-details-container">
+          <h2>Brawl Pass+</h2>
+          <div class="price">899 рублей</div>
+          <p>🛍️Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
+          <button class="add-to-cart-btn" data-id="bs-pass-plus" data-name="Brawl Pass+" data-price="899" data-image="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
   <div class="modal-page product-page" id="product-page-brawlstars-pass-upgrade">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+"></div>
-      <h2>Улучшение Brawl Pass >>> Brawl Pass Plus</h2>
-      <div class="price">399 рублей</div>
-      <p style="text-align:center;">🛍️Улучшение Brawl Pass до Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+"></div>
+        <div class="modal-details-container">
+          <h2>Улучшение BP до BP+</h2>
+          <div class="price">399 рублей</div>
+          <p>🛍️Улучшение Brawl Pass до Brawl Pass Plus, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
+          <button class="add-to-cart-btn" data-id="bs-pass-upgrade" data-name="Улучшение BP до BP+" data-price="399" data-image="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
+    <div class="modal-page product-page" id="product-page-brawlstars-pass-discount">
+    <div class="content">
+      <span class="close-button" onclick="closeAllModals()">×</span>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://game-assets.store.supercell.com/brawlstars/a34de5b2-05f1-4100-9ef6-468643f72275.png" alt="Brawl Stars Pass"></div>
+        <div class="modal-details-container">
+          <h2>Brawl Pass [ОСОБАЯ СКИДКА]</h2>
+          <div class="price">329 рублей</div>
+          <p>Brawl Pass со скидкой, а также предоставление видеозаписи о покупке и выходе из аккаунта.</p>
+          <button class="add-to-cart-btn" data-id="bs-pass-discount" data-name="Brawl Pass [СКИДКА]" data-price="329" data-image="https://game-assets.store.supercell.com/brawlstars/a34de5b2-05f1-4100-9ef6-468643f72275.png">Добавить в корзину</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="modal-page product-page" id="product-page-pin">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="videos/pin.png" alt="Brawl Stars Pin"></div>
-      <h2>Пин Матчерино</h2>
-      <div class="price">649 рублей</div>
-      <p style="text-align:center;">👹Эксклюзивный пин «Матчерино» для Brawl Stars.<br>Покупка осуществляется на официальном сайте, поэтому требуется вход в Supercell ID на сайте!!!! Шанс блокировки аккаунта 0%</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="videos/pin.png" alt="Brawl Stars Pin"></div>
+        <div class="modal-details-container">
+          <h2>Пин Матчерино</h2>
+          <div class="price">649 рублей</div>
+          <p>👹Эксклюзивный пин «Матчерино». Покупка осуществляется на официальном сайте, требуется вход в Supercell ID. Шанс блокировки 0%.</p>
+          <button class="add-to-cart-btn" data-id="bs-pin-matcherino" data-name="Пин Матчерино" data-price="649" data-image="videos/pin.png">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
   <div class="modal-page product-page" id="product-page-brawlstars-pass-gift">
     <div class="content">
       <span class="close-button" onclick="closeAllModals()">×</span>
-      <div class="product-image"><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+"></div>
-      <h2>Brawl Pass+ [ПОДАРКОМ]</h2>
-      <div class="price">999 рублей</div>
-      <p style="text-align:center;">Покупка осуществляется на официальном сайте, поэтому требуется вход в Supercell ID на сайте!!!! Шанс блокировки аккаунта 0%</p>
-      <a href="https://t.me/dextronshop_bot" class="buy-button"><video autoplay muted loop><source src="videos/video.mp4" type="video/mp4"></video><span>Купить</span></a>
+      <div class="modal-product-layout">
+        <div class="modal-image-container"><img src="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26" alt="Brawl Pass+"></div>
+        <div class="modal-details-container">
+          <h2>Brawl Pass+ [ПОДАРКОМ]</h2>
+          <div class="price">999 рублей</div>
+          <p>Покупка осуществляется на официальном сайте, требуется вход в Supercell ID. Шанс блокировки 0%.</p>
+          <button class="add-to-cart-btn" data-id="bs-pass-plus-gift" data-name="Brawl Pass+ [ПОДАРКОМ]" data-price="999" data-image="https://preview.redd.it/r-brawlstars-giveaway-ten-brawl-pass-plus-winners-v0-s9s5qfvf12ac1.png?width=606&format=png&auto=webp&s=8abc7f57a011f70c7fed023b91ef411871cd6c26">Добавить в корзину</button>
+        </div>
+      </div>
     </div>
   </div>
-
+  
   <!-- Модальные окна с юридической информацией -->
   <div class="modal-page legal-page" id="modal-contact">
       <div class="content">
@@ -789,7 +836,6 @@
           <p>Мы стараемся отвечать в рабочее время с 12:00 до 00:00 по МСК.</p>
       </div>
   </div>
-
   <div class="modal-page legal-page" id="modal-terms">
       <div class="content">
           <span class="close-button" onclick="closeAllModals()">×</span>
@@ -801,7 +847,6 @@
           <p>4. <strong>Особые условия для раздела "Аккаунты":</strong> Сервис Dextron Shop выступает в качестве площадки-посредника и не несет ответственности за сделки, совершаемые между пользователями в разделе "Аккаунты". Все риски Покупатель и Продавец аккаунтов берут на себя.</p>
       </div>
   </div>
-
   <div class="modal-page legal-page" id="modal-privacy">
       <div class="content">
           <span class="close-button" onclick="closeAllModals()">×</span>
@@ -813,7 +858,6 @@
           <p>4. <strong>Ваши права:</strong> Вы имеете право запросить удаление ваших данных после выполнения заказа, связавшись с нашей службой поддержки.</p>
       </div>
   </div>
-
   <div class="modal-page legal-page" id="modal-refund">
       <div class="content">
           <span class="close-button" onclick="closeAllModals()">×</span>
@@ -827,6 +871,35 @@
           </ul>
           <p>4. <strong>Процедура возврата:</strong> Для оформления возврата необходимо связаться с нашей службой поддержки через контакты, указанные на сайте, и предоставить доказательства (например, скриншоты), подтверждающие основание для возврата.</p>
       </div>
+  </div>
+
+  <!-- Корзина -->
+  <div class="modal-page" id="cart-modal">
+    <div class="content">
+      <span class="close-button" onclick="closeAllModals()">×</span>
+      <h2>Ваша корзина</h2>
+      <div id="cart-items-container">
+        <!-- Сюда будут добавляться товары из корзины -->
+      </div>
+      <div class="cart-summary">
+        Итого: <span id="cart-total-price">0</span> рублей
+      </div>
+      <a href="https://t.me/dextronshop_bot" class="buy-button" id="checkout-button">Оплатить</a>
+    </div>
+  </div>
+
+  <!-- Плавающие кнопки -->
+  <div class="floating-action-buttons">
+    <div class="fab" id="cart-button" title="Корзина">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+      <span id="cartCounter" class="cart-counter">0</span>
+    </div>
+    <a href="https://t.me/dextronreviews" target="_blank" class="fab reviews-fab" title="Отзывы">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 13.5A.5.5 0 0 1 0 13V6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5v6.5a.5.5 0 0 1-.5.5zm15 0a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5v6.5a.5.5 0 0 1-.5.5zM8 11a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm0 1a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9z"/></svg>
+    </a>
+    <a href="https://t.me/dextronhelper" target="_blank" class="fab support-fab" title="Поддержка">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"/></svg>
+    </a>
   </div>
 
   <script>
@@ -850,51 +923,35 @@
       });
     });
 
-    // Переключение основных вкладок
-    mainTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        if (tab.dataset.target) {
-          tabContents.forEach(content => content.classList.remove('active'));
-          mainTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          const targetTabContent = document.getElementById(tab.dataset.target);
-          targetTabContent.classList.add('active');
+    // Переключение вкладок
+    function setupTabSwitching(tabsSelector, activeClass) {
+        const tabs = document.querySelectorAll(tabsSelector);
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (event) => {
+                if (tab.dataset.target) {
+                    event.stopPropagation();
+                    const parentTabsContainer = tab.parentElement;
+                    parentTabsContainer.querySelectorAll(tabsSelector).forEach(t => t.classList.remove(activeClass));
+                    tab.classList.add(activeClass);
 
-          const firstSubTab = targetTabContent.querySelector('.tabs .tab');
-          if (firstSubTab && !firstSubTab.classList.contains('active')) {
-             // Активируем дочерние вкладки, если они есть
-             const subParent = firstSubTab.closest('.tabs');
-             const subContents = subParent.parentElement.querySelectorAll('.tab-content');
-             subParent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-             subContents.forEach(sc => sc.classList.remove('active'));
-             
-             firstSubTab.classList.add('active');
-             document.getElementById(firstSubTab.dataset.target).classList.add('active');
-          }
-        }
-      });
-    });
-    
-    // Переключение дочерних вкладок
-    subTabs.forEach(tab => {
-      tab.addEventListener('click', (event) => {
-        event.stopPropagation();
-        if (tab.classList.contains('disabled')) return;
-        const parentTabsContainer = tab.parentElement;
-        parentTabsContainer.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
+                    const parentContentContainer = parentTabsContainer.closest('.tab-content, .container');
+                    parentContentContainer.querySelectorAll(':scope > .tab-content-container > .tab-content, :scope > .tab-content').forEach(tc => tc.classList.remove(activeClass));
 
-        const parentContentContainer = parentTabsContainer.closest('.tab-content');
-        parentContentContainer.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
-        document.getElementById(tab.dataset.target).classList.add('active');
-      });
-    });
+                    const targetContent = document.getElementById(tab.dataset.target);
+                    if(targetContent) targetContent.classList.add(activeClass);
+                }
+            });
+        });
+    }
+    setupTabSwitching('#mainTabs .tab', 'active');
+    setupTabSwitching('.tabs:not(#mainTabs) .tab', 'active');
+
 
     // Универсальные функции для модальных окон
     function openModal(modalId) {
       const modal = document.getElementById(modalId);
       if (modal) {
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
         setTimeout(() => modal.classList.add('active'), 10);
       }
     }
@@ -902,9 +959,7 @@
     function closeAllModals() {
       document.querySelectorAll('.modal-page').forEach(page => {
         page.classList.remove('active');
-        setTimeout(() => {
-          page.style.display = 'none';
-        }, 300);
+        setTimeout(() => { page.style.display = 'none'; }, 300);
       });
     }
 
@@ -915,9 +970,14 @@
       });
     });
     
-    // Закрытие модального окна по клику на фон
+    // Закрытие модального окна по клику на фон и Escape
     window.addEventListener('click', (event) => {
         if (event.target.classList.contains('modal-page')) {
+            closeAllModals();
+        }
+    });
+    window.addEventListener('keydown', (event) => {
+        if (event.key === "Escape") {
             closeAllModals();
         }
     });
@@ -931,11 +991,135 @@
 
     // Активация первой под-вкладки по умолчанию при загрузке
     document.addEventListener('DOMContentLoaded', () => {
-      const initialActiveTab = document.querySelector('#brawlStarsTabs .tab.active');
-      if (initialActiveTab) {
-        document.getElementById(initialActiveTab.dataset.target).classList.add('active');
-      }
+      document.querySelectorAll('.tab-content.active').forEach(activeParent => {
+        const firstSubTab = activeParent.querySelector('.tabs .tab');
+        if(firstSubTab) {
+           firstSubTab.classList.add('active');
+           const firstSubContent = document.getElementById(firstSubTab.dataset.target);
+           if(firstSubContent) firstSubContent.classList.add('active');
+        }
+      });
     });
+
+    // --- ЛОГИКА КОРЗИНЫ ---
+    let cart = [];
+    const cartButton = document.getElementById('cart-button');
+    const cartCounter = document.getElementById('cartCounter');
+    const cartItemsContainer = document.getElementById('cart-items-container');
+    const cartTotalPriceEl = document.getElementById('cart-total-price');
+    const checkoutButton = document.getElementById('checkout-button');
+
+    function saveCart() {
+        localStorage.setItem('dextronShopCart', JSON.stringify(cart));
+    }
+
+    function loadCart() {
+        const savedCart = localStorage.getItem('dextronShopCart');
+        if (savedCart) {
+            cart = JSON.parse(savedCart);
+        }
+        updateCartDisplay();
+    }
+
+    function addToCart(event) {
+        const button = event.currentTarget;
+        const productId = button.dataset.id;
+        const productName = button.dataset.name;
+        const productPrice = parseFloat(button.dataset.price);
+        const productImage = button.dataset.image;
+
+        const existingItem = cart.find(item => item.id === productId);
+
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({
+                id: productId,
+                name: productName,
+                price: productPrice,
+                image: productImage,
+                quantity: 1
+            });
+        }
+        saveCart();
+        updateCartDisplay();
+        closeAllModals();
+    }
+
+    function changeQuantity(productId, change) {
+        const item = cart.find(item => item.id === productId);
+        if (item) {
+            item.quantity += change;
+            if (item.quantity <= 0) {
+                removeFromCart(productId);
+            } else {
+                saveCart();
+                updateCartDisplay();
+            }
+        }
+    }
+
+    function removeFromCart(productId) {
+        cart = cart.filter(item => item.id !== productId);
+        saveCart();
+        updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+        // Обновление иконки и счетчика
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        if (totalItems > 0) {
+            cartButton.classList.add('visible');
+            cartCounter.textContent = totalItems;
+            checkoutButton.style.display = 'block';
+        } else {
+            cartButton.classList.remove('visible');
+            checkoutButton.style.display = 'none';
+        }
+
+        // Обновление модального окна корзины
+        cartItemsContainer.innerHTML = '';
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p id="empty-cart-message">Ваша корзина пуста.</p>';
+        } else {
+            cart.forEach(item => {
+                const itemEl = document.createElement('div');
+                itemEl.classList.add('cart-item');
+                itemEl.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <h3>${item.name}</h3>
+                        <div class="price">${item.price} рублей</div>
+                    </div>
+                    <div class="cart-item-controls">
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="changeQuantity('${item.id}', -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-btn" onclick="changeQuantity('${item.id}', 1)">+</button>
+                        </div>
+                        <button class="remove-item-btn" onclick="removeFromCart('${item.id}')">×</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemEl);
+            });
+        }
+        
+        // Обновление итоговой цены
+        const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cartTotalPriceEl.textContent = totalPrice;
+    }
+
+    // Навешиваем обработчики
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+
+    cartButton.addEventListener('click', () => {
+        openModal('cart-modal');
+    });
+
+    document.addEventListener('DOMContentLoaded', loadCart);
+
   </script>
 </body>
 </html>
